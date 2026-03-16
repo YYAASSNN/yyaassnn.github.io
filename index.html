@@ -272,9 +272,9 @@ section { padding:90px 5%; }
 .dest-card { border-radius:var(--r2); overflow:hidden; position:relative; cursor:pointer; box-shadow:var(--shadow); transition:transform .3s, box-shadow .3s; }
 .dest-card:hover { transform:translateY(-6px); box-shadow:var(--shadow2); }
 .dest-card.tall { grid-row:span 2; }
-.dest-img { width:100%; height:240px; object-fit:cover; background:linear-gradient(135deg,#1a3a6e,#2860b0); display:flex; align-items:center; justify-content:center; font-size:80px; transition:transform .5s; position:relative; }
+.dest-img { width:100%; height:240px; overflow:hidden; background:#1a3a6e; position:relative; }
 .dest-card.tall .dest-img { height:100%; min-height:500px; }
-.dest-card:hover .dest-img { transform:scale(1.04); }
+.dest-card:hover .dest-img img { transform:scale(1.06); }
 .dest-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(11,22,40,.85) 0%, rgba(11,22,40,.1) 60%, transparent 100%); }
 .dest-info { position:absolute; bottom:0; left:0; right:0; padding:24px 20px; }
 .dest-badge { display:inline-block; background:rgba(200,150,62,.9); color:var(--navy); font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:3px 10px; border-radius:4px; margin-bottom:8px; }
@@ -354,13 +354,45 @@ section { padding:90px 5%; }
 .testi-avatar { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--sky)); display:grid; place-items:center; color:#fff; font-weight:700; font-size:16px; flex-shrink:0; }
 .testi-name { font-weight:700; font-size:14px; color:var(--navy); }
 .testi-trip { font-size:12px; color:var(--text3); margin-top:2px; }
+/* ── TRAVEL GUIDES ── */
+.travel-guides { background:var(--cream); }
+.guide-tag { display:inline-block; background:rgba(27,95,193,.1); color:var(--blue); font-size:11px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; padding:4px 10px; border-radius:6px; }
+/* Featured article */
+.article-featured { display:grid; grid-template-columns:1.1fr 1fr; gap:0; border-radius:var(--r2); overflow:hidden; box-shadow:var(--shadow2); margin-bottom:40px; background:var(--white); }
+.article-featured-img { height:100%; min-height:380px; overflow:hidden; }
+.article-featured-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s; }
+.article-featured:hover .article-featured-img img { transform:scale(1.04); }
+.article-featured-body { padding:40px 44px; display:flex; flex-direction:column; justify-content:center; }
+/* 3-column grid */
+.articles-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.article-card { background:var(--white); border-radius:var(--r2); overflow:hidden; box-shadow:var(--shadow); transition:transform .3s,box-shadow .3s; }
+.article-card:hover { transform:translateY(-5px); box-shadow:var(--shadow2); }
+.article-img { height:210px; overflow:hidden; }
+.article-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; }
+.article-card:hover .article-img img { transform:scale(1.05); }
+.article-body { padding:24px 26px; }
+.article-title { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--navy); margin:10px 0 12px; line-height:1.35; }
+.article-featured-body .article-title { font-size:26px; margin:12px 0 16px; }
+.article-text { font-size:14px; color:var(--text2); line-height:1.8; }
+.article-featured-body .article-text { font-size:15px; }
+@media(max-width:900px){ .article-featured { grid-template-columns:1fr; } .article-featured-img { min-height:240px; } .article-featured-body { padding:28px 28px; } .articles-grid { grid-template-columns:1fr; } }
+@media(max-width:600px){ .article-featured-body { padding:20px; } }
 .contact-section { background:var(--white); }
-.contact-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:60px; align-items:start; }
-.contact-info-list { display:flex; flex-direction:column; gap:20px; margin-top:32px; }
+.contact-wrap { display:grid; grid-template-columns:1fr 1.6fr; gap:60px; align-items:start; margin-top:8px; }
+.contact-info-col { display:flex; flex-direction:column; gap:28px; padding-top:8px; }
 .contact-info-item { display:flex; align-items:center; gap:16px; }
-.contact-info-icon { font-size:24px; width:48px; height:48px; background:var(--gray); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.contact-info-icon { font-size:22px; width:48px; height:48px; background:var(--gray); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .contact-info-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text3); margin-bottom:3px; }
 .contact-info-val { font-size:15px; font-weight:600; color:var(--navy); }
+.contact-form-col .cf-group { display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+.contact-form-col .cf-label { font-size:12px; font-weight:700; color:var(--text2); letter-spacing:.04em; text-transform:uppercase; }
+.contact-form-col .cf-input { width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--border); background:var(--gray); font-family:'Outfit',sans-serif; font-size:14px; font-weight:500; color:var(--text); outline:none; transition:all .2s; }
+.contact-form-col .cf-input:focus { border-color:var(--blue); background:#fff; box-shadow:0 0 0 3px rgba(27,95,193,.08); }
+.contact-form-col .cf-input::placeholder { color:var(--text3); }
+.contact-form-col .cf-textarea { min-height:140px; resize:vertical; }
+.cf-submit { width:100%; padding:14px; border-radius:12px; background:linear-gradient(135deg,var(--blue),var(--blue2)); color:#fff; border:none; font-family:'Outfit',sans-serif; font-size:15px; font-weight:700; cursor:pointer; transition:all .2s; box-shadow:0 4px 16px rgba(27,95,193,.35); display:flex; align-items:center; justify-content:center; gap:8px; }
+.cf-submit:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(27,95,193,.45); }
+@media(max-width:768px){ .contact-wrap { grid-template-columns:1fr; gap:36px; } }
 .contact-form-card { background:#fff; border-radius:20px; border:1px solid var(--border); padding:32px; box-shadow:var(--shadow2); }
 .cf-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 .cf-group { display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
@@ -720,7 +752,7 @@ footer { background:var(--navy); color:rgba(255,255,255,.6); padding:70px 5% 30p
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .dest-grid { grid-template-columns:1fr 1fr; }
+  .dest-grid { grid-template-columns:1fr 1fr 1fr; }
   .dest-card.tall { grid-row:span 1; }
   .dest-card.tall .dest-img { min-height:240px; }
   .pkg-grid { grid-template-columns:1fr 1fr; }
@@ -817,7 +849,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
 
 <!-- NAVBAR -->
 <nav id="navbar">
-  <a href="javascript:window.location.reload()" class="nav-logo">
+  <a href="/" class="nav-logo">
     <div class="nav-logo-mark">✈</div>
     Yasska<span style="color:var(--gold2)">.</span>
   </a>
@@ -834,6 +866,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
   </div>
   <div class="nav-links">
     <a href="#destinations">Destinations</a>
+    <a href="#guides">Travel Guides</a>
     <a href="#book" onclick="scrollToBook(event)">Book</a>
     <a href="#contact">Contact</a>
   </div>
@@ -1064,13 +1097,76 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
       </div>
     </div><!-- /mobile search -->
 
-    <!-- Stats -->
-    <div id="hero-stats-bar" class="hero-stats" style="justify-content:flex-start;">
-      <div class="stat-item"><div class="stat-num">150+</div><div class="stat-lbl">Destinations</div></div>
-      <div class="stat-div"></div>
-      <div class="stat-item"><div class="stat-num">48K+</div><div class="stat-lbl">Happy Travellers</div></div>
-      <div class="stat-div"></div>
-      <div class="stat-item"><div class="stat-num">4.7★</div><div class="stat-lbl">Average Rating</div></div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Top Destinations</div>
+    <h2 class="section-title reveal">Where Will You Go Next?</h2>
+    <div class="dest-grid">
+
+      <div class="dest-card tall reveal" onclick="pickDestination('Dubai (DXB)', event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80&auto=format&fit=crop" alt="Dubai skyline at night" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-badge">Most Popular</div>
+          <div class="dest-name">Dubai, UAE</div>
+          <div class="dest-meta">✈ 7h from London</div>
+        </div>
+      </div>
+
+      <div class="dest-card reveal reveal-delay-1" onclick="pickDestination('Paris (CDG)', event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80&auto=format&fit=crop" alt="Eiffel Tower Paris" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-name">Paris, France</div>
+          <div class="dest-meta">✈ 2h 15m</div>
+        </div>
+      </div>
+
+      <div class="dest-card reveal reveal-delay-2" onclick="pickDestination('New York (JFK)', event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&auto=format&fit=crop" alt="New York City skyline" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-name">New York, USA</div>
+          <div class="dest-meta">✈ 8h flight</div>
+        </div>
+      </div>
+
+      <div class="dest-card reveal reveal-delay-1" onclick="pickDestination('Bangkok (BKK)', event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=600&q=80&auto=format&fit=crop" alt="Bangkok temple Thailand" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-name">Bangkok, Thailand</div>
+          <div class="dest-meta">✈ 11h flight</div>
+        </div>
+      </div>
+
+      <div class="dest-card reveal reveal-delay-2" onclick="pickDestination('Bali (DPS)', event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80&auto=format&fit=crop" alt="Bali rice terraces Indonesia" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-name">Bali, Indonesia</div>
+          <div class="dest-meta">✈ 16h flight</div>
+        </div>
+      </div>
+
+      <div class="dest-card reveal reveal-delay-1" onclick="pickDestination('Istanbul (IST)', event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&q=80&auto=format&fit=crop" alt="Istanbul Blue Mosque Turkey" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-badge">Trending</div>
+          <div class="dest-name">Istanbul, Turkey</div>
+          <div class="dest-meta">✈ 4h flight</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
     </div>
   </div>
 </section>
@@ -1240,54 +1336,60 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
   </div>
 </div>
 
-<!-- DESTINATIONS -->
-<section class="destinations" id="destinations">
+<!-- TRAVEL GUIDES -->
+<section class="travel-guides" id="guides">
   <div class="section-inner">
-    <div class="section-eyebrow reveal">Top Destinations</div>
-    <h2 class="section-title reveal">Where Will You Go Next?</h2>
-    <p class="section-sub reveal">Handpicked destinations loved by our travellers — from cultural cities to tropical escapes.</p>
-    <div class="dest-grid">
-      <div class="dest-card tall reveal">
-        <div class="dest-img" style="background:linear-gradient(160deg,#1a1a2e,#16213e,#0f3460)"><span style="font-size:100px">🗼</span></div>
-        <div class="dest-overlay"></div>
-        <div class="dest-info">
-          <div class="dest-badge">Most Popular</div>
-          <div class="dest-name">Paris, France</div>
-          <div class="dest-meta">✈ Direct flight · 2h 15m</div>
-        </div>
+    <div class="section-eyebrow reveal">Travel Guides</div>
+    <h2 class="section-title reveal">Discover the Joy of Travel</h2>
+
+    <!-- Featured article -->
+    <div class="article-featured reveal">
+      <div class="article-featured-img">
+        <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=900&q=80&auto=format&fit=crop" alt="Travellers exploring a new city" loading="lazy"/>
       </div>
-      <div class="dest-card reveal reveal-delay-1">
-        <div class="dest-img" style="background:linear-gradient(160deg,#0d2137,#1a3f5c,#2c5f8a)"><span>🏛</span></div>
-        <div class="dest-overlay"></div>
-        <div class="dest-info">
-          <div class="dest-name">Dubai, UAE</div>
-          <div class="dest-meta">✈ 7h flight</div>
-        </div>
+      <div class="article-featured-body">
+        <span class="guide-tag">Inspiration</span>
+        <h3 class="article-title">Discover the Joy of Exploring New Destinations</h3>
+        <p class="article-text">Traveling is one of the most rewarding experiences in life. It allows you to step away from your daily routine and discover new cultures, landscapes, and traditions. Every destination has its own unique story, from vibrant cities filled with life to peaceful countryside escapes. Whether you are traveling for adventure, relaxation, or cultural discovery, each journey creates unforgettable memories that stay with you forever.</p>
       </div>
-      <div class="dest-card reveal reveal-delay-2">
-        <div class="dest-img" style="background:linear-gradient(160deg,#1a3a1a,#2d5a27,#3d7a35)"><span>🌴</span></div>
-        <div class="dest-overlay"></div>
-        <div class="dest-info">
-          <div class="dest-name">Bali, Indonesia</div>
-          <div class="dest-meta">✈ 16h flight</div>
+    </div>
+
+    <!-- 3-column articles -->
+    <div class="articles-grid">
+
+      <article class="article-card reveal">
+        <div class="article-img">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80&auto=format&fit=crop" alt="Person relaxing at scenic mountain viewpoint" loading="lazy"/>
         </div>
-      </div>
-      <div class="dest-card reveal reveal-delay-1">
-        <div class="dest-img" style="background:linear-gradient(160deg,#2a1a0d,#5c3a1a,#8a5a2c)"><span>🕌</span></div>
-        <div class="dest-overlay"></div>
-        <div class="dest-info">
-          <div class="dest-name">Istanbul, Turkey</div>
-          <div class="dest-meta">✈ 4h flight</div>
+        <div class="article-body">
+          <span class="guide-tag">Wellbeing</span>
+          <h3 class="article-title">Why Traveling Is Good for the Mind</h3>
+          <p class="article-text">Taking time to travel is not only exciting but also beneficial for your mental well-being. Exploring new places helps reduce stress, refresh your perspective, and inspire creativity. When you step into a new environment, your mind becomes more open to learning and experiencing different ways of life. Traveling reminds us that the world is full of beauty, diversity, and opportunities waiting to be explored.</p>
         </div>
-      </div>
-      <div class="dest-card reveal reveal-delay-2">
-        <div class="dest-img" style="background:linear-gradient(160deg,#1a0d2a,#3a1a5c,#5a2c8a)"><span>🗽</span></div>
-        <div class="dest-overlay"></div>
-        <div class="dest-info">
-          <div class="dest-name">New York, USA</div>
-          <div class="dest-meta">✈ 8h flight</div>
+      </article>
+
+      <article class="article-card reveal reveal-delay-1">
+        <div class="article-img">
+          <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80&auto=format&fit=crop" alt="Couple planning a trip with map and coffee" loading="lazy"/>
         </div>
-      </div>
+        <div class="article-body">
+          <span class="guide-tag">Planning</span>
+          <h3 class="article-title">Planning the Perfect Trip</h3>
+          <p class="article-text">A great journey begins with thoughtful planning. Choosing the right destination, setting a realistic budget, and researching local attractions can make your trip smooth and enjoyable. It is always helpful to learn a little about the local culture, food, and transportation before you arrive. With the right preparation, your travel experience can be stress-free and full of exciting discoveries.</p>
+        </div>
+      </article>
+
+      <article class="article-card reveal reveal-delay-2">
+        <div class="article-img">
+          <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=600&q=80&auto=format&fit=crop" alt="Friends watching a sunset on their travels" loading="lazy"/>
+        </div>
+        <div class="article-body">
+          <span class="guide-tag">Memories</span>
+          <h3 class="article-title">Creating Memories That Last Forever</h3>
+          <p class="article-text">The best part of traveling is the memories you create along the way. From watching a breathtaking sunset to tasting a new local dish, every moment adds something special to your journey. Travel allows you to meet new people, experience different traditions, and build stories you will share for years to come. In the end, the memories you make are the true treasures of every adventure.</p>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -1295,32 +1397,23 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="section-inner">
-    <div class="contact-grid">
-      <div class="contact-left reveal">
-        <div class="section-eyebrow">Get In Touch</div>
-        <h2 class="section-title">We'd Love to Hear From You</h2>
-        <p class="section-sub">Have a question about a trip? Want a custom package? Our team is ready to help you plan the perfect journey.</p>
-        <div class="contact-info-list">
-          <div class="contact-info-item"><span class="contact-info-icon">📞</span><div><div class="contact-info-label">Phone / WhatsApp</div><div class="contact-info-val">+44 7732 000 286</div></div></div>
-          <div class="contact-info-item"><span class="contact-info-icon">📧</span><div><div class="contact-info-label">Email</div><div class="contact-info-val">hello@yasska.com</div></div></div>
-          <div class="contact-info-item"><span class="contact-info-icon">🕐</span><div><div class="contact-info-label">Response Time</div><div class="contact-info-val">Within 2 hours</div></div></div>
-        </div>
+    <div class="section-eyebrow reveal">Get In Touch</div>
+    <h2 class="section-title reveal">Contact Us</h2>
+    <p class="section-sub reveal">Have a question about a flight or trip? Send us a message and we'll get back to you shortly.</p>
+    <div class="contact-wrap reveal">
+      <div class="contact-info-col">
+        <div class="contact-info-item"><span class="contact-info-icon">📧</span><div><div class="contact-info-label">Email</div><div class="contact-info-val">info@yaskatravel.uk</div></div></div>
+        <div class="contact-info-item"><span class="contact-info-icon">💬</span><div><div class="contact-info-label">WhatsApp</div><div class="contact-info-val">+44 7732 000 286</div></div></div>
+        <div class="contact-info-item"><span class="contact-info-icon">🕐</span><div><div class="contact-info-label">Response Time</div><div class="contact-info-val">Within 2 hours</div></div></div>
       </div>
-      <div class="contact-right reveal reveal-delay-1">
-        <div class="contact-form-card">
-          <form name="contact" method="POST" data-netlify="true" onsubmit="handleContactSubmit(event)">
-            <input type="hidden" name="form-name" value="contact"/>
-            <div class="cf-row">
-              <div class="cf-group"><label class="cf-label">First Name</label><input class="cf-input" type="text" name="first-name" placeholder="John" required/></div>
-              <div class="cf-group"><label class="cf-label">Last Name</label><input class="cf-input" type="text" name="last-name" placeholder="Smith" required/></div>
-            </div>
-            <div class="cf-group"><label class="cf-label">Email Address</label><input class="cf-input" type="email" name="email" placeholder="john@example.com" required/></div>
-            <div class="cf-group"><label class="cf-label">Phone Number</label><input class="cf-input" type="tel" name="phone" placeholder="+44 7700 000000"/></div>
-            <div class="cf-group"><label class="cf-label">Subject</label><select class="cf-input cf-select" name="subject" required><option value="" disabled selected>Select a topic</option><option>Flight Enquiry</option><option>Hotel Booking</option><option>Holiday Package</option><option>Group Travel</option><option>Other</option></select></div>
-            <div class="cf-group"><label class="cf-label">Message</label><textarea class="cf-input cf-textarea" name="message" placeholder="Tell us about your trip..." required></textarea></div>
-            <button type="submit" class="cf-submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>Send Message</button>
-          </form>
-        </div>
+      <div class="contact-form-col">
+        <form name="contact" method="POST" data-netlify="true" onsubmit="handleContactSubmit(event)">
+          <input type="hidden" name="form-name" value="contact"/>
+          <div class="cf-group"><label class="cf-label">Your Name</label><input class="cf-input" type="text" name="name" placeholder="John Smith" required/></div>
+          <div class="cf-group"><label class="cf-label">Email Address</label><input class="cf-input" type="email" name="email" placeholder="john@example.com" required/></div>
+          <div class="cf-group"><label class="cf-label">Message</label><textarea class="cf-input cf-textarea" name="message" placeholder="Tell us about your trip..." required></textarea></div>
+          <button type="submit" class="cf-submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>Send Message</button>
+        </form>
       </div>
     </div>
   </div>
@@ -2252,6 +2345,31 @@ function toggleClear(inputId,clearId){
 window.scrollToBook=function(e){
   if(e)e.preventDefault();
   var isMobile=window.innerWidth<=768;
+  var box=document.getElementById(isMobile?'book-mobile':'book');
+  if(!box)return;
+  var nav=document.getElementById('navbar');
+  var navH=nav?nav.offsetHeight:72;
+  window.scrollTo({top:box.getBoundingClientRect().top+window.scrollY-navH-16,behavior:'smooth'});
+};
+
+window.pickDestination=function(dest, e){
+  if(e)e.preventDefault();
+  var isMobile=window.innerWidth<=768;
+  if(isMobile){
+    // Set mobile "To" field
+    mState.to={code:dest.match(/\(([A-Z]{3})\)/)?.[1]||'',display:dest};
+    var el=document.getElementById('m-disp-to');
+    if(el){el.textContent=dest;el.classList.remove('ph');}
+  } else {
+    // Set desktop "To" field
+    var inp=document.getElementById('input-to');
+    if(inp){
+      inp.value=dest;
+      var clearBtn=document.getElementById('clear-to');
+      if(clearBtn)clearBtn.classList.add('visible');
+    }
+  }
+  // Scroll to search panel
   var box=document.getElementById(isMobile?'book-mobile':'book');
   if(!box)return;
   var nav=document.getElementById('navbar');
