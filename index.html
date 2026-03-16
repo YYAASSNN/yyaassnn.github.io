@@ -4,6 +4,20 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <script>
+window.HOT_DEALS = [
+  { from:'London',     to:'Dubai',      price:'189', airline:'Emirates',       flag:'🇦🇪' },
+  { from:'Manchester', to:'New York',   price:'299', airline:'Virgin Atlantic', flag:'🇺🇸' },
+  { from:'London',     to:'Nairobi',    price:'349', airline:'Kenya Airways',   flag:'🇰🇪' },
+  { from:'Birmingham', to:'Cancún',     price:'419', airline:'TUI',             flag:'🇲🇽' },
+  { from:'London',     to:'Bangkok',    price:'379', airline:'Thai Airways',    flag:'🇹🇭' },
+  { from:'Edinburgh',  to:'Barcelona',  price:'59',  airline:'Ryanair',         flag:'🇪🇸' },
+  { from:'London',     to:'Cape Town',  price:'499', airline:'British Airways', flag:'🇿🇦' },
+  { from:'Glasgow',    to:'Ibiza',      price:'89',  airline:'EasyJet',         flag:'🇪🇸' },
+  { from:'London',     to:'Tokyo',      price:'549', airline:'ANA',             flag:'🇯🇵' },
+  { from:'Bristol',    to:'Lisbon',     price:'49',  airline:'EasyJet',         flag:'🇵🇹' },
+  { from:'London',     to:'Maldives',   price:'699', airline:'Qatar Airways',   flag:'🇲🇻' },
+  { from:'Newcastle',  to:'Amsterdam',  price:'39',  airline:'KLM',             flag:'🇳🇱' },
+];
 </script>
 
 <title>Yasska — Flights, Hotels &amp; Packages</title>
@@ -164,10 +178,10 @@ nav.light { background:rgba(13,27,42,.97); border-bottom-color:rgba(255,255,255,
 .field-clear:hover { background:rgba(255,255,255,.4); }
 .field-clear.visible { display:flex; }
 .search-field {
-  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.0); border:1px solid rgba(255,255,255,.18);
   border-radius:12px; padding:12px 16px; cursor:pointer; transition:all .2s; position:relative;
 }
-.search-field:hover { background:rgba(255,255,255,.11); border-color:rgba(255,255,255,.2); }
+.search-field:hover { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.28); }
 .search-field.focused { background:rgba(27,95,193,.18); border-color:var(--blue); box-shadow:0 0 0 3px rgba(27,95,193,.2); }
 .search-field label { display:block; font-size:10px; font-weight:700; color:var(--gold2); letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; cursor:pointer; }
 .airport-wrapper input { padding-right:28px; }
@@ -415,8 +429,8 @@ footer { background:var(--navy); color:rgba(255,255,255,.6); padding:70px 5% 30p
 
 /* Mobile search card */
 .msb {
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.0);
+  border:1px solid rgba(255,255,255,.15);
   border-radius:20px;
   overflow:hidden;
 }
@@ -441,7 +455,7 @@ footer { background:var(--navy); color:rgba(255,255,255,.6); padding:70px 5% 30p
   color:rgba(255,255,255,.45);cursor:pointer;transition:all .2s;
 }
 .msb-trip-btn.active{background:rgba(200,150,62,.18);border-color:var(--gold2);color:var(--gold2);}
-.msb-fields{margin:12px 10px 0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:visible;}
+.msb-fields{margin:12px 10px 0;background:rgba(255,255,255,.0);border:1px solid rgba(255,255,255,.18);border-radius:14px;overflow:visible;}
 .msb-field{
   display:flex;align-items:center;
   padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07);
@@ -605,7 +619,7 @@ footer { background:var(--navy); color:rgba(255,255,255,.6); padding:70px 5% 30p
 .m-panel-body::-webkit-scrollbar{display:none;}
 .m-search-wrap{
   display:flex;align-items:center;gap:10px;
-  background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.0);border:1.5px solid rgba(255,255,255,.2);
   border-radius:12px;padding:12px 16px;margin-bottom:16px;
 }
 .m-search-wrap input{
@@ -655,7 +669,7 @@ footer { background:var(--navy); color:rgba(255,255,255,.6); padding:70px 5% 30p
 }
 .m-date-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
 .m-date-card{
-  background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.0);border:1.5px solid rgba(255,255,255,.18);
   border-radius:12px;padding:14px;cursor:pointer;
 }
 .m-date-card.active{border-color:var(--blue);background:rgba(27,95,193,.15);}
@@ -663,7 +677,7 @@ footer { background:var(--navy); color:rgba(255,255,255,.6); padding:70px 5% 30p
 .m-date-card-val{font-size:15px;font-weight:700;color:#fff;}
 .m-date-input{
   width:100%;padding:14px 16px;
-  background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.0);border:1.5px solid rgba(255,255,255,.18);
   border-radius:12px;color:#fff;font-family:'Outfit',sans-serif;font-size:15px;
   font-weight:600;outline:none;color-scheme:dark;margin-bottom:12px;
 }
@@ -671,7 +685,7 @@ footer { background:var(--navy); color:rgba(255,255,255,.6); padding:70px 5% 30p
 .m-date-fieldlabel{display:block;font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px;}
 .m-cabin-select{
   width:100%;padding:14px 16px;
-  background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.0);border:1.5px solid rgba(255,255,255,.18);
   border-radius:12px;color:#fff;font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;
   outline:none;appearance:none;color-scheme:dark;margin-bottom:16px;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,.5)' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
@@ -718,6 +732,7 @@ footer { background:var(--navy); color:rgba(255,255,255,.6); padding:70px 5% 30p
   .nav-links { display:none; }
   .nav-hamburger { display:flex; }
   #nav-ticker { display:none !important; }
+  #mobile-ticker-bar { display:flex !important; position:fixed;top:60px;left:0;right:0;z-index:997; height:40px;overflow:hidden;align-items:center; background:rgba(13,27,42,.97); border-bottom:1px solid rgba(255,92,92,.2); }
   .hero { padding:112px 4% 32px; }
   .hero h1 { font-size:clamp(22px,6vw,34px); }
   .hero-sub { font-size:13px; margin-bottom:16px; }
@@ -806,7 +821,19 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
     <div class="nav-logo-mark">✈</div>
     Yasska<span style="color:var(--gold2)">.</span>
   </a>
+  <div id="nav-ticker" style="flex:1;overflow:hidden;margin:0 20px;height:34px;display:flex;align-items:center;">
+    <div style="overflow:hidden;border-radius:20px;background:linear-gradient(135deg,rgba(255,92,92,.15),rgba(255,140,66,.1));border:1px solid rgba(255,92,92,.3);height:34px;width:100%;display:flex;align-items:center;box-shadow:0 2px 12px rgba(255,92,92,.15);">
+      <div style="flex-shrink:0;padding:0 13px;height:34px;display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,#FF5C5C,#FF8C42);border-radius:20px 0 0 20px;">
+        <span style="font-size:13px">🔥</span>
+        <span style="font-size:10px;font-weight:900;color:#fff;letter-spacing:.1em;white-space:nowrap;">HOT DEALS</span>
+      </div>
+      <div style="flex:1;overflow:hidden;height:34px;display:flex;align-items:center;">
+        <div id="hticker-inner" style="display:flex;align-items:center;white-space:nowrap;animation:hticker 40s linear infinite;"></div>
+      </div>
+    </div>
+  </div>
   <div class="nav-links">
+    <a href="#destinations">Destinations</a>
     <a href="#book" onclick="scrollToBook(event)">Book</a>
     <a href="#contact">Contact</a>
   </div>
@@ -814,6 +841,17 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
     <span></span><span></span><span></span>
   </div>
 </nav>
+
+<!-- MOBILE TICKER -->
+<div id="mobile-ticker-bar" style="display:none;">
+  <div style="flex-shrink:0;padding:0 14px;height:40px;display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,#FF5C5C,#FF8C42);">
+    <span style="font-size:13px">🔥</span>
+    <span style="font-size:10px;font-weight:900;color:#fff;letter-spacing:.1em;white-space:nowrap;">HOT DEALS</span>
+  </div>
+  <div style="flex:1;overflow:hidden;height:40px;display:flex;align-items:center;">
+    <div id="mobile-ticker-inner" style="display:flex;align-items:center;white-space:nowrap;animation:hticker 60s linear infinite;"></div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -975,7 +1013,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
             </div>
             <div class="msb-field-arrow">›</div>
           </div>
-          <div class="msb-field" id="m-hotel-pax-trigger" onclick="hpdToggle(event,'m-hotel-pax-trigger')">
+          <div class="msb-field" id="m-hotel-pax-trigger" onclick="mOpenPanel('hotel-pax')">
             <div class="msb-field-icon pax-icon">👤</div>
             <div class="msb-field-body">
               <div class="msb-field-label">Guests &amp; rooms</div>
@@ -1167,7 +1205,92 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
   </div>
 </div>
 
-<!-- Hotel pax is now inline dropdown, no fullscreen panel needed -->
+<!-- Hotel pax panel -->
+<div class="m-panel" id="mp-hotel-pax">
+  <div class="m-panel-header">
+    <button class="m-panel-back" onclick="mClosePanel('hotel-pax')">←</button>
+    <div class="m-panel-title">Guests &amp; Rooms</div>
+  </div>
+  <div class="m-panel-body">
+    <div class="m-pax-row">
+      <div><div class="name">Adults</div><div class="sub">18+ years</div></div>
+      <div class="m-pax-counter">
+        <button class="m-counter-btn" id="m-btn-ham" onclick="mChangeHotelPax('adults',-1)" disabled>−</button>
+        <span class="m-counter-num" id="m-cnt-hotel-adults">2</span>
+        <button class="m-counter-btn" id="m-btn-hap" onclick="mChangeHotelPax('adults',1)">+</button>
+      </div>
+    </div>
+    <div class="m-pax-row">
+      <div><div class="name">Children</div><div class="sub">0–17 years</div></div>
+      <div class="m-pax-counter">
+        <button class="m-counter-btn" id="m-btn-hcm" onclick="mChangeHotelPax('children',-1)" disabled>−</button>
+        <span class="m-counter-num" id="m-cnt-hotel-children">0</span>
+        <button class="m-counter-btn" id="m-btn-hcp" onclick="mChangeHotelPax('children',1)">+</button>
+      </div>
+    </div>
+    <div class="m-pax-row">
+      <div><div class="name">Rooms</div><div class="sub">Each room needs 1 adult</div></div>
+      <div class="m-pax-counter">
+        <button class="m-counter-btn" id="m-btn-hrm" onclick="mChangeHotelPax('rooms',-1)" disabled>−</button>
+        <span class="m-counter-num" id="m-cnt-hotel-rooms">1</span>
+        <button class="m-counter-btn" id="m-btn-hrp" onclick="mChangeHotelPax('rooms',1)">+</button>
+      </div>
+    </div>
+    <button class="m-panel-apply" onclick="mClosePanel('hotel-pax')">Apply</button>
+  </div>
+</div>
+
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Top Destinations</div>
+    <h2 class="section-title reveal">Where Will You Go Next?</h2>
+    <p class="section-sub reveal">Handpicked destinations loved by our travellers — from cultural cities to tropical escapes.</p>
+    <div class="dest-grid">
+      <div class="dest-card tall reveal">
+        <div class="dest-img" style="background:linear-gradient(160deg,#1a1a2e,#16213e,#0f3460)"><span style="font-size:100px">🗼</span></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-badge">Most Popular</div>
+          <div class="dest-name">Paris, France</div>
+          <div class="dest-meta">✈ Direct flight · 2h 15m</div>
+        </div>
+      </div>
+      <div class="dest-card reveal reveal-delay-1">
+        <div class="dest-img" style="background:linear-gradient(160deg,#0d2137,#1a3f5c,#2c5f8a)"><span>🏛</span></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-name">Dubai, UAE</div>
+          <div class="dest-meta">✈ 7h flight</div>
+        </div>
+      </div>
+      <div class="dest-card reveal reveal-delay-2">
+        <div class="dest-img" style="background:linear-gradient(160deg,#1a3a1a,#2d5a27,#3d7a35)"><span>🌴</span></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-name">Bali, Indonesia</div>
+          <div class="dest-meta">✈ 16h flight</div>
+        </div>
+      </div>
+      <div class="dest-card reveal reveal-delay-1">
+        <div class="dest-img" style="background:linear-gradient(160deg,#2a1a0d,#5c3a1a,#8a5a2c)"><span>🕌</span></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-name">Istanbul, Turkey</div>
+          <div class="dest-meta">✈ 4h flight</div>
+        </div>
+      </div>
+      <div class="dest-card reveal reveal-delay-2">
+        <div class="dest-img" style="background:linear-gradient(160deg,#1a0d2a,#3a1a5c,#5a2c8a)"><span>🗽</span></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-name">New York, USA</div>
+          <div class="dest-meta">✈ 8h flight</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
@@ -1235,7 +1358,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
     </div>
     <div class="footer-bottom">
       <div>© 2025 Yasska Ltd. All rights reserved.</div>
-      <div class="footer-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="cookie-policy.html">Cookie Policy</a></div>
+      <div class="footer-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a></div>
     </div>
   </div>
 </footer>
@@ -1294,6 +1417,40 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
     <div class="pax-row"><div class="pax-row-info"><div class="pax-row-label">Children</div><div class="pax-row-sub">Aged 0 to 17</div></div><div class="pax-counter"><button class="pax-btn" onclick="changeCount('children',-1)" id="btn-children-minus">−</button><span class="pax-count" id="count-children">0</span><button class="pax-btn" onclick="changeCount('children',1)" id="btn-children-plus">+</button></div></div>
     <div id="child-ages-container"></div>
     <button class="pax-done-btn" onclick="closePaxPanel()">Apply</button>
+  </div>
+</div>
+
+<!-- HOTEL PAX PORTAL (desktop) -->
+<div id="hotel-pax-portal" onclick="closeHotelPaxPortal()" style="display:none;position:fixed;z-index:99999;">
+  <div id="hotel-pax-portal-inner" onclick="event.stopPropagation()" style="width:300px;background:#0e1f3d;border:1px solid rgba(255,255,255,.15);border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.5);padding:6px 16px 14px;animation:dropIn .18s cubic-bezier(.34,1.56,.64,1);">
+    <div class="pax-section">
+      <div class="pax-section-title" style="color:rgba(255,255,255,.45);margin-bottom:6px">Guests &amp; Rooms</div>
+    </div>
+    <div class="pax-row" style="border-color:rgba(255,255,255,.08)">
+      <div class="pax-row-info"><div class="pax-row-label" style="color:#fff">Adults</div><div class="pax-row-sub" style="color:rgba(255,255,255,.4)">18+ years</div></div>
+      <div class="pax-counter">
+        <button class="pax-btn" id="d-btn-ham" onclick="changeHotelCount('adults',-1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">−</button>
+        <span class="pax-count" id="d-count-hotel-adults" style="color:#fff">2</span>
+        <button class="pax-btn" id="d-btn-hap" onclick="changeHotelCount('adults',1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">+</button>
+      </div>
+    </div>
+    <div class="pax-row" style="border-color:rgba(255,255,255,.08)">
+      <div class="pax-row-info"><div class="pax-row-label" style="color:#fff">Children</div><div class="pax-row-sub" style="color:rgba(255,255,255,.4)">0–17 years</div></div>
+      <div class="pax-counter">
+        <button class="pax-btn" id="d-btn-hcm" onclick="changeHotelCount('children',-1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">−</button>
+        <span class="pax-count" id="d-count-hotel-children" style="color:#fff">0</span>
+        <button class="pax-btn" id="d-btn-hcp" onclick="changeHotelCount('children',1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">+</button>
+      </div>
+    </div>
+    <div class="pax-row" style="border-color:rgba(255,255,255,.08)">
+      <div class="pax-row-info"><div class="pax-row-label" style="color:#fff">Rooms</div><div class="pax-row-sub" style="color:rgba(255,255,255,.4)">1 adult per room min.</div></div>
+      <div class="pax-counter">
+        <button class="pax-btn" id="d-btn-hrm" onclick="changeHotelCount('rooms',-1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">−</button>
+        <span class="pax-count" id="d-count-hotel-rooms" style="color:#fff">1</span>
+        <button class="pax-btn" id="d-btn-hrp" onclick="changeHotelCount('rooms',1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">+</button>
+      </div>
+    </div>
+    <button class="pax-done-btn" onclick="closeHotelPaxPortal()" style="background:linear-gradient(135deg,var(--blue),var(--blue2))">Apply</button>
   </div>
 </div>
 
@@ -2131,6 +2288,69 @@ window.closePaxPanel=function(){
   if(field)field.classList.remove('open');
   document.body.style.overflow='';
 };
+
+window.toggleHotelPaxPortal=function(){
+  var portal=document.getElementById('hotel-pax-portal');
+  var trigger=document.getElementById('d-hotel-pax-trigger');
+  if(!portal||!trigger)return;
+  var isOpen=portal.style.display==='block';
+  if(isOpen){portal.style.display='none';return;}
+  var rect=trigger.getBoundingClientRect();
+  var panelW=300,screenW=window.innerWidth,margin=8;
+  var left=rect.right-panelW;
+  if(left<margin)left=margin;
+  if(left+panelW>screenW-margin)left=screenW-panelW-margin;
+  portal.style.top=(rect.bottom+8)+'px';
+  portal.style.left=left+'px';
+  portal.style.width=panelW+'px';
+  portal.style.display='block';
+  var ca=document.getElementById('d-count-hotel-adults');
+  var cc=document.getElementById('d-count-hotel-children');
+  var cr=document.getElementById('d-count-hotel-rooms');
+  if(ca)ca.textContent=mState.hotelAdults;
+  if(cc)cc.textContent=mState.hotelChildren;
+  if(cr)cr.textContent=mState.hotelRooms;
+  var bm=document.getElementById('d-btn-ham');if(bm)bm.disabled=mState.hotelAdults<=1;
+  var bp=document.getElementById('d-btn-hap');if(bp)bp.disabled=mState.hotelAdults>=30;
+  var bcm=document.getElementById('d-btn-hcm');if(bcm)bcm.disabled=mState.hotelChildren<=0;
+  var brm=document.getElementById('d-btn-hrm');if(brm)brm.disabled=mState.hotelRooms<=1;
+  var brp=document.getElementById('d-btn-hrp');if(brp)brp.disabled=mState.hotelRooms>=mState.hotelAdults;
+};
+
+window.closeHotelPaxPortal=function(){
+  var portal=document.getElementById('hotel-pax-portal');
+  if(portal)portal.style.display='none';
+};
+
+window.changeHotelCount=function(type,delta){
+  if(type==='adults'){
+    mState.hotelAdults=Math.max(1,Math.min(30,mState.hotelAdults+delta));
+    if(mState.hotelRooms>mState.hotelAdults)mState.hotelRooms=mState.hotelAdults;
+    var ca=document.getElementById('d-count-hotel-adults');if(ca)ca.textContent=mState.hotelAdults;
+    var bm=document.getElementById('d-btn-ham');if(bm)bm.disabled=mState.hotelAdults<=1;
+    var bp=document.getElementById('d-btn-hap');if(bp)bp.disabled=mState.hotelAdults>=30;
+    var cr=document.getElementById('d-count-hotel-rooms');if(cr)cr.textContent=mState.hotelRooms;
+    var brm=document.getElementById('d-btn-hrm');if(brm)brm.disabled=mState.hotelRooms<=1;
+    var brp=document.getElementById('d-btn-hrp');if(brp)brp.disabled=mState.hotelRooms>=mState.hotelAdults;
+  } else if(type==='children'){
+    mState.hotelChildren=Math.max(0,Math.min(10,mState.hotelChildren+delta));
+    var cc=document.getElementById('d-count-hotel-children');if(cc)cc.textContent=mState.hotelChildren;
+    var bcm=document.getElementById('d-btn-hcm');if(bcm)bcm.disabled=mState.hotelChildren<=0;
+    var bcp=document.getElementById('d-btn-hcp');if(bcp)bcp.disabled=mState.hotelChildren>=10;
+  } else if(type==='rooms'){
+    var next=mState.hotelRooms+delta;
+    if(next>mState.hotelAdults)return;
+    mState.hotelRooms=Math.max(1,Math.min(30,next));
+    var cr2=document.getElementById('d-count-hotel-rooms');if(cr2)cr2.textContent=mState.hotelRooms;
+    var brm2=document.getElementById('d-btn-hrm');if(brm2)brm2.disabled=mState.hotelRooms<=1;
+    var brp2=document.getElementById('d-btn-hrp');if(brp2)brp2.disabled=mState.hotelRooms>=mState.hotelAdults;
+  }
+  var a=mState.hotelAdults,c=mState.hotelChildren,r=mState.hotelRooms;
+  var txt=a+' Adult'+(a!==1?'s':'');
+  if(c>0)txt+=', '+c+' Child'+(c!==1?'ren':'');
+  txt+=' · '+r+' Room'+(r!==1?'s':'');
+  ['m-disp-hotel-pax','d-disp-hotel-pax'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=txt;});
+};
 window.changeCount=function(type,delta){
   if(type==='adults'){
     paxState.adults=Math.max(1,Math.min(9,paxState.adults+delta));
@@ -2228,7 +2448,7 @@ function buildHotelRow(){
     +'</div>'
     +'<div class="search-field"><label>Check-in</label><input type="date" id="hotel-checkin"/></div>'
     +'<div class="search-field"><label>Check-out</label><input type="date" id="hotel-checkout"/></div>'
-    +'<div class="search-field" id="d-hotel-pax-trigger" onclick="hpdToggle(event,\'d-hotel-pax-trigger\')" style="cursor:pointer;user-select:none;">'
+    +'<div class="search-field" id="d-hotel-pax-trigger" onclick="toggleHotelPaxPortal()" style="cursor:pointer;user-select:none;">'
     +'<label style="pointer-events:none">Guests &amp; Rooms</label>'
     +'<div class="pax-display" id="d-disp-hotel-pax" style="pointer-events:none">2 Adults \xb7 1 Room</div>'
     +'</div>'
@@ -2480,6 +2700,19 @@ function mOpenPanel(id){
     if(ci)ci.value=mState.hotelCheckin;
     if(co)co.value=mState.hotelCheckout;
   }
+  else if(id==='hotel-pax'){
+    var ca=document.getElementById('m-cnt-hotel-adults');
+    var cc=document.getElementById('m-cnt-hotel-children');
+    var cr=document.getElementById('m-cnt-hotel-rooms');
+    if(ca)ca.textContent=mState.hotelAdults;
+    if(cc)cc.textContent=mState.hotelChildren;
+    if(cr)cr.textContent=mState.hotelRooms;
+    var bm=document.getElementById('m-btn-ham');if(bm)bm.disabled=mState.hotelAdults<=1;
+    var bp=document.getElementById('m-btn-hap');if(bp)bp.disabled=mState.hotelAdults>=30;
+    var bcm=document.getElementById('m-btn-hcm');if(bcm)bcm.disabled=mState.hotelChildren<=0;
+    var brm=document.getElementById('m-btn-hrm');if(brm)brm.disabled=mState.hotelRooms<=1;
+    var brp=document.getElementById('m-btn-hrp');if(brp)brp.disabled=mState.hotelRooms>=mState.hotelAdults;
+  }
 }
 function mClosePanel(id){
   var p=document.getElementById('mp-'+id);
@@ -2630,6 +2863,43 @@ function mUpdatePax(){
   if(el)el.textContent=txt;
 }
 
+function mChangeHotelPax(type,delta){
+  if(type==='adults'){
+    mState.hotelAdults=Math.max(1,Math.min(30,mState.hotelAdults+delta));
+    if(mState.hotelRooms>mState.hotelAdults)mState.hotelRooms=mState.hotelAdults;
+    var ca=document.getElementById('m-cnt-hotel-adults');
+    var bm=document.getElementById('m-btn-ham');var bp=document.getElementById('m-btn-hap');
+    if(ca)ca.textContent=mState.hotelAdults;
+    if(bm)bm.disabled=mState.hotelAdults<=1;
+    if(bp)bp.disabled=mState.hotelAdults>=30;
+    var rm=document.getElementById('m-btn-hrm');var rp=document.getElementById('m-btn-hrp');
+    if(rm)rm.disabled=mState.hotelRooms<=1;
+    if(rp)rp.disabled=mState.hotelRooms>=mState.hotelAdults;
+  } else if(type==='children'){
+    mState.hotelChildren=Math.max(0,Math.min(10,mState.hotelChildren+delta));
+    var cc=document.getElementById('m-cnt-hotel-children');
+    var bcm=document.getElementById('m-btn-hcm');var bcp=document.getElementById('m-btn-hcp');
+    if(cc)cc.textContent=mState.hotelChildren;
+    if(bcm)bcm.disabled=mState.hotelChildren<=0;
+    if(bcp)bcp.disabled=mState.hotelChildren>=10;
+  } else if(type==='rooms'){
+    var next=mState.hotelRooms+delta;
+    if(next>mState.hotelAdults)return;
+    mState.hotelRooms=Math.max(1,Math.min(30,next));
+    var cr=document.getElementById('m-cnt-hotel-rooms');
+    var brm=document.getElementById('m-btn-hrm');var brp=document.getElementById('m-btn-hrp');
+    if(cr)cr.textContent=mState.hotelRooms;
+    if(brm)brm.disabled=mState.hotelRooms<=1;
+    if(brp)brp.disabled=mState.hotelRooms>=mState.hotelAdults;
+  }
+  var a=mState.hotelAdults,c=mState.hotelChildren,r=mState.hotelRooms;
+  var txt=a+' Adult'+(a!==1?'s':'');
+  if(c>0)txt+=', '+c+' Child'+(c!==1?'ren':'');
+  txt+=' · '+r+' Room'+(r!==1?'s':'');
+  var els=['m-disp-hotel-pax','d-disp-hotel-pax'];
+  els.forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=txt;});
+}
+
 /* Hotel destination (mobile) */
 function mRenderHotels(q){
   var el=document.getElementById('m-hotel-dest-list');
@@ -2752,6 +3022,26 @@ function mOpenExp(){window.open(mBuildFlightUrls().exp,'_blank');}
   if(bcm)bcm.disabled=true;
 })();
 
+/* ══ HOT DEALS TICKER ══ */
+(function(){
+  var deals=window.HOT_DEALS||[];
+  function makeItems(list){
+    return list.map(function(d){
+      return '<span style="display:inline-flex;align-items:center;gap:8px;padding:0 18px;height:34px;border-right:1px solid rgba(255,92,92,.15);cursor:pointer;">'
+        +'<span style="font-size:13px">'+d.flag+'</span>'
+        +'<span style="font-size:11px;color:rgba(255,255,255,.55)">'+d.from+'</span>'
+        +'<span style="font-size:10px;color:rgba(255,255,255,.3)">→</span>'
+        +'<span style="font-size:12px;font-weight:700;color:#fff">'+d.to+'</span>'
+        +'<span style="font-size:10px;color:rgba(255,255,255,.4)">'+d.airline+'</span>'
+
+        +'</span>';
+    }).join('');
+  }
+  var items=makeItems(deals);
+  var el=document.getElementById('hticker-inner');if(el)el.innerHTML=items+items;
+  var mob=document.getElementById('mobile-ticker-inner');if(mob)mob.innerHTML=items+items;
+})();
+
 /* ══ SCROLL REVEAL ══ */
 var revealObserver=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
@@ -2772,7 +3062,8 @@ document.addEventListener('click',function(e){
     if(field)field.classList.remove('open');
   }
   /* close shared hotel guests/rooms panel */
-  if(!e.target.closest('#m-hotel-pax-trigger')&&!e.target.closest('#d-hotel-pax-trigger')&&!e.target.closest('#hpd-panel')){
+  if(!e.target.closest('#m-hotel-pax-trigger')&&!e.target.closest('#d-hotel-pax-trigger')&&!e.target.closest('#hpd-panel')&&!e.target.closest('#hotel-pax-portal')){
+    closeHotelPaxPortal();
     hpdClose();
   }
 });
