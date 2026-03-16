@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Cookie Policy — Yasska Travel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#0B1628;--navy2:#112040;--blue:#1B5FC1;--blue2:#2271E0;--gold:#C8963E;--gold2:#E5B060;--white:#FFFFFF;--gray:#F2F4F8;--text:#1A2340;--text2:#4A5878;--text3:#8A94A8;--border:#DDE3EE;--green:#16a34a;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;color:var(--text);background:var(--white);}
+a{text-decoration:none;color:inherit;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,22,40,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07);padding:0 5%;display:flex;align-items:center;height:72px;gap:20px;}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;}
+.nav-logo-mark{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:grid;place-items:center;font-size:18px;}
+.nav-back{margin-left:auto;display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.6);font-size:13px;font-weight:500;transition:color .2s;}
+.nav-back:hover{color:var(--gold2);}
+.page-hero{background:var(--navy);padding:140px 5% 70px;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;width:400px;height:400px;background:rgba(34,197,94,.1);top:-80px;right:-80px;}
+.page-hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:2;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(200,150,62,.15);border:1px solid rgba(200,150,62,.3);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:700;color:var(--gold2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);color:#fff;font-weight:900;margin-bottom:16px;line-height:1.1;}
+.page-hero-meta{display:flex;gap:24px;flex-wrap:wrap;}
+.meta-item{font-size:13px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;}
+.meta-item strong{color:rgba(255,255,255,.8);font-weight:600;}
+.legal-content{max-width:760px;margin:0 auto;padding:64px 5% 100px;}
+.toc{background:var(--gray);border:1px solid var(--border);border-radius:16px;padding:24px 28px;margin-bottom:48px;}
+.toc-title{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:14px;}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.toc-list a{font-size:14px;font-weight:500;color:var(--blue);transition:color .15s;display:flex;align-items:center;gap:8px;}
+.toc-list a:hover{color:var(--navy);}
+.toc-list a::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--blue);flex-shrink:0;}
+.legal-section{margin-bottom:48px;scroll-margin-top:100px;}
+.legal-section h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:12px;}
+.section-num{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#22c55e,var(--green));color:#fff;font-size:12px;font-weight:800;font-family:'Outfit',sans-serif;display:grid;place-items:center;flex-shrink:0;}
+.legal-section p{font-size:15px;color:var(--text2);line-height:1.85;margin-bottom:14px;}
+.legal-section ul{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.legal-section ul li{font-size:15px;color:var(--text2);line-height:1.7;padding-left:20px;position:relative;}
+.legal-section ul li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:#22c55e;opacity:.6;}
+.info-box{background:rgba(27,95,193,.06);border:1px solid rgba(27,95,193,.15);border-radius:12px;padding:18px 22px;margin:20px 0;}
+.info-box p{margin:0;font-size:14px;color:var(--text2);line-height:1.75;}
+.info-box strong{color:var(--navy);}
+.highlight-box{background:linear-gradient(135deg,rgba(200,150,62,.08),rgba(200,150,62,.04));border:1px solid rgba(200,150,62,.25);border-radius:12px;padding:18px 22px;margin:20px 0;}
+.highlight-box p{margin:0;font-size:14px;color:var(--text);line-height:1.75;}
+.summary-card{background:var(--navy);border-radius:20px;padding:32px 36px;margin-bottom:40px;position:relative;overflow:hidden;}
+.summary-card::before{content:'';position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(34,197,94,.1) 0%,transparent 70%);pointer-events:none;}
+.summary-card::after{content:'';position:absolute;left:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(27,95,193,.15) 0%,transparent 70%);pointer-events:none;}
+.summary-card-inner{position:relative;z-index:2;}
+.summary-label{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.summary-label::before{content:'';width:20px;height:2px;background:var(--gold2);border-radius:2px;}
+.summary-card h3{font-family:'Playfair Display',serif;color:#fff;font-size:20px;font-weight:700;margin-bottom:20px;line-height:1.3;}
+.summary-points{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.summary-point{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;}
+.summary-point-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.summary-point-text{font-size:13px;color:rgba(255,255,255,.7);line-height:1.55;}
+.summary-point-text strong{color:#fff;font-weight:700;display:block;margin-bottom:2px;}
+.summary-note{margin-top:14px;font-size:12px;color:rgba(255,255,255,.3);font-style:italic;}
+@media(max-width:560px){.summary-points{grid-template-columns:1fr;}.summary-card{padding:22px 20px;}}
+/* Cookie type cards */
+.cookie-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0;}
+.cookie-card{border:1px solid var(--border);border-radius:14px;padding:20px 22px;}
+.cookie-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.cookie-card-title{font-size:15px;font-weight:700;color:var(--navy);}
+.badge{font-size:10px;font-weight:800;padding:3px 9px;border-radius:6px;letter-spacing:.04em;}
+.badge-on{background:rgba(34,197,94,.12);color:var(--green);}
+.badge-opt{background:rgba(200,150,62,.12);color:var(--gold);}
+.cookie-card p{font-size:13px;color:var(--text2);line-height:1.65;margin:0;}
+/* Cookie table */
+.cookie-table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);margin:20px 0;}
+.cookie-table{width:100%;border-collapse:collapse;}
+.cookie-table th{background:var(--gray);font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--text3);padding:11px 14px;text-align:left;border-bottom:1px solid var(--border);}
+.cookie-table td{font-size:13px;color:var(--text2);padding:11px 14px;border-bottom:1px solid rgba(221,227,238,.5);vertical-align:top;line-height:1.5;}
+.cookie-table tr:last-child td{border-bottom:none;}
+.cookie-table tr:hover td{background:rgba(242,244,248,.4);}
+.td-name{font-weight:700;color:var(--navy);}
+/* Browser grid */
+.browser-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
+.browser-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px;text-align:center;transition:border-color .2s;}
+.browser-item:hover{border-color:rgba(255,255,255,.25);}
+.browser-emoji{font-size:24px;margin-bottom:8px;}
+.browser-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;}
+.browser-desc{font-size:11px;color:rgba(255,255,255,.4);line-height:1.4;margin-bottom:8px;}
+.browser-link{display:inline-block;font-size:11px;color:#4DA3FF;word-break:break-all;transition:color .2s;}
+.browser-link:hover{color:#fff;}
+.manage-box{background:var(--navy);border-radius:18px;padding:28px 32px;margin:20px 0;}
+.manage-box h3{font-family:'Playfair Display',serif;color:#fff;font-size:19px;margin-bottom:8px;}
+.manage-box p{color:rgba(255,255,255,.55);font-size:14px;line-height:1.7;margin-bottom:0;}
+.contact-card{background:var(--gray);border:1px solid var(--border);border-radius:18px;padding:24px 28px;margin-top:16px;}
+.contact-card h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);margin-bottom:8px;}
+.contact-card p{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:0;}
+footer-mini{display:block;background:var(--navy);padding:24px 5%;}
+.footer-mini-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-mini-copy{font-size:12px;color:rgba(255,255,255,.4);}
+.footer-mini-links{display:flex;gap:20px;}
+.footer-mini-links a{font-size:12px;color:rgba(255,255,255,.4);transition:color .2s;}
+.footer-mini-links a:hover,.footer-mini-links a.active{color:var(--gold2);}
+@media(max-width:600px){.cookie-grid{grid-template-columns:1fr;}.browser-grid{grid-template-columns:repeat(2,1fr);}.footer-mini-inner{flex-direction:column;}.legal-content{padding:40px 4% 80px;}.toc{padding:18px;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><div class="nav-logo-mark">✈</div>Yasska<span style="color:var(--gold2)">.</span></a>
+  <a href="index.html" class="nav-back">← Back to Yasska</a>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-orb"></div>
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">Legal</div>
+    <h1>Cookie Policy</h1>
+    <div class="page-hero-meta">
+      <div class="meta-item">📅 <strong>Last updated:</strong> 16 March 2025</div>
+      <div class="meta-item">🇬🇧 UK PECR compliant</div>
+    </div>
+  </div>
+</div>
+
+<div class="legal-content">
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#c1">1. What Are Cookies?</a></li>
+      <li><a href="#c2">2. Cookies We Use</a></li>
+      <li><a href="#c3">3. Affiliate Tracking Cookies</a></li>
+      <li><a href="#c4">4. Cookies We Don't Use</a></li>
+      <li><a href="#c5">5. Cookie Table</a></li>
+      <li><a href="#c6">6. Managing Your Cookies</a></li>
+      <li><a href="#c7">7. Changes to This Policy</a></li>
+      <li><a href="#c8">8. Contact Us</a></li>
+    </ul>
+  </div>
+
+  <div class="summary-card">
+    <div class="summary-card-inner">
+      <div class="summary-label">Plain English Summary</div>
+      <h3>Cookie Policy — in 30 seconds</h3>
+      <div class="summary-points">
+        <div class="summary-point"><span class="summary-point-icon">🍪</span><div class="summary-point-text"><strong>Very few cookies</strong>We use the minimum needed to run the site and measure traffic.</div></div>
+        <div class="summary-point"><span class="summary-point-icon">👤</span><div class="summary-point-text"><strong>No personal data</strong>Our cookies don't identify you. Analytics data is fully anonymous.</div></div>
+        <div class="summary-point"><span class="summary-point-icon">📊</span><div class="summary-point-text"><strong>Google Analytics</strong>We count visits and popular pages. That's it. No profiles, no tracking.</div></div>
+        <div class="summary-point"><span class="summary-point-icon">🔗</span><div class="summary-point-text"><strong>Affiliate cookies</strong>Partners like Skyscanner &amp; Aviasales set cookies so they can pay us commission.</div></div>
+        <div class="summary-point"><span class="summary-point-icon">🚫</span><div class="summary-point-text"><strong>No ad profiles</strong>We don't build advertising profiles or sell cookie data to anyone.</div></div>
+        <div class="summary-point"><span class="summary-point-icon">⚙️</span><div class="summary-point-text"><strong>You're in control</strong>Decline non-essential cookies via the banner, or turn them off in your browser.</div></div>
+      </div>
+      <p class="summary-note">The full legal detail is below. The summary above is accurate but not a substitute for the complete policy.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="c1">
+    <h2><span class="section-num">1</span> What Are Cookies?</h2>
+    <p>Cookies are small text files placed on your device when you visit a website. They help the site remember information about your visit and are widely used across the internet.</p>
+    <p>This policy explains the cookies used on <strong>yasska.com</strong> in line with the UK's <strong>Privacy and Electronic Communications Regulations (PECR)</strong>. It should be read alongside our <a href="privacy-policy.html" style="color:var(--blue);font-weight:600">Privacy Policy</a>.</p>
+  </div>
+
+  <div class="legal-section" id="c2">
+    <h2><span class="section-num">2</span> Cookies We Use</h2>
+    <p>We keep our cookie use minimal. Here are the categories in use on yasska.com:</p>
+    <div class="cookie-grid">
+      <div class="cookie-card">
+        <div class="cookie-card-head">
+          <span class="cookie-card-title">🔒 Essential</span>
+          <span class="badge badge-on">Always on</span>
+        </div>
+        <p>Basic cookies needed for the site to function. These include security and session cookies. You cannot opt out of these while using the site.</p>
+      </div>
+      <div class="cookie-card">
+        <div class="cookie-card-head">
+          <span class="cookie-card-title">📊 Analytics</span>
+          <span class="badge badge-opt">Optional</span>
+        </div>
+        <p>We use Google Analytics to understand aggregate, anonymous traffic data — page views, popular destinations, and traffic sources. No personal data is collected.</p>
+      </div>
+      <div class="cookie-card">
+        <div class="cookie-card-head">
+          <span class="cookie-card-title">🔗 Affiliate Tracking</span>
+          <span class="badge badge-opt">Optional</span>
+        </div>
+        <p>When you click an affiliate link, our partner platforms (Skyscanner, Aviasales, Expedia, etc.) may set tracking cookies to attribute any commission we earn from your booking.</p>
+      </div>
+      <div class="cookie-card">
+        <div class="cookie-card-head">
+          <span class="cookie-card-title">⚙️ Functional</span>
+          <span class="badge badge-opt">Optional</span>
+        </div>
+        <p>Cookies that remember your preferences on-site, such as your cookie consent choice, to improve your experience on return visits.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-section" id="c3">
+    <h2><span class="section-num">3</span> Affiliate Tracking Cookies</h2>
+    <p>Yasska is funded through affiliate commissions. When you click a link to Skyscanner, Aviasales, Expedia, Google Flights, or another partner and subsequently make a booking, a tracking cookie records that you came from our site so we receive credit for the referral.</p>
+    <p>These cookies are placed by the third-party platforms, not by us directly. They do not allow us to see your personal details, booking information, or payment data — only that a referral came from yasska.com.</p>
+    <p>This is standard practice for affiliate websites and is <strong>at no cost to you</strong> — you pay the same price as booking directly.</p>
+  </div>
+
+  <div class="legal-section" id="c4">
+    <h2><span class="section-num">4</span> Cookies We Don't Use</h2>
+    <p>Because Yasska does not collect personal data or run a booking platform, we do not use:</p>
+    <ul>
+      <li>Login or account session cookies (we have no user accounts).</li>
+      <li>Payment or transaction cookies.</li>
+      <li>Advertising profile or retargeting cookies on our own site.</li>
+      <li>Any cookies that collect or store your name, email, or travel details.</li>
+    </ul>
+  </div>
+
+  <div class="legal-section" id="c5">
+    <h2><span class="section-num">5</span> Cookie Table</h2>
+    <p>The table below lists the main cookies currently active on yasska.com:</p>
+    <div class="cookie-table-wrap">
+      <table class="cookie-table">
+        <thead>
+          <tr>
+            <th>Cookie</th>
+            <th>Provider</th>
+            <th>Type</th>
+            <th>Purpose</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-name">cookie_consent</td>
+            <td>Yasska</td>
+            <td>Essential</td>
+            <td>Stores your cookie consent choice</td>
+            <td>12 months</td>
+          </tr>
+          <tr>
+            <td class="td-name">_ga</td>
+            <td>Google Analytics</td>
+            <td>Analytics</td>
+            <td>Distinguishes anonymous users</td>
+            <td>2 years</td>
+          </tr>
+          <tr>
+            <td class="td-name">_ga_*</td>
+            <td>Google Analytics</td>
+            <td>Analytics</td>
+            <td>Stores page-view session data</td>
+            <td>2 years</td>
+          </tr>
+          <tr>
+            <td class="td-name">_gid</td>
+            <td>Google Analytics</td>
+            <td>Analytics</td>
+            <td>Short-term user distinction</td>
+            <td>24 hours</td>
+          </tr>
+          <tr>
+            <td class="td-name">skyscanner_ref</td>
+            <td>Skyscanner</td>
+            <td>Affiliate</td>
+            <td>Attributes affiliate commission from referral clicks</td>
+            <td>30 days</td>
+          </tr>
+          <tr>
+            <td class="td-name">aviasales_ref</td>
+            <td>Aviasales</td>
+            <td>Affiliate</td>
+            <td>Attributes affiliate commission from referral clicks</td>
+            <td>30 days</td>
+          </tr>
+          <tr>
+            <td class="td-name">exp_affiliate</td>
+            <td>Expedia</td>
+            <td>Affiliate</td>
+            <td>Attributes affiliate commission from referral clicks</td>
+            <td>30 days</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="legal-section" id="c6">
+    <h2><span class="section-num">6</span> Managing Your Cookies</h2>
+    <p>You can control cookies in two ways:</p>
+    <p><strong>On this site:</strong> A cookie consent banner appears on your first visit. You can accept or decline non-essential cookies. Your choice is saved for 12 months.</p>
+    <p><strong>In your browser:</strong> You can block or delete cookies at any time through your browser settings. Note that blocking all cookies may affect site functionality:</p>
+    <div class="manage-box">
+      <h3>How to Manage Cookies in Your Browser</h3>
+      <p style="margin-bottom:20px;">Click the link for your browser for step-by-step instructions on managing or deleting cookies:</p>
+      <div class="browser-grid">
+        <div class="browser-item">
+          <div class="browser-emoji">🌐</div>
+          <div class="browser-name">Google Chrome</div>
+          <div class="browser-desc">Settings → Privacy and Security → Cookies</div>
+          <a href="https://support.google.com/chrome/answer/95647" target="_blank" class="browser-link">support.google.com/chrome</a>
+        </div>
+        <div class="browser-item">
+          <div class="browser-emoji">🦊</div>
+          <div class="browser-name">Mozilla Firefox</div>
+          <div class="browser-desc">Options → Privacy &amp; Security → Cookies</div>
+          <a href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox" target="_blank" class="browser-link">support.mozilla.org</a>
+        </div>
+        <div class="browser-item">
+          <div class="browser-emoji">🧭</div>
+          <div class="browser-name">Safari (Mac)</div>
+          <div class="browser-desc">Preferences → Privacy → Manage Website Data</div>
+          <a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" class="browser-link">support.apple.com/safari</a>
+        </div>
+        <div class="browser-item">
+          <div class="browser-emoji">🔷</div>
+          <div class="browser-name">Microsoft Edge</div>
+          <div class="browser-desc">Settings → Cookies and Site Permissions</div>
+          <a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" class="browser-link">support.microsoft.com/edge</a>
+        </div>
+        <div class="browser-item">
+          <div class="browser-emoji">🔴</div>
+          <div class="browser-name">Opera</div>
+          <div class="browser-desc">Settings → Advanced → Privacy &amp; Security</div>
+          <a href="https://help.opera.com/en/latest/web-preferences/#cookies" target="_blank" class="browser-link">help.opera.com</a>
+        </div>
+        <div class="browser-item">
+          <div class="browser-emoji">📱</div>
+          <div class="browser-name">Safari (iPhone/iPad)</div>
+          <div class="browser-desc">Settings → Safari → Clear History and Data</div>
+          <a href="https://support.apple.com/en-gb/HT201265" target="_blank" class="browser-link">support.apple.com/ios</a>
+        </div>
+        <div class="browser-item">
+          <div class="browser-emoji">🤖</div>
+          <div class="browser-name">Chrome (Android)</div>
+          <div class="browser-desc">Chrome menu → Settings → Privacy → Clear browsing data</div>
+          <a href="https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DAndroid" target="_blank" class="browser-link">support.google.com/chrome/android</a>
+        </div>
+        <div class="browser-item">
+          <div class="browser-emoji">🌙</div>
+          <div class="browser-name">Brave</div>
+          <div class="browser-desc">Settings → Privacy and Security → Cookies</div>
+          <a href="https://support.brave.com/hc/en-us/articles/360050634931" target="_blank" class="browser-link">support.brave.com</a>
+        </div>
+        <div class="browser-item">
+          <div class="browser-emoji">🔍</div>
+          <div class="browser-name">Samsung Internet</div>
+          <div class="browser-desc">Menu → Settings → Privacy → Delete browsing data</div>
+          <a href="https://www.samsung.com/uk/support/mobile-devices/what-are-cookies-and-how-do-i-enable-or-disable-them/" target="_blank" class="browser-link">samsung.com/uk/support</a>
+        </div>
+      </div>
+    </div>
+    <p>To opt out of Google Analytics across all websites, install the <strong>Google Analytics Opt-out Browser Add-on</strong> at <strong>tools.google.com/dlpage/gaoptout</strong>.</p>
+  </div>
+
+  <div class="legal-section" id="c7">
+    <h2><span class="section-num">7</span> Changes to This Policy</h2>
+    <p>We may update this Cookie Policy if we add new features or new affiliate partners. Changes will be posted here with a revised "Last updated" date.</p>
+  </div>
+
+  <div class="legal-section" id="c8">
+    <h2><span class="section-num">8</span> Contact Us</h2>
+    <p>If you have any questions about cookies on yasska.com:</p>
+    <div class="contact-card">
+      <h3>Yasska — Cookie Questions</h3>
+      <p>📧 hello@yasska.com &nbsp;·&nbsp; 📞 +44 7732 000 286<br/><br/>
+      You can also raise concerns with the <strong>Information Commissioner's Office</strong> at <strong>ico.org.uk</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<footer-mini>
+  <div class="footer-mini-inner">
+    <span class="footer-mini-copy">© 2025 Yasska. All rights reserved.</span>
+    <nav class="footer-mini-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      <a href="cookie-policy.html" class="active">Cookie Policy</a>
+    </nav>
+  </div>
+</footer-mini>
+</body>
+</html>
