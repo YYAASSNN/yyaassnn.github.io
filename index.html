@@ -1244,7 +1244,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
   </div>
   <div class="m-panel-body">
     <div class="m-pax-title">Cabin class</div>
-    <select class="m-cabin-select" id="m-cabin-select" onchange="mUpdatePax()">
+    <select class="m-cabin-select" id="m-cabin-select" onchange="mUpdatePax();mClosePanel('pax')">
       <option value="Economy">Economy</option>
       <option value="Premium Economy">Premium Economy</option>
       <option value="Business">Business</option>
@@ -1442,15 +1442,15 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo"><div class="nav-logo-mark" style="width:32px;height:32px;font-size:16px">✈</div>Yasska<span style="color:var(--gold2)">.</span></div>
-        <p>Your trusted travel partner since 2010. Specialising in flights, hotels and curated holiday packages to over 150 destinations worldwide.</p>
+        <p>YaskaTravel is your free travel companion, helping you discover and compare the best flights, hotels and travel deals from the world's leading booking platforms. We search so you don't have to — simply pick your destination and let us point you in the right direction. Travel smarter, explore more.</p>
         <div class="footer-social"><div class="social-btn">f</div><div class="social-btn">in</div><div class="social-btn">tw</div><div class="social-btn">ig</div></div>
       </div>
-      <div class="footer-col"><h4>Destinations</h4><ul><li><a href="#">Europe</a></li><li><a href="#">Middle East</a></li><li><a href="#">Asia Pacific</a></li><li><a href="#">Americas</a></li><li><a href="#">Africa</a></li></ul></div>
-      <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Flight Tickets</a></li><li><a href="#">Hotel Booking</a></li><li><a href="#">Airport Transfers</a></li></ul></div>
-      <div class="footer-col"><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Destinations</h4><ul><li><a href="#destinations">Europe</a></li><li><a href="#destinations">Middle East</a></li><li><a href="#destinations">Asia Pacific</a></li><li><a href="#destinations">Americas</a></li><li><a href="#destinations">Africa</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="#book" onclick="scrollToBook(event)">Flight Search</a></li><li><a href="#book" onclick="scrollToBook(event)">Hotel Search</a></li><li><a href="#guides">Travel Guides</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="#contact">Contact Us</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <div>© 2025 Yasska Ltd. All rights reserved.</div>
+      <div>© 2026 YaskaTravel.uk. All rights reserved.</div>
       <div class="footer-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a></div>
     </div>
   </div>
@@ -2937,6 +2937,9 @@ function mUpdateDates(){
   } else {
     el.textContent='Add dates';el.classList.add('ph');
   }
+  /* auto-close when done: one-way needs depart, return needs both */
+  if(mState.trip==='oneway'&&mState.depart){setTimeout(function(){mClosePanel('dates');},300);}
+  else if(mState.trip==='return'&&mState.depart&&mState.return){setTimeout(function(){mClosePanel('dates');},300);}
 }
 function mUpdateHotelDates(){
   var ci=document.getElementById('m-hotel-checkin');
@@ -2951,6 +2954,7 @@ function mUpdateHotelDates(){
   } else {
     el.textContent='Add dates';el.classList.add('ph');
   }
+  if(mState.hotelCheckin&&mState.hotelCheckout){setTimeout(function(){mClosePanel('hotel-dates');},300);}
 }
 
 /* Pax (flight passengers - mobile) */
@@ -3122,17 +3126,9 @@ function mOpenExp(){window.open(mBuildFlightUrls().exp,'_blank');}
 
 /* ══ INIT ══ */
 (function(){
-  /* default dates: tomorrow + 7 days */
-  var today=new Date();
-  var dep=new Date(today);dep.setDate(dep.getDate()+1);
-  var ret=new Date(today);ret.setDate(ret.getDate()+8);
-  var fmt=function(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');};
-  mState.depart=fmt(dep);
-  mState.return=fmt(ret);
-  setTimeout(function(){
-    var el=document.getElementById('m-disp-dates');
-    if(el){el.textContent=fmtHuman(mState.depart)+' – '+fmtHuman(mState.return);el.classList.remove('ph');}
-  },0);
+  /* default dates: blank */
+  mState.depart='';
+  mState.return='';
   /* init desktop pax buttons */
   var bam=document.getElementById('btn-adults-minus');
   var bcm=document.getElementById('btn-children-minus');
