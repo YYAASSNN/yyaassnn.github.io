@@ -2131,12 +2131,15 @@ function toggleClear(inputId,clearId){
 
 window.scrollToBook=function(e){
   if(e)e.preventDefault();
-  var isMobile=window.innerWidth<=768;
-  var box=document.getElementById(isMobile?'book-mobile':'book');
+  var box=document.getElementById('book');
   if(!box)return;
   var nav=document.getElementById('navbar');
   var navH=nav?nav.offsetHeight:72;
   window.scrollTo({top:box.getBoundingClientRect().top+window.scrollY-navH-16,behavior:'smooth'});
+  // Also open mobile search panel from field
+  if(window.innerWidth<=768){
+    setTimeout(function(){ mOpenPanel('from'); }, 400);
+  }
 };
 
 function clearFromField(){
@@ -2171,11 +2174,14 @@ window.pickDestination=function(dest, e){
     }
   }
   // Scroll to search panel
-  var box=document.getElementById(isMobile?'book-mobile':'book');
+  var box=document.getElementById('book');
   if(!box)return;
   var nav=document.getElementById('navbar');
   var navH=nav?nav.offsetHeight:72;
   window.scrollTo({top:box.getBoundingClientRect().top+window.scrollY-navH-16,behavior:'smooth'});
+  if(window.innerWidth<=768){
+    setTimeout(function(){ mOpenPanel('to'); }, 400);
+  }
 };
 
 /* Desktop passengers */
