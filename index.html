@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Cheap Flights Worldwide | Umrah Flights | YaskaTravel</title>
-<meta name="description" content="Find cheap flights worldwide to Dubai, Pakistan, Saudi Arabia, Bangladesh, West Africa, USA and Europe. YaskaTravel specialises in Umrah flights to Jeddah and Madinah. Compare all major airlines for the best fares."/>
-<meta name="keywords" content="cheap flights worldwide, Umrah flights, cheap flights to Dubai, flights to Pakistan, flights to Jeddah, flights to Lahore, flights to Dhaka, flights to Accra, flights to Lagos, cheap flights Saudi Arabia, Hajj flights, cheap international flights, yaskatravel"/>
+<title>Cheap Flights Worldwide | Umrah Flights to Jeddah & Madinah | YaskaTravel</title>
+<meta name="description" content="Compare cheap flights worldwide to Dubai, Saudi Arabia, Pakistan, Bangladesh, West Africa, USA, Europe and beyond. YaskaTravel specialises in Umrah flights to Jeddah (JED) and Madinah (MED) from any city worldwide. Search all major airlines — free, no sign-up needed."/>
+<meta name="keywords" content="cheap flights worldwide, international flights, Umrah flights, Umrah flights from USA, Umrah flights from Canada, Umrah flights from Australia, Umrah flights from Europe, Umrah flights from Africa, flights to Jeddah, flights to Madinah, cheap flights to Dubai, flights to Pakistan, flights to Bangladesh, flights to Nigeria, flights to Ghana, flights to Kenya, flights to India, Hajj flights, cheap international flights, flight comparison, yaskatravel"/>
 <meta name="author" content="YaskaTravel"/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://yaskatravel.uk/"/>
+<link rel="alternate" hreflang="en" href="https://yaskatravel.uk/"/>
+<link rel="alternate" hreflang="x-default" href="https://yaskatravel.uk/"/>
 
 <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
 <meta name="google-site-verification" content="f3e57ff6a067f059"/>
@@ -17,7 +19,7 @@
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://yaskatravel.uk/"/>
 <meta property="og:title" content="YaskaTravel — Cheap Flights, Hotels &amp; Travel Deals"/>
-<meta property="og:description" content="Search and compare cheap flights and hotels to over 150 destinations. Find the best travel deals from the UK with YaskaTravel."/>
+<meta property="og:description" content="Search and compare cheap flights and hotels to over 150 destinations worldwide. Compare all major airlines — free, no sign-up needed."/>
 <meta property="og:image" content="https://yaskatravel.uk/og-image.jpg"/>
 <meta property="og:site_name" content="YaskaTravel"/>
 <meta property="og:locale" content="en"/>
@@ -26,28 +28,38 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://yaskatravel.uk/"/>
 <meta name="twitter:title" content="YaskaTravel — Cheap Flights, Hotels &amp; Travel Deals"/>
-<meta name="twitter:description" content="Search and compare cheap flights and hotels to over 150 destinations. Find the best travel deals from the UK."/>
+<meta name="twitter:description" content="Search and compare cheap flights and hotels to over 150 destinations worldwide. Compare all major airlines — free, no sign-up needed."/>
 <meta name="twitter:image" content="https://yaskatravel.uk/og-image.jpg"/>
 
 <!-- Schema.org structured data -->
 <script type="application/ld+json">
+[
 {
   "@context": "https://schema.org",
-  "@type": "TravelAgency",
+  "@type": "WebSite",
   "name": "YaskaTravel",
   "url": "https://yaskatravel.uk",
-  "description": "International travel website offering cheap flights, hotels and travel packages to over 150 destinations worldwide.",
+  "description": "Free international flight and hotel comparison platform. Compare all major airlines worldwide including Umrah flights to Jeddah and Madinah.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://yaskatravel.uk/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+},
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "YaskaTravel",
+  "url": "https://yaskatravel.uk",
+  "description": "Free international flight and hotel comparison platform serving travellers worldwide.",
   "telephone": "+447878940558",
   "email": "info@yaskatravel.uk",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "GB"
-    ,"areaServed": "Worldwide"
-  },
+  "areaServed": "Worldwide",
   "sameAs": [
     "https://yaskatravel.uk"
   ]
 }
+]
 </script>
 <script>
 window.HOT_DEALS = [
@@ -403,8 +415,8 @@ section { padding:90px 5%; }
 .travel-guides { background:var(--cream); }
 .guide-tag { display:inline-block; background:rgba(27,95,193,.1); color:var(--blue); font-size:11px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; padding:4px 10px; border-radius:6px; }
 /* Featured article */
-.article-featured { display:grid; grid-template-columns:1.1fr 1fr; gap:0; border-radius:var(--r2); overflow:hidden; box-shadow:var(--shadow2); margin-bottom:40px; background:var(--white); }
-.article-featured-img { height:100%; min-height:380px; overflow:hidden; }
+.article-featured { display:grid; grid-template-columns:1fr 1fr; gap:0; border-radius:var(--r2); overflow:hidden; box-shadow:var(--shadow2); margin-bottom:40px; background:var(--white); }
+.article-featured-img { overflow:hidden; }
 .article-featured-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s; }
 .article-featured:hover .article-featured-img img { transform:scale(1.04); }
 .article-featured-body { padding:40px 44px; display:flex; flex-direction:column; justify-content:center; }
@@ -926,7 +938,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
 
 <!-- NAVBAR -->
 <nav id="navbar">
-  <a href="/" class="nav-logo">
+  <a href="/" class="nav-logo" onclick="clearFromField()">
     <div class="nav-logo-mark">✈</div>
     Yasska<span style="color:var(--gold2)">.</span>
   </a>
@@ -1059,73 +1071,111 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
   <div class="section-inner">
     <div class="section-eyebrow reveal">Flight Search</div>
     <h2 class="section-title reveal">Cheap Flights to Top Destinations</h2>
-    <p class="section-sub reveal">YaskaTravel helps you compare prices across all major airlines worldwide — including Umrah flights to Saudi Arabia, flights to the Middle East, South Asia, Africa and beyond.</p>
+    <p class="section-sub reveal">Search and compare international flights to over 150 destinations worldwide — including Umrah flights to Saudi Arabia, Middle East, South Asia, Africa, Europe and beyond. Free to use, no sign-up needed.</p>
 
     <div class="article-featured reveal">
       <div class="article-featured-img">
-        <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=900&q=80&auto=format&fit=crop" alt="Umrah flights London to Jeddah Mecca Saudi Arabia" loading="lazy"/>
+        <img src="makkah.jpg" alt="Makkah Kaaba Grand Mosque Umrah flights worldwide" loading="lazy"/>
       </div>
       <div class="article-featured-body">
         <span class="guide-tag">Umrah Flights</span>
         <h3 class="article-title">Cheap Umrah Flights to Jeddah &amp; Madinah</h3>
-        <p class="article-text">Find affordable Umrah flights to Jeddah (JED) and Madinah (MED) from any major city worldwide. Compare fares with Saudia, Emirates, Qatar Airways, Turkish Airlines and Etihad. Group fares available for families, mosque groups and community travel. Umrah flights only — not packages.</p>
-        <p class="article-text" style="margin-top:10px;font-size:13px;color:var(--text3);">✈ ~6–7 hrs to Jeddah &nbsp;|&nbsp; 🕌 Flights only &nbsp;|&nbsp; 👥 Group fares available</p>
+        <p class="article-text">Search international flights to Jeddah (JED) and Madinah (MED) from any major city worldwide. Whether you're travelling from the UK, USA, Canada, Australia, Europe or Africa — compare all available airlines. Flights only — not packages.</p>
+        <ul style="margin-top:12px;list-style:none;padding:0;display:flex;flex-direction:column;gap:5px;">
+          <li style="font-size:13px;color:var(--text2);">🕌 Umrah flights from any country worldwide</li>
+          <li style="font-size:13px;color:var(--text2);">✈ Flights to Jeddah (JED) — King Abdulaziz Airport</li>
+          <li style="font-size:13px;color:var(--text2);">✈ Flights to Madinah (MED) — Prince Mohammad Airport</li>
+          <li style="font-size:13px;color:var(--text2);">🌍 Departures from any major city worldwide</li>
+          <li style="font-size:13px;color:var(--text2);">💺 Economy &amp; Business class options</li>
+          <li style="font-size:13px;color:var(--text2);">🆓 Free to search — no booking fees added</li>
+        </ul>
+        <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:12px 24px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.filter='brightness(1.08)'" onmouseout="this.style.filter=''">🕌 Search Umrah Flights</a>
       </div>
     </div>
 
     <div class="articles-grid">
       <article class="article-card reveal">
-        <div class="article-img"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80&auto=format&fit=crop" alt="Cheap flights London Dubai" loading="lazy"/></div>
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to Dubai UAE" loading="lazy"/></div>
         <div class="article-body">
           <span class="guide-tag">Middle East</span>
           <h3 class="article-title">Cheap Flights to Dubai</h3>
-          <p class="article-text">Compare Emirates, British Airways, flydubai and Virgin Atlantic for the cheapest flights to Dubai (DXB). Popular with travellers from the UK, USA, Europe and beyond. No visa required for most Western passport holders.</p>
-          <p style="font-size:12px;color:var(--text3);margin-top:10px;">✈ ~7 hrs direct &nbsp;|&nbsp; 🇬🇧 No visa required</p>
+          <p class="article-text">Search flights to Dubai (DXB) from major cities worldwide. One of the world's most connected airports — popular with travellers from every continent. No visa required for many nationalities.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">✈ Direct &amp; connecting flights available</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Departures from any major city</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
         </div>
       </article>
       <article class="article-card reveal reveal-delay-1">
-        <div class="article-img"><img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=600&q=80&auto=format&fit=crop" alt="Cheap flights London Pakistan Lahore" loading="lazy"/></div>
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to Pakistan Lahore Karachi Islamabad" loading="lazy"/></div>
         <div class="article-body">
           <span class="guide-tag">South Asia</span>
           <h3 class="article-title">Cheap Flights to Pakistan</h3>
-          <p class="article-text">Affordable flights to Lahore (LHE), Karachi (KHI) and Islamabad (ISB) from major cities worldwide. Compare PIA, Emirates, Qatar Airways and Turkish Airlines. Group fares available for family visits, weddings and Eid travel.</p>
-          <p style="font-size:12px;color:var(--text3);margin-top:10px;">✈ ~8–9 hrs direct &nbsp;|&nbsp; 👥 Group fares</p>
+          <p class="article-text">Search flights to Lahore (LHE), Karachi (KHI) and Islamabad (ISB) from cities worldwide. Popular for family visits, weddings and Eid travel. Compare all available airlines for your route.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">✈ All major Pakistan airports</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Worldwide departures</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
         </div>
       </article>
       <article class="article-card reveal reveal-delay-2">
-        <div class="article-img"><img src="https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=600&q=80&auto=format&fit=crop" alt="Cheap flights London Accra Ghana West Africa" loading="lazy"/></div>
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to West Africa Accra Lagos" loading="lazy"/></div>
         <div class="article-body">
           <span class="guide-tag">West Africa</span>
           <h3 class="article-title">Cheap Flights to West Africa</h3>
-          <p class="article-text">Great deals on flights to Accra (ACC) and Lagos (LOS) from major cities worldwide. Compare British Airways, KLM, Air France and Ethiopian Airlines.</p>
-          <p style="font-size:12px;color:var(--text3);margin-top:10px;">✈ ~6–7 hrs to Accra &nbsp;|&nbsp; 🌍 All West Africa routes</p>
+          <p class="article-text">Search flights to Accra (ACC), Lagos (LOS) and other West African destinations from cities worldwide. Compare all available airlines for routes across West Africa.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">✈ Accra, Lagos &amp; all West Africa routes</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Worldwide departures</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
         </div>
       </article>
       <article class="article-card reveal">
-        <div class="article-img"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80&auto=format&fit=crop" alt="Cheap flights London Dhaka Bangladesh India" loading="lazy"/></div>
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to Bangladesh India Dhaka Delhi Mumbai" loading="lazy"/></div>
         <div class="article-body">
           <span class="guide-tag">South Asia</span>
           <h3 class="article-title">Cheap Flights to Bangladesh &amp; India</h3>
-          <p class="article-text">Affordable flights to Dhaka (DAC), Delhi (DEL), Mumbai (BOM) and Chittagong from major cities worldwide. Compare Biman Bangladesh Airlines, British Airways, Emirates and Qatar Airways.</p>
-          <p style="font-size:12px;color:var(--text3);margin-top:10px;">✈ ~9–10 hrs to Dhaka &nbsp;|&nbsp; 🛬 All major cities</p>
+          <p class="article-text">Search flights to Dhaka (DAC), Delhi (DEL), Mumbai (BOM) and Chittagong from cities worldwide. Compare all available airlines for South Asia routes.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">✈ All major Bangladesh &amp; India airports</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Worldwide departures</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
         </div>
       </article>
       <article class="article-card reveal reveal-delay-1">
-        <div class="article-img"><img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80&auto=format&fit=crop" alt="Cheap flights London Europe Paris Barcelona" loading="lazy"/></div>
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to Europe Paris Barcelona Amsterdam Rome" loading="lazy"/></div>
         <div class="article-body">
           <span class="guide-tag">Europe</span>
           <h3 class="article-title">Cheap Flights to Europe &amp; Beyond</h3>
-          <p class="article-text">Whether heading to Paris, Barcelona, Amsterdam or Rome, YaskaTravel helps you compare flights across 150+ destinations worldwide. Search hundreds of airlines and find a fare that works for you.</p>
-          <p style="font-size:12px;color:var(--text3);margin-top:10px;">🌐 150+ destinations &nbsp;|&nbsp; ✈ Compare & Save</p>
+          <p class="article-text">Search flights to Paris, Barcelona, Amsterdam, Rome and 150+ destinations across Europe. Compare all available airlines from your city worldwide.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">🌐 150+ European destinations</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Worldwide departures</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
         </div>
       </article>
       <article class="article-card reveal reveal-delay-2">
-        <div class="article-img"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80&auto=format&fit=crop" alt="Cheap flights London Bali Bangkok Asia" loading="lazy"/></div>
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to Asia Bangkok Bali Tokyo Kuala Lumpur" loading="lazy"/></div>
         <div class="article-body">
           <span class="guide-tag">Asia Pacific</span>
           <h3 class="article-title">Cheap Flights to Asia</h3>
-          <p class="article-text">Find great fares to Bangkok (BKK), Bali (DPS), Tokyo and Kuala Lumpur. Compare Thai Airways, Malaysia Airlines, Cathay Pacific and Emirates for the lowest fares across Asia.</p>
-          <p style="font-size:12px;color:var(--text3);margin-top:10px;">✈ ~11–14 hrs &nbsp;|&nbsp; 🌏 All Asia routes</p>
+          <p class="article-text">Search flights to Bangkok (BKK), Bali (DPS), Tokyo (NRT) and Kuala Lumpur (KUL) from cities worldwide. Compare all available airlines across Asia Pacific routes.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">✈ All major Asia Pacific airports</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Worldwide departures</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
         </div>
       </article>
     </div>
@@ -1140,7 +1190,6 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
     <p class="section-sub reveal">Have a question about a flight or trip? Send us a message and we'll get back to you shortly.</p>
     <div class="contact-wrap reveal">
       <div class="contact-info-col">
-        <div class="contact-info-item"><span class="contact-info-icon">📧</span><div><div class="contact-info-label">Email</div><div class="contact-info-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="89e0e7efe6c9f0e8fae2e8fdfbe8ffece5a7fce2">[email&#160;protected]</a></div></div></div>
         <div class="contact-info-item"><span class="contact-info-icon">💬</span><div><div class="contact-info-label">WhatsApp</div><div class="contact-info-val">+447878940558</div></div></div>
         <div class="contact-info-item"><span class="contact-info-icon">🕐</span><div><div class="contact-info-label">Response Time</div><div class="contact-info-val">Within 2 hours</div></div></div>
       </div>
@@ -2089,6 +2138,20 @@ window.scrollToBook=function(e){
   var navH=nav?nav.offsetHeight:72;
   window.scrollTo({top:box.getBoundingClientRect().top+window.scrollY-navH-16,behavior:'smooth'});
 };
+
+function clearFromField(){
+  var fi=document.getElementById('input-from');
+  if(fi){fi.value='';fi.dispatchEvent(new Event('input'));}
+  var cb=document.getElementById('clear-from');
+  if(cb)cb.classList.remove('visible');
+  var mi=document.getElementById('m-input-from');
+  if(mi){mi.value='';}
+}
+
+// Clear departure on page load
+document.addEventListener('DOMContentLoaded',function(){
+  setTimeout(clearFromField, 100);
+});
 
 window.pickDestination=function(dest, e){
   if(e)e.preventDefault();
