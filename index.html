@@ -483,4 +483,2571 @@ section { padding:90px 5%; }
 footer { background:var(--navy); color:rgba(255,255,255,.6); padding:70px 5% 30px; }
 .footer-inner { max-width:1200px; margin:0 auto; }
 .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px; }
-.footer-logo { display:flex; align-items:center; gap:10px; font-family:'Playfair Display
+.footer-logo { display:flex; align-items:center; gap:10px; font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#fff; margin-bottom:16px; }
+.footer-brand p { font-size:13px; line-height:1.7; max-width:280px; }
+.footer-social { display:flex; gap:10px; margin-top:20px; }
+.social-btn { width:36px; height:36px; border-radius:8px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.1); display:grid; place-items:center; font-size:14px; cursor:pointer; transition:all .2s; color:#fff; }
+.social-btn:hover { background:var(--blue); border-color:var(--blue); }
+.footer-col h4 { font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; margin-bottom:18px; }
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.footer-col li a { font-size:13px; transition:color .2s; }
+.footer-col li a:hover { color:var(--gold2); }
+.footer-bottom { display:flex; align-items:center; justify-content:space-between; padding-top:28px; border-top:1px solid rgba(255,255,255,.08); font-size:12px; }
+.footer-bottom-links { display:flex; gap:20px; }
+.footer-bottom-links a:hover { color:var(--gold2); }
+.wa-wrap { position:fixed; bottom:28px; right:28px; z-index:999; }
+.wa-btn { width:58px; height:58px; border-radius:50%; background:linear-gradient(135deg,#25d366,#128c7e); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 24px rgba(37,211,102,.4); cursor:pointer; transition:all .3s; animation:waFloat 3s ease-in-out infinite; }
+.wa-btn:hover { transform:scale(1.12); box-shadow:0 8px 32px rgba(37,211,102,.55); }
+@keyframes waFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+.wa-btn svg { width:30px; height:30px; fill:#fff; }
+.wa-tooltip { position:absolute; bottom:10px; right:68px; background:var(--navy); color:#fff; font-size:13px; font-weight:600; padding:8px 16px; border-radius:8px; white-space:nowrap; box-shadow:var(--shadow2); opacity:0; transform:translateX(8px); transition:all .3s; pointer-events:none; }
+.wa-wrap:hover .wa-tooltip { opacity:1; transform:translateX(0); }
+.reveal { opacity:0; transform:translateY(30px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+
+/* ══════════════════════════════════════════
+   MOBILE SEARCH BOX (≤768px)
+   Fullscreen panel UX like Skyscanner
+══════════════════════════════════════════ */
+
+/* Hide desktop search on mobile, show mobile search */
+.search-box-desktop { display:block; }
+.search-box-mobile  { display:none; }
+
+@media(max-width:768px) {
+  .search-box-desktop { display:none !important; }
+  .search-box-mobile  { display:block; }
+  /* hide desktop pax portal on mobile */
+  #pax-portal { display:none !important; }
+}
+
+/* Mobile search card */
+.msb {
+  background:rgba(255,255,255,.0);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;
+  overflow:hidden;
+}
+.msb-tabs {
+  display:flex;padding:10px 10px 0;gap:6px;
+  overflow-x:auto;scrollbar-width:none;
+}
+.msb-tabs::-webkit-scrollbar{display:none}
+.msb-tab {
+  flex-shrink:0;padding:9px 18px;border-radius:10px;
+  font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;
+  border:none;cursor:pointer;transition:all .2s;
+  color:rgba(255,255,255,.45);background:transparent;
+}
+.msb-tab.active{background:var(--blue);color:#fff;box-shadow:0 3px 14px rgba(27,95,193,.45)}
+.msb-trip-row{display:flex;align-items:center;gap:6px;padding:10px 14px 0;}
+.msb-trip-btn{
+  padding:6px 14px;border-radius:20px;
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;
+  border:1.5px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.45);cursor:pointer;transition:all .2s;
+}
+.msb-trip-btn.active{background:rgba(200,150,62,.18);border-color:var(--gold2);color:var(--gold2);}
+.msb-fields{margin:12px 10px 0;background:rgba(255,255,255,.0);border:1px solid rgba(255,255,255,.18);border-radius:14px;overflow:visible;}
+.msb-field{
+  display:flex;align-items:center;
+  padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07);
+  cursor:pointer;position:relative;transition:background .15s;
+}
+.msb-field:last-child{border-bottom:none;}
+.msb-field:active{background:rgba(255,255,255,.04);}
+.msb-field-icon{
+  width:34px;height:34px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;flex-shrink:0;margin-right:12px;
+}
+.msb-field-icon.dep{background:rgba(77,163,255,.18);}
+.msb-field-icon.arr{background:rgba(200,150,62,.18);}
+.msb-field-icon.cal{background:rgba(34,197,120,.15);}
+.msb-field-icon.pax-icon{background:rgba(168,85,247,.15);}
+.msb-field-body{flex:1;min-width:0;}
+.msb-field-label{font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;margin-bottom:3px;}
+.msb-field-value{font-size:15px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.msb-field-value.ph{color:rgba(255,255,255,.3);font-weight:400;}
+.msb-field-arrow{color:rgba(255,255,255,.25);font-size:16px;flex-shrink:0;margin-left:8px;}
+.msb-swap-row{display:flex;justify-content:flex-end;padding:0 16px 0 0;position:relative;height:0;z-index:5;}
+.msb-swap-btn{
+  position:relative;top:-17px;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--navy2);border:1.5px solid rgba(255,255,255,.2);
+  color:var(--gold2);font-size:15px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .25s;
+}
+.msb-swap-btn:active{transform:rotate(180deg);background:var(--gold2);color:var(--navy);}
+.msb-extras{display:flex;gap:0;flex-direction:column;padding:10px 14px 2px;}
+.msb-extra{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 0;border-top:1px solid rgba(255,255,255,.07);
+  cursor:pointer;font-size:13px;font-weight:600;color:rgba(255,255,255,.6);
+}
+.msb-extra:first-child{border-top:none;}
+.msb-extra-check{
+  width:20px;height:20px;border-radius:5px;
+  border:1.5px solid rgba(255,255,255,.2);
+  background:transparent;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;transition:all .2s;
+}
+.msb-extra.active .msb-extra-check{background:var(--blue);border-color:var(--blue);}
+.msb-extra.active .msb-extra-check::after{content:'✓';font-size:11px;color:#fff;font-weight:800;}
+.msb-btn-wrap{padding:10px 10px 12px;}
+.msb-search-btn{
+  width:100%;padding:17px;border-radius:14px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--navy);border:none;
+  font-family:'Outfit',sans-serif;font-size:16px;font-weight:800;
+  cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 4px 20px rgba(200,150,62,.35);
+}
+.msb-search-btn:active{transform:scale(.98);}
+
+/* Mobile results panel */
+.msb-results{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;margin-top:14px;padding:14px;display:none;
+}
+.msb-results-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
+.msb-partner-btns{display:flex;flex-direction:column;gap:8px;}
+.msb-partner-btn{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;border-radius:12px;border:none;cursor:pointer;
+  font-family:'Outfit',sans-serif;transition:all .2s;
+  width:100%;text-align:left;
+}
+.msb-partner-btn:active{transform:scale(.98);}
+.msb-p-emoji{font-size:22px;flex-shrink:0;}
+.msb-p-info{flex:1;}
+.msb-p-name{font-size:14px;font-weight:800;}
+.msb-p-sub{font-size:11px;margin-top:1px;opacity:.7;}
+.msb-p-arrow{font-size:18px;opacity:.6;flex-shrink:0;}
+.msb-btn-sky{background:linear-gradient(135deg,#00A6DE,#0082B8);color:#fff;}
+.msb-btn-gfl{background:linear-gradient(135deg,#4285F4,#1a5dc8);color:#fff;}
+.msb-btn-exp{background:linear-gradient(135deg,#FFC72C,#F0A800);color:#00355F;}
+
+/* ── HOTEL PAX DROPDOWN POPUP ── */
+.hpd-wrap{
+  background:#0e1f3d;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06);
+  overflow:hidden;
+}
+.hpd-header{
+  font-size:13px;font-weight:800;color:rgba(255,255,255,.45);
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:16px 20px 10px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.hpd-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.hpd-row:last-of-type{border-bottom:none;}
+.hpd-info .hpd-name{font-size:16px;font-weight:700;color:#fff;}
+.hpd-info .hpd-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:3px;line-height:1.4;}
+.hpd-counter{display:flex;align-items:center;gap:18px;flex-shrink:0;}
+.hpd-btn{
+  width:38px;height:38px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+  font-size:22px;font-weight:300;color:#fff;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .15s;line-height:1;flex-shrink:0;
+  font-family:'Outfit',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+.hpd-btn:disabled{opacity:.3;cursor:not-allowed;}
+.hpd-btn:not(:disabled):hover{border-color:var(--blue);background:rgba(27,95,193,.3);color:#fff;}
+.hpd-btn:not(:disabled):active{background:var(--blue);border-color:var(--blue);transform:scale(.92);}
+.hpd-num{font-size:18px;font-weight:800;color:#fff;min-width:26px;text-align:center;}
+.hpd-warn{
+  display:flex;align-items:center;gap:8px;
+  margin:0 20px 4px;padding:10px 14px;
+  background:rgba(255,160,50,.1);border:1px solid rgba(255,160,50,.3);
+  border-radius:10px;font-size:12px;font-weight:600;color:#FFB347;line-height:1.4;
+}
+.hpd-done{
+  display:block;
+  width:calc(100% - 40px);margin:12px 20px 18px;
+  padding:15px;border-radius:12px;
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:#fff;border:none;
+  font-family:'Outfit',sans-serif;font-size:15px;font-weight:800;
+  cursor:pointer;
+  box-shadow:0 4px 14px rgba(27,95,193,.4);
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+.hpd-done:active{transform:scale(.98);}
+
+.m-panel{
+  position:fixed;inset:0;z-index:99999;
+  background:var(--navy);
+  display:flex;flex-direction:column;
+  transform:translateY(100%);transition:transform .3s cubic-bezier(.32,1,.3,1);
+  overflow:hidden;
+}
+.m-panel.open{transform:translateY(0);}
+.m-panel-header{
+  display:flex;align-items:center;gap:12px;
+  padding:16px 20px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  flex-shrink:0;
+}
+.m-panel-back{
+  background:rgba(255,255,255,.08);border:none;border-radius:50%;
+  width:38px;height:38px;color:#fff;font-size:20px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.m-panel-title{font-size:16px;font-weight:700;color:#fff;}
+.m-panel-body{flex:1;overflow-y:auto;padding:16px 20px;}
+.m-panel-body::-webkit-scrollbar{display:none;}
+.m-search-wrap{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.0);border:1.5px solid rgba(255,255,255,.2);
+  border-radius:12px;padding:12px 16px;margin-bottom:16px;
+}
+.m-search-wrap input{
+  flex:1;background:transparent;border:none;outline:none;
+  font-family:'Outfit',sans-serif;font-size:16px;font-weight:500;color:#fff;
+}
+.m-search-wrap input::placeholder{color:rgba(255,255,255,.3);}
+.m-search-icon{color:rgba(255,255,255,.4);font-size:16px;flex-shrink:0;}
+.m-nearby-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;background:rgba(255,255,255,.04);border-radius:10px;
+  margin-bottom:14px;
+}
+.m-nearby-label{font-size:14px;font-weight:600;color:rgba(255,255,255,.75);}
+.m-toggle{
+  width:44px;height:24px;border-radius:12px;
+  background:rgba(255,255,255,.15);position:relative;cursor:pointer;transition:background .2s;
+}
+.m-toggle.on{background:var(--blue);}
+.m-toggle::after{
+  content:'';position:absolute;top:2px;left:2px;
+  width:20px;height:20px;border-radius:50%;background:#fff;
+  transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.2);
+}
+.m-toggle.on::after{transform:translateX(20px);}
+.m-section-label{font-size:10px;font-weight:800;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;padding:12px 4px 8px;}
+.m-airport-item{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 12px;border-radius:12px;cursor:pointer;transition:background .12s;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.m-airport-item:last-child{border-bottom:none;}
+.m-airport-item:active{background:rgba(255,255,255,.06);}
+.m-airport-icon{
+  width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(135deg,var(--blue),var(--sky));
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.m-airport-info{flex:1;min-width:0;}
+.m-airport-name{font-size:14px;font-weight:700;color:#fff;}
+.m-airport-sub{font-size:12px;color:var(--text3);margin-top:1px;}
+.m-airport-code{
+  font-size:12px;font-weight:800;color:var(--blue);
+  background:rgba(27,95,193,.12);border:1px solid rgba(27,95,193,.2);
+  border-radius:6px;padding:3px 9px;flex-shrink:0;letter-spacing:.04em;
+}
+.m-date-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+.m-date-card{
+  background:rgba(255,255,255,.0);border:1.5px solid rgba(255,255,255,.18);
+  border-radius:12px;padding:14px;cursor:pointer;
+}
+.m-date-card.active{border-color:var(--blue);background:rgba(27,95,193,.15);}
+.m-date-card-label{font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;margin-bottom:5px;}
+.m-date-card-val{font-size:15px;font-weight:700;color:#fff;}
+.m-date-input{
+  width:100%;padding:14px 16px;
+  background:rgba(255,255,255,.0);border:1.5px solid rgba(255,255,255,.18);
+  border-radius:12px;color:#fff;font-family:'Outfit',sans-serif;font-size:15px;
+  font-weight:600;outline:none;color-scheme:dark;margin-bottom:12px;
+}
+.m-date-input:focus{border-color:var(--blue);background:rgba(27,95,193,.12);}
+.m-date-fieldlabel{display:block;font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px;}
+.m-cabin-select{
+  width:100%;padding:14px 16px;
+  background:rgba(255,255,255,.0);border:1.5px solid rgba(255,255,255,.18);
+  border-radius:12px;color:#fff;font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;
+  outline:none;appearance:none;color-scheme:dark;margin-bottom:16px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,.5)' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+}
+.m-cabin-select option{background:#1a2f55;color:#fff;}
+.m-pax-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
+.m-pax-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.m-pax-row:last-of-type{border-bottom:none;}
+.m-pax-row .name{font-size:15px;font-weight:700;color:#fff;}
+.m-pax-row .sub{font-size:12px;color:var(--text3);margin-top:2px;}
+.m-pax-counter{display:flex;align-items:center;gap:14px;}
+.m-counter-btn{
+  width:40px;height:40px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);
+  font-size:22px;font-weight:300;color:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;line-height:1;
+}
+.m-counter-btn:disabled{opacity:.3;cursor:not-allowed;}
+.m-counter-btn:not(:disabled):active{background:var(--blue);border-color:var(--blue);}
+.m-counter-num{font-size:18px;font-weight:800;color:#fff;min-width:24px;text-align:center;}
+.m-panel-apply{
+  width:100%;padding:17px;border-radius:14px;
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:#fff;border:none;
+  font-family:'Outfit',sans-serif;font-size:16px;font-weight:800;
+  cursor:pointer;margin-top:20px;
+  box-shadow:0 4px 16px rgba(27,95,193,.35);
+}
+.m-panel-apply:active{transform:scale(.98);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .dest-grid { grid-template-columns:1fr 1fr 1fr; }
+  .dest-card.tall { grid-row:span 1; }
+  .dest-card.tall .dest-img { min-height:240px; }
+  .pkg-grid { grid-template-columns:1fr 1fr; }
+  .aff-grid { grid-template-columns:1fr 1fr; }
+  .why-grid { grid-template-columns:1fr 1fr; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:768px){
+  .nav-links { display:none; }
+  .nav-hamburger { display:flex; }
+  #nav-ticker { display:none !important; }
+  #mobile-ticker-bar { display:flex !important; position:fixed;top:60px;left:0;right:0;z-index:997; height:40px;overflow:hidden;align-items:center; background:rgba(13,27,42,.97); border-bottom:1px solid rgba(255,92,92,.2); }
+  .hero { padding:112px 4% 32px; }
+  .hero h1 { font-size:clamp(22px,6vw,34px); }
+  .hero-sub { font-size:13px; margin-bottom:16px; }
+  .hero-stats { gap:14px; flex-wrap:wrap; }
+  .dest-grid { grid-template-columns:1fr; }
+  .pkg-grid { grid-template-columns:1fr; }
+  .aff-grid { grid-template-columns:1fr; }
+  .why-grid { grid-template-columns:1fr 1fr; }
+  .testi-grid { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr; gap:32px; }
+  .footer-bottom { flex-direction:column; gap:12px; text-align:center; }
+  .newsletter-form { flex-direction:column; }
+  .newsletter-form button { padding:14px; }
+  .contact-grid { grid-template-columns:1fr; gap:32px; }
+  .cf-row { grid-template-columns:1fr; }
+  .contact-form-card { padding:20px; }
+  .wa-wrap { bottom:60px; right:12px; }
+}
+</style>
+<script>
+window.openModal = function(tab) {
+  var overlay = document.getElementById('auth-overlay');
+  var modal   = document.getElementById('auth-modal');
+  if (!overlay || !modal) return;
+  overlay.style.display = 'block';
+  if (window.innerWidth <= 768) {
+    modal.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:0;left:0;width:100%;height:100%;z-index:100001;';
+  } else {
+    modal.style.cssText = 'display:block;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:100001;width:min(440px,calc(100vw - 32px));';
+  }
+  document.body.style.overflow = 'hidden';
+  window.switchAuthTab(tab || 'login');
+};
+window.closeModal = function() {
+  var overlay = document.getElementById('auth-overlay');
+  var modal   = document.getElementById('auth-modal');
+  if (overlay) overlay.style.display = 'none';
+  if (modal) { modal.style.cssText = 'display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:100001;width:min(440px,calc(100vw - 32px));'; }
+  document.body.style.overflow = '';
+};
+window.switchAuthTab = function(tab) {
+  var fl = document.getElementById('form-login');
+  var fr = document.getElementById('form-register');
+  var tl = document.getElementById('tab-login');
+  var tr = document.getElementById('tab-register');
+  if (fl) fl.style.display = tab === 'login' ? 'block' : 'none';
+  if (fr) fr.style.display = tab === 'register' ? 'block' : 'none';
+  if (tl) tl.classList.toggle('active', tab === 'login');
+  if (tr) tr.classList.toggle('active', tab === 'register');
+};
+window.handleAuthSubmit = function(e, type) {
+  e.preventDefault();
+  var form = e.target;
+  fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
+  .finally(function() {
+    if (window.showToast) window.showToast(type === 'register' ? '🎉 Account created!' : '✅ Signed in!');
+    window.closeModal();
+  });
+};
+window.handleContactSubmit = function(e) {
+  e.preventDefault();
+  var form = e.target;
+  fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
+  .finally(function() { if (window.showToast) window.showToast('✅ Message sent! We\'ll reply within 2 hours.'); form.reset(); });
+};
+window.toggleMenu = function(){
+  var links = document.querySelector('.nav-links');
+  if(!links) return;
+  if(links.style.display === 'flex'){ links.style.display = 'none'; }
+  else { links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:20px 5%;gap:16px;border-bottom:1px solid rgba(255,255,255,.08);z-index:999'; }
+};
+window.handleNewsletterSubmit = function(e) {
+  e.preventDefault();
+  var form = e.target;
+  fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
+  .finally(function() { if (window.showToast) window.showToast('✅ Subscribed! Welcome to Yasska.'); form.reset(); });
+};
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { window.closeModal(); } });
+</script>
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
+  <!-- Travelpayouts White Label -->
+  <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+    (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.type = "module";
+      script.src = "https://tpwgts.com/wl_web/main.js?wl_id=15117";
+      document.head.appendChild(script);
+    })();
+  </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y21MV4ZP7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8Y21MV4ZP7');
+  </script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="/" class="nav-logo" onclick="clearFromField()">
+    <div class="nav-logo-mark">✈</div>
+    Yasska<span style="color:var(--gold2)">.</span>
+  </a>
+  <div id="nav-ticker" style="flex:1;overflow:hidden;margin:0 20px;height:34px;display:flex;align-items:center;">
+    <div style="overflow:hidden;border-radius:20px;background:linear-gradient(135deg,rgba(255,92,92,.15),rgba(255,140,66,.1));border:1px solid rgba(255,92,92,.3);height:34px;width:100%;display:flex;align-items:center;box-shadow:0 2px 12px rgba(255,92,92,.15);">
+      <div style="flex-shrink:0;padding:0 13px;height:34px;display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,#FF5C5C,#FF8C42);border-radius:20px 0 0 20px;">
+        <span style="font-size:13px">🔥</span>
+        <span style="font-size:10px;font-weight:900;color:#fff;letter-spacing:.1em;white-space:nowrap;">HOT DEALS</span>
+      </div>
+      <div style="flex:1;overflow:hidden;height:34px;display:flex;align-items:center;">
+        <div id="hticker-inner" style="display:flex;align-items:center;white-space:nowrap;animation:hticker 40s linear infinite;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#destinations">Destinations</a>
+    <a href="#guides">Travel Guides</a>
+    <a href="#book" onclick="scrollToBook(event)">Book</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE TICKER -->
+<div id="mobile-ticker-bar" style="display:none;">
+  <div style="flex-shrink:0;padding:0 14px;height:40px;display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,#FF5C5C,#FF8C42);">
+    <span style="font-size:13px">🔥</span>
+    <span style="font-size:10px;font-weight:900;color:#fff;letter-spacing:.1em;white-space:nowrap;">HOT DEALS</span>
+  </div>
+  <div style="flex:1;overflow:hidden;height:40px;display:flex;align-items:center;">
+    <div id="mobile-ticker-inner" style="display:flex;align-items:center;white-space:nowrap;animation:hticker 60s linear infinite;"></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+  <div class="hero-inner">
+
+    <!-- Title block -->
+    <div style="text-align:center;padding:48px 20px 40px;max-width:700px;margin:0 auto;">
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,58px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px;">Welcome To <em style="font-style:normal;color:var(--gold2);">Yasska</em><br/>Travel Agency</h1>
+      <p style="font-size:clamp(14px,1.6vw,18px);color:rgba(255,255,255,.6);line-height:1.75;max-width:540px;margin:0 auto;">Flights, hotels and travel deals to over 150 destinations worldwide. Compare top airlines and booking platforms to find your best fare.</p>
+    </div>
+
+    <!-- Search panel — separate block below title -->
+    <div id="book" class="search-box" style="padding:28px 32px;max-width:960px;margin:0 auto 40px;">
+      <div id="tpwl-search"></div>
+      <div id="tpwl-tickets"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DESTINATIONS - HIDDEN, uncomment style to show -->
+<section class="destinations" id="destinations">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Popular Routes</div>
+    <h2 class="section-title reveal">Cheap Flights Worldwide</h2>
+    <p class="section-sub reveal">Search flights from anywhere in the world to your dream destination.</p>
+    <div class="dest-grid">
+
+      <div class="dest-card tall reveal" onclick="scrollToBook(event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800&q=80&auto=format&fit=crop" alt="Cheap Umrah flights London to Jeddah Mecca Saudi Arabia" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-badge">Umrah Flights</div>
+          <div class="dest-name">Jeddah, Saudi Arabia</div>
+          <div class="dest-meta">✈ ~6–7h flight</div>
+        </div>
+      </div>
+
+      <div class="dest-card reveal reveal-delay-1" onclick="scrollToBook(event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80&auto=format&fit=crop" alt="Cheap flights London to Dubai UAE" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-badge">Most Popular</div>
+          <div class="dest-name">Dubai, UAE</div>
+          <div class="dest-meta">✈ ~7h flight</div>
+        </div>
+      </div>
+
+      <div class="dest-card reveal reveal-delay-2" onclick="scrollToBook(event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=600&q=80&auto=format&fit=crop" alt="Cheap flights London to Lahore Pakistan" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-name">Lahore, Pakistan</div>
+          <div class="dest-meta">✈ ~8–9h flight</div>
+        </div>
+      </div>
+
+      <div class="dest-card reveal reveal-delay-1" onclick="scrollToBook(event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80&auto=format&fit=crop" alt="Cheap flights London to Dhaka Bangladesh" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-name">Dhaka, Bangladesh</div>
+          <div class="dest-meta">✈ ~9–10h flight</div>
+        </div>
+      </div>
+
+      <div class="dest-card reveal reveal-delay-2" onclick="scrollToBook(event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=600&q=80&auto=format&fit=crop" alt="Cheap flights London to Accra Ghana West Africa" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-name">Accra, Ghana</div>
+          <div class="dest-meta">✈ ~6–7h flight</div>
+        </div>
+      </div>
+
+      <div class="dest-card reveal reveal-delay-1" onclick="scrollToBook(event)" style="cursor:pointer">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&q=80&auto=format&fit=crop" alt="Cheap flights London to Istanbul Turkey" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s"/></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <div class="dest-badge">Trending</div>
+          <div class="dest-name">Istanbul, Turkey</div>
+          <div class="dest-meta">✈ ~4h flight</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL GUIDES -->
+<section class="travel-guides" id="guides">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Flight Search</div>
+    <h2 class="section-title reveal">Cheap Flights to Top Destinations</h2>
+    <p class="section-sub reveal">Search and compare international flights to over 150 destinations worldwide — including Umrah flights to Saudi Arabia, Middle East, South Asia, Africa, Europe and beyond. Free to use, no sign-up needed.</p>
+
+    <div class="article-featured reveal">
+      <div class="article-featured-img">
+        <img src="makkah.jpg" alt="Makkah Kaaba Grand Mosque Umrah flights worldwide" loading="lazy"/>
+      </div>
+      <div class="article-featured-body">
+        <span class="guide-tag">Umrah Flights</span>
+        <h3 class="article-title">Cheap Umrah Flights to Jeddah &amp; Madinah</h3>
+        <p class="article-text">Search international flights to Jeddah (JED) and Madinah (MED) from any major city worldwide. Whether you're travelling from the UK, USA, Canada, Australia, Europe or Africa — compare all available airlines. Flights only — not packages.</p>
+        <ul style="margin-top:12px;list-style:none;padding:0;display:flex;flex-direction:column;gap:5px;">
+          <li style="font-size:13px;color:var(--text2);">🕌 Umrah flights from any country worldwide</li>
+          <li style="font-size:13px;color:var(--text2);">✈ Flights to Jeddah (JED) — King Abdulaziz Airport</li>
+          <li style="font-size:13px;color:var(--text2);">✈ Flights to Madinah (MED) — Prince Mohammad Airport</li>
+          <li style="font-size:13px;color:var(--text2);">🌍 Departures from any major city worldwide</li>
+          <li style="font-size:13px;color:var(--text2);">💺 Economy &amp; Business class options</li>
+          <li style="font-size:13px;color:var(--text2);">🆓 Free to search — no booking fees added</li>
+        </ul>
+        <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:12px 24px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.filter='brightness(1.08)'" onmouseout="this.style.filter=''">🕌 Search Umrah Flights</a>
+      </div>
+    </div>
+
+    <div class="articles-grid">
+      <article class="article-card reveal">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to Dubai UAE" loading="lazy"/></div>
+        <div class="article-body">
+          <span class="guide-tag">Middle East</span>
+          <h3 class="article-title">Cheap Flights to Dubai</h3>
+          <p class="article-text">Search flights to Dubai (DXB) from major cities worldwide. One of the world's most connected airports — popular with travellers from every continent. No visa required for many nationalities.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">✈ Direct &amp; connecting flights available</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Departures from any major city</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
+        </div>
+      </article>
+      <article class="article-card reveal reveal-delay-1">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to Pakistan Lahore Karachi Islamabad" loading="lazy"/></div>
+        <div class="article-body">
+          <span class="guide-tag">South Asia</span>
+          <h3 class="article-title">Cheap Flights to Pakistan</h3>
+          <p class="article-text">Search flights to Lahore (LHE), Karachi (KHI) and Islamabad (ISB) from cities worldwide. Popular for family visits, weddings and Eid travel. Compare all available airlines for your route.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">✈ All major Pakistan airports</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Worldwide departures</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
+        </div>
+      </article>
+      <article class="article-card reveal reveal-delay-2">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to West Africa Accra Lagos" loading="lazy"/></div>
+        <div class="article-body">
+          <span class="guide-tag">West Africa</span>
+          <h3 class="article-title">Cheap Flights to West Africa</h3>
+          <p class="article-text">Search flights to Accra (ACC), Lagos (LOS) and other West African destinations from cities worldwide. Compare all available airlines for routes across West Africa.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">✈ Accra, Lagos &amp; all West Africa routes</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Worldwide departures</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
+        </div>
+      </article>
+      <article class="article-card reveal">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to Bangladesh India Dhaka Delhi Mumbai" loading="lazy"/></div>
+        <div class="article-body">
+          <span class="guide-tag">South Asia</span>
+          <h3 class="article-title">Cheap Flights to Bangladesh &amp; India</h3>
+          <p class="article-text">Search flights to Dhaka (DAC), Delhi (DEL), Mumbai (BOM) and Chittagong from cities worldwide. Compare all available airlines for South Asia routes.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">✈ All major Bangladesh &amp; India airports</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Worldwide departures</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
+        </div>
+      </article>
+      <article class="article-card reveal reveal-delay-1">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to Europe Paris Barcelona Amsterdam Rome" loading="lazy"/></div>
+        <div class="article-body">
+          <span class="guide-tag">Europe</span>
+          <h3 class="article-title">Cheap Flights to Europe &amp; Beyond</h3>
+          <p class="article-text">Search flights to Paris, Barcelona, Amsterdam, Rome and 150+ destinations across Europe. Compare all available airlines from your city worldwide.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">🌐 150+ European destinations</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Worldwide departures</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
+        </div>
+      </article>
+      <article class="article-card reveal reveal-delay-2">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80&auto=format&fit=crop" alt="Cheap international flights to Asia Bangkok Bali Tokyo Kuala Lumpur" loading="lazy"/></div>
+        <div class="article-body">
+          <span class="guide-tag">Asia Pacific</span>
+          <h3 class="article-title">Cheap Flights to Asia</h3>
+          <p class="article-text">Search flights to Bangkok (BKK), Bali (DPS), Tokyo (NRT) and Kuala Lumpur (KUL) from cities worldwide. Compare all available airlines across Asia Pacific routes.</p>
+          <ul style="margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--text3);">✈ All major Asia Pacific airports</li>
+            <li style="font-size:12px;color:var(--text3);">🌍 Worldwide departures</li>
+            <li style="font-size:12px;color:var(--text3);">🆓 Free to compare</li>
+          </ul>
+          <a href="#book" onclick="scrollToBook(event)" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 20px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;">✈ Search Flights</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Get In Touch</div>
+    <h2 class="section-title reveal">Contact Us</h2>
+    <p class="section-sub reveal">Have a question about a flight or trip? Send us a message and we'll get back to you shortly.</p>
+    <div class="contact-wrap reveal">
+      <div class="contact-info-col">
+        <div class="contact-info-item"><span class="contact-info-icon">💬</span><div><div class="contact-info-label">WhatsApp</div><div class="contact-info-val">+447878940558</div></div></div>
+        <div class="contact-info-item"><span class="contact-info-icon">🕐</span><div><div class="contact-info-label">Response Time</div><div class="contact-info-val">Within 2 hours</div></div></div>
+      </div>
+      <div class="contact-form-col">
+        <form name="contact" method="POST" data-netlify="true" onsubmit="handleContactSubmit(event)">
+          <input type="hidden" name="form-name" value="contact"/>
+          <div class="cf-group"><label class="cf-label">Your Name</label><input class="cf-input" type="text" name="name" placeholder="John Smith" required/></div>
+          <div class="cf-group"><label class="cf-label">Email Address</label><input class="cf-input" type="email" name="email" placeholder="john@example.com" required/></div>
+          <div class="cf-group"><label class="cf-label">Message</label><textarea class="cf-input cf-textarea" name="message" placeholder="Tell us about your trip..." required></textarea></div>
+          <button type="submit" class="cf-submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="section-inner">
+    <div class="newsletter-inner">
+      <div class="section-eyebrow reveal" style="justify-content:center;color:var(--gold2)">Exclusive Deals</div>
+      <h2 class="reveal" style="color:#fff;font-size:clamp(28px,4vw,40px)">Get Travel Deals First</h2>
+      <p class="reveal">Subscribe to our newsletter and receive exclusive flight deals, early-bird packages and travel inspiration delivered to your inbox weekly.</p>
+      <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form reveal" onsubmit="handleNewsletterSubmit(event)">
+        <input type="hidden" name="form-name" value="newsletter"/>
+        <input type="email" name="email" placeholder="Enter your email address" required/>
+        <button type="submit">Subscribe — It's Free</button>
+      </form>
+      <div class="newsletter-note reveal">No spam. Unsubscribe anytime. Join 12,000+ subscribers.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><div class="nav-logo-mark" style="width:32px;height:32px;font-size:16px">✈</div>Yasska<span style="color:var(--gold2)">.</span></div>
+        <p>YaskaTravel is your free travel companion, helping travellers worldwide discover and compare the best flights, hotels and travel deals from the world's leading booking platforms. Simply pick your destination and we'll point you in the right direction. Travel smarter, explore more.</p>
+        <div class="footer-social"><div class="social-btn">f</div><div class="social-btn">in</div><div class="social-btn">tw</div><div class="social-btn">ig</div></div>
+      </div>
+      <div class="footer-col"><h4>Destinations</h4><ul><li><a href="#destinations">Europe</a></li><li><a href="#destinations">Middle East</a></li><li><a href="#destinations">Asia Pacific</a></li><li><a href="#destinations">Americas</a></li><li><a href="#destinations">Africa</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="#book" onclick="scrollToBook(event)">Flight Search</a></li><li><a href="#book" onclick="scrollToBook(event)">Hotel Search</a></li><li><a href="#guides">Travel Guides</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="#contact">Contact Us</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li><li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li><li><a href="cookie-policy.html">Cookie Policy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 YaskaTravel.uk. All rights reserved.</div>
+      <div class="footer-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a><a href="cookie-policy.html">Cookie Policy</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<div class="wa-wrap" id="wa-wrap" style="opacity:0;pointer-events:none;transition:opacity .3s;">
+  <a href="https://wa.me/447878940558?text=Hi! I'd like to enquire about travel packages." target="_blank" class="wa-btn">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+  <div class="wa-tooltip">💬 Chat with us</div>
+</div>
+
+<!-- AUTH MODAL -->
+<div id="auth-overlay" onclick="closeModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100000;backdrop-filter:blur(4px);"></div>
+<div id="auth-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:100001;width:min(440px,calc(100vw - 32px));">
+  <div class="auth-card">
+    <button class="auth-back" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Back</button>
+    <button class="auth-close" onclick="closeModal()">✕</button>
+    <div class="auth-tabs"><button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Sign In</button><button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Register</button></div>
+    <div id="form-login">
+      <p class="auth-subtitle">Welcome back to Yasska ✈️</p>
+      <form name="login" method="POST" data-netlify="true" onsubmit="handleAuthSubmit(event,'login')">
+        <input type="hidden" name="form-name" value="login"/>
+        <div class="cf-group"><label class="cf-label">Email Address</label><input class="cf-input" type="email" name="email" placeholder="john@example.com" required/></div>
+        <div class="cf-group"><label class="cf-label">Password</label><input class="cf-input" type="password" name="password" placeholder="••••••••" required/></div>
+        <button type="submit" class="cf-submit" style="margin-top:8px">Sign In to Yasska</button>
+      </form>
+      <p class="auth-switch">Don't have an account? <a onclick="switchAuthTab('register')">Register free →</a></p>
+    </div>
+    <div id="form-register" style="display:none">
+      <p class="auth-subtitle">Create your free Yasska account 🌍</p>
+      <form name="register" method="POST" data-netlify="true" onsubmit="handleAuthSubmit(event,'register')">
+        <input type="hidden" name="form-name" value="register"/>
+        <div class="cf-row"><div class="cf-group"><label class="cf-label">First Name</label><input class="cf-input" type="text" name="first-name" placeholder="John" required/></div><div class="cf-group"><label class="cf-label">Last Name</label><input class="cf-input" type="text" name="last-name" placeholder="Smith" required/></div></div>
+        <div class="cf-group"><label class="cf-label">Email Address</label><input class="cf-input" type="email" name="email" placeholder="john@example.com" required/></div>
+        <div class="cf-group"><label class="cf-label">Phone Number</label><input class="cf-input" type="tel" name="phone" placeholder="+44 7700 000000"/></div>
+        <div class="cf-group"><label class="cf-label">Password</label><input class="cf-input" type="password" name="password" placeholder="Min 8 characters" required minlength="8"/></div>
+        <div class="cf-group" style="display:flex;align-items:flex-start;gap:10px;margin-top:4px"><input type="checkbox" name="terms" id="terms-check" required style="margin-top:3px;flex-shrink:0;width:16px;height:16px;accent-color:var(--blue)"/><label for="terms-check" style="font-size:12px;color:var(--text3);line-height:1.5;cursor:pointer">I agree to the <a href="#" style="color:var(--blue)">Terms of Service</a> and <a href="#" style="color:var(--blue)">Privacy Policy</a></label></div>
+        <button type="submit" class="cf-submit" style="margin-top:12px">Create My Account</button>
+      </form>
+      <p class="auth-switch">Already have an account? <a onclick="switchAuthTab('login')">Sign in →</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- DESKTOP PAX PORTAL -->
+<div id="pax-portal" onclick="closePaxPanel()">
+  <div id="pax-portal-inner" onclick="event.stopPropagation()">
+    <div class="pax-section">
+      <div class="pax-section-title" style="margin-bottom:6px">Cabin class</div>
+      <select class="pax-cabin-select" onchange="paxState.cabin=this.value;updatePaxDisplay()">
+        <option value="Economy">Economy</option><option value="Premium Economy">Premium Economy</option><option value="Business">Business</option><option value="First Class">First Class</option>
+      </select>
+    </div>
+    <div class="pax-row"><div class="pax-row-info"><div class="pax-row-label">Adults</div><div class="pax-row-sub">Aged 18+</div></div><div class="pax-counter"><button class="pax-btn" onclick="changeCount('adults',-1)" id="btn-adults-minus">−</button><span class="pax-count" id="count-adults">1</span><button class="pax-btn" onclick="changeCount('adults',1)" id="btn-adults-plus">+</button></div></div>
+    <div class="pax-row"><div class="pax-row-info"><div class="pax-row-label">Children</div><div class="pax-row-sub">Aged 0 to 17</div></div><div class="pax-counter"><button class="pax-btn" onclick="changeCount('children',-1)" id="btn-children-minus">−</button><span class="pax-count" id="count-children">0</span><button class="pax-btn" onclick="changeCount('children',1)" id="btn-children-plus">+</button></div></div>
+    <div id="child-ages-container"></div>
+    <button class="pax-done-btn" onclick="closePaxPanel()">Apply</button>
+  </div>
+</div>
+
+<!-- HOTEL PAX PORTAL (desktop) -->
+<div id="hotel-pax-portal" onclick="closeHotelPaxPortal()" style="display:none;position:fixed;z-index:99999;">
+  <div id="hotel-pax-portal-inner" onclick="event.stopPropagation()" style="width:300px;background:#0e1f3d;border:1px solid rgba(255,255,255,.15);border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.5);padding:6px 16px 14px;animation:dropIn .18s cubic-bezier(.34,1.56,.64,1);">
+    <div class="pax-section">
+      <div class="pax-section-title" style="color:rgba(255,255,255,.45);margin-bottom:6px">Guests &amp; Rooms</div>
+    </div>
+    <div class="pax-row" style="border-color:rgba(255,255,255,.08)">
+      <div class="pax-row-info"><div class="pax-row-label" style="color:#fff">Adults</div><div class="pax-row-sub" style="color:rgba(255,255,255,.4)">18+ years</div></div>
+      <div class="pax-counter">
+        <button class="pax-btn" id="d-btn-ham" onclick="changeHotelCount('adults',-1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">−</button>
+        <span class="pax-count" id="d-count-hotel-adults" style="color:#fff">2</span>
+        <button class="pax-btn" id="d-btn-hap" onclick="changeHotelCount('adults',1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">+</button>
+      </div>
+    </div>
+    <div class="pax-row" style="border-color:rgba(255,255,255,.08)">
+      <div class="pax-row-info"><div class="pax-row-label" style="color:#fff">Children</div><div class="pax-row-sub" style="color:rgba(255,255,255,.4)">0–17 years</div></div>
+      <div class="pax-counter">
+        <button class="pax-btn" id="d-btn-hcm" onclick="changeHotelCount('children',-1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">−</button>
+        <span class="pax-count" id="d-count-hotel-children" style="color:#fff">0</span>
+        <button class="pax-btn" id="d-btn-hcp" onclick="changeHotelCount('children',1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">+</button>
+      </div>
+    </div>
+    <div class="pax-row" style="border-color:rgba(255,255,255,.08)">
+      <div class="pax-row-info"><div class="pax-row-label" style="color:#fff">Rooms</div><div class="pax-row-sub" style="color:rgba(255,255,255,.4)">1 adult per room min.</div></div>
+      <div class="pax-counter">
+        <button class="pax-btn" id="d-btn-hrm" onclick="changeHotelCount('rooms',-1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">−</button>
+        <span class="pax-count" id="d-count-hotel-rooms" style="color:#fff">1</span>
+        <button class="pax-btn" id="d-btn-hrp" onclick="changeHotelCount('rooms',1)" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">+</button>
+      </div>
+    </div>
+    <button class="pax-done-btn" onclick="closeHotelPaxPortal()" style="background:linear-gradient(135deg,var(--blue),var(--blue2))">Apply</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" style="position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:600;z-index:9999;opacity:0;transition:all .3s;pointer-events:none;box-shadow:0 8px 32px rgba(0,0,0,.3);white-space:nowrap"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+/* ══════════════════════════════════════════
+   SHARED AIRPORT + HOTEL DATA
+══════════════════════════════════════════ */
+const AIRPORTS=[
+  {code:'LHR',name:'London Heathrow Airport',city:'London',country:'United Kingdom',flag:'🇬🇧',type:'main'},
+  {code:'LGW',name:'London Gatwick Airport',city:'London',country:'United Kingdom',flag:'🇬🇧',type:'secondary'},
+  {code:'STN',name:'London Stansted Airport',city:'London',country:'United Kingdom',flag:'🇬🇧',type:'secondary'},
+  {code:'LTN',name:'London Luton Airport',city:'London',country:'United Kingdom',flag:'🇬🇧',type:'secondary'},
+  {code:'LCY',name:'London City Airport',city:'London',country:'United Kingdom',flag:'🇬🇧',type:'secondary'},
+  {code:'MAN',name:'Manchester Airport',city:'Manchester',country:'United Kingdom',flag:'🇬🇧',type:'main'},
+  {code:'BHX',name:'Birmingham Airport',city:'Birmingham',country:'United Kingdom',flag:'🇬🇧',type:'main'},
+  {code:'EDI',name:'Edinburgh Airport',city:'Edinburgh',country:'United Kingdom',flag:'🇬🇧',type:'main'},
+  {code:'GLA',name:'Glasgow Airport',city:'Glasgow',country:'United Kingdom',flag:'🇬🇧',type:'main'},
+  {code:'BRS',name:'Bristol Airport',city:'Bristol',country:'United Kingdom',flag:'🇬🇧',type:'main'},
+  {code:'NCL',name:'Newcastle Airport',city:'Newcastle',country:'United Kingdom',flag:'🇬🇧',type:'main'},
+  {code:'DXB',name:'Dubai International Airport',city:'Dubai',country:'UAE',flag:'🇦🇪',type:'main'},
+  {code:'AUH',name:'Abu Dhabi International Airport',city:'Abu Dhabi',country:'UAE',flag:'🇦🇪',type:'main'},
+  {code:'NBO',name:'Jomo Kenyatta International Airport',city:'Nairobi',country:'Kenya',flag:'🇰🇪',type:'main'},
+  {code:'CUN',name:'Cancún International Airport',city:'Cancún',country:'Mexico',flag:'🇲🇽',type:'main'},
+  {code:'BKK',name:'Suvarnabhumi Airport',city:'Bangkok',country:'Thailand',flag:'🇹🇭',type:'main'},
+  {code:'BCN',name:'Barcelona El Prat Airport',city:'Barcelona',country:'Spain',flag:'🇪🇸',type:'main'},
+  {code:'MAD',name:'Madrid Barajas Airport',city:'Madrid',country:'Spain',flag:'🇪🇸',type:'main'},
+  {code:'CPT',name:'Cape Town International Airport',city:'Cape Town',country:'South Africa',flag:'🇿🇦',type:'main'},
+  {code:'IBZ',name:'Ibiza Airport',city:'Ibiza',country:'Spain',flag:'🇪🇸',type:'main'},
+  {code:'NRT',name:'Narita International Airport',city:'Tokyo',country:'Japan',flag:'🇯🇵',type:'main'},
+  {code:'HND',name:'Haneda Airport',city:'Tokyo',country:'Japan',flag:'🇯🇵',type:'secondary'},
+  {code:'LIS',name:'Lisbon Humberto Delgado Airport',city:'Lisbon',country:'Portugal',flag:'🇵🇹',type:'main'},
+  {code:'MLE',name:'Velana International Airport',city:'Malé',country:'Maldives',flag:'🇲🇻',type:'main'},
+  {code:'AMS',name:'Amsterdam Schiphol Airport',city:'Amsterdam',country:'Netherlands',flag:'🇳🇱',type:'main'},
+  {code:'CDG',name:'Charles de Gaulle Airport',city:'Paris',country:'France',flag:'🇫🇷',type:'main'},
+  {code:'FCO',name:'Leonardo da Vinci Airport',city:'Rome',country:'Italy',flag:'🇮🇹',type:'main'},
+  {code:'IST',name:'Istanbul Airport',city:'Istanbul',country:'Turkey',flag:'🇹🇷',type:'main'},
+  {code:'SIN',name:'Changi Airport',city:'Singapore',country:'Singapore',flag:'🇸🇬',type:'main'},
+  {code:'HKG',name:'Hong Kong International Airport',city:'Hong Kong',country:'Hong Kong',flag:'🇭🇰',type:'main'},
+  {code:'SYD',name:'Sydney Kingsford Smith Airport',city:'Sydney',country:'Australia',flag:'🇦🇺',type:'main'},
+  {code:'JFK',name:'John F. Kennedy International Airport',city:'New York',country:'USA',flag:'🇺🇸',type:'main'},
+  {code:'EWR',name:'Newark Liberty International Airport',city:'New York',country:'USA',flag:'🇺🇸',type:'secondary'},
+  {code:'LAX',name:'Los Angeles International Airport',city:'Los Angeles',country:'USA',flag:'🇺🇸',type:'main'},
+  {code:'DEL',name:'Indira Gandhi International Airport',city:'New Delhi',country:'India',flag:'🇮🇳',type:'main'},
+  {code:'BOM',name:'Chhatrapati Shivaji International Airport',city:'Mumbai',country:'India',flag:'🇮🇳',type:'main'},
+  {code:'KHI',name:'Jinnah International Airport',city:'Karachi',country:'Pakistan',flag:'🇵🇰',type:'main'},
+  {code:'LHE',name:'Allama Iqbal International Airport',city:'Lahore',country:'Pakistan',flag:'🇵🇰',type:'main'},
+  {code:'ISB',name:'Islamabad International Airport',city:'Islamabad',country:'Pakistan',flag:'🇵🇰',type:'main'},
+  {code:'DAC',name:'Hazrat Shahjalal International Airport',city:'Dhaka',country:'Bangladesh',flag:'🇧🇩',type:'main'},
+  {code:'LOS',name:'Murtala Muhammed International Airport',city:'Lagos',country:'Nigeria',flag:'🇳🇬',type:'main'},
+  {code:'ACC',name:'Kotoka International Airport',city:'Accra',country:'Ghana',flag:'🇬🇭',type:'main'},
+  {code:'CAI',name:'Cairo International Airport',city:'Cairo',country:'Egypt',flag:'🇪🇬',type:'main'},
+  {code:'DOH',name:'Hamad International Airport',city:'Doha',country:'Qatar',flag:'🇶🇦',type:'main'},
+  {code:'RUH',name:'King Khalid International Airport',city:'Riyadh',country:'Saudi Arabia',flag:'🇸🇦',type:'main'},
+  {code:'JED',name:'King Abdulaziz International Airport',city:'Jeddah',country:'Saudi Arabia',flag:'🇸🇦',type:'main'},
+  {code:'YYZ',name:'Toronto Pearson International Airport',city:'Toronto',country:'Canada',flag:'🇨🇦',type:'main'},
+  {code:'GRU',name:'São Paulo–Guarulhos International Airport',city:'São Paulo',country:'Brazil',flag:'🇧🇷',type:'main'},
+  {code:'MGQ',name:'Aden Adde International Airport',city:'Mogadishu',country:'Somalia',flag:'🇸🇴',type:'main'},
+  {code:'HGA',name:'Hargeisa Egal International Airport',city:'Hargeisa',country:'Somalia',flag:'🇸🇴',type:'main'},
+];
+
+
+const HOTEL_PLACES=[
+  /* ── UNITED KINGDOM ── */
+  {name:'London',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544008'},
+  {name:'Manchester',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27545022'},
+  {name:'Edinburgh',sub:'Scotland, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544850'},
+  {name:'Birmingham',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544658'},
+  {name:'Glasgow',sub:'Scotland, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544899'},
+  {name:'Bristol',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544712'},
+  {name:'Liverpool',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27545012'},
+  {name:'Leeds',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544998'},
+  {name:'Oxford',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27545060'},
+  {name:'Cambridge',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544731'},
+  {name:'Bath',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544631'},
+  {name:'York',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27545214'},
+  {name:'Brighton',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544708'},
+  {name:'Cardiff',sub:'Wales, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544738'},
+  {name:'Belfast',sub:'N. Ireland, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544637'},
+  {name:'Newcastle',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27545035'},
+  {name:'Nottingham',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27545053'},
+  {name:'Sheffield',sub:'England, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27545106'},
+  {name:'Inverness',sub:'Scotland, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544960'},
+  {name:'Dundee',sub:'Scotland, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544840'},
+  {name:'Aberdeen',sub:'Scotland, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27544610'},
+  {name:'Stonehenge',sub:'Wiltshire, UK',country:'United Kingdom',flag:'🇬🇧',entity:'27545140'},
+  /* ── SAUDI ARABIA ── */
+  {name:'Makkah',sub:'Mecca Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537500'},
+  {name:'Madinah',sub:'Medina Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537490'},
+  {name:'Riyadh',sub:'Riyadh Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537516'},
+  {name:'Jeddah',sub:'Mecca Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537478'},
+  {name:'Dammam',sub:'Eastern Province, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537430'},
+  {name:'Abha',sub:'Asir Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537390'},
+  {name:'Taif',sub:'Mecca Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537538'},
+  {name:'AlUla',sub:'Al Madinah Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537400'},
+  {name:'NEOM',sub:'Tabuk Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537504'},
+  {name:'Khobar',sub:'Eastern Province, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537488'},
+  {name:'Yanbu',sub:'Madinah Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537562'},
+  {name:'Tabuk',sub:'Tabuk Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537536'},
+  {name:'Hail',sub:'Ha\'il Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537460'},
+  {name:'Najran',sub:'Najran Region, Saudi Arabia',country:'Saudi Arabia',flag:'🇸🇦',entity:'27537502'},
+  /* ── UAE ── */
+  {name:'Dubai',sub:'UAE',country:'UAE',flag:'🇦🇪',entity:'27537233'},
+  {name:'Abu Dhabi',sub:'UAE',country:'UAE',flag:'🇦🇪',entity:'27537078'},
+  {name:'Sharjah',sub:'UAE',country:'UAE',flag:'🇦🇪',entity:'27537310'},
+  {name:'Ras Al Khaimah',sub:'UAE',country:'UAE',flag:'🇦🇪',entity:'27537295'},
+  {name:'Fujairah',sub:'UAE',country:'UAE',flag:'🇦🇪',entity:'27537240'},
+  {name:'Ajman',sub:'UAE',country:'UAE',flag:'🇦🇪',entity:'27537090'},
+  /* ── QATAR ── */
+  {name:'Doha',sub:'Qatar',country:'Qatar',flag:'🇶🇦',entity:'27537467'},
+  {name:'Lusail',sub:'Qatar',country:'Qatar',flag:'🇶🇦',entity:'27537497'},
+  /* ── BAHRAIN ── */
+  {name:'Manama',sub:'Bahrain',country:'Bahrain',flag:'🇧🇭',entity:'27537383'},
+  {name:'Muharraq',sub:'Bahrain',country:'Bahrain',flag:'🇧🇭',entity:'27537503'},
+  /* ── KUWAIT ── */
+  {name:'Kuwait City',sub:'Kuwait',country:'Kuwait',flag:'🇰🇼',entity:'27537496'},
+  /* ── OMAN ── */
+  {name:'Muscat',sub:'Oman',country:'Oman',flag:'🇴🇲',entity:'27537505'},
+  {name:'Salalah',sub:'Dhofar, Oman',country:'Oman',flag:'🇴🇲',entity:'27537507'},
+  {name:'Nizwa',sub:'Ad Dakhiliyah, Oman',country:'Oman',flag:'🇴🇲',entity:'27537506'},
+  /* ── JORDAN ── */
+  {name:'Amman',sub:'Jordan',country:'Jordan',flag:'🇯🇴',entity:'27537368'},
+  {name:'Petra',sub:'Ma\'an Governorate, Jordan',country:'Jordan',flag:'🇯🇴',entity:'27537507'},
+  {name:'Aqaba',sub:'Aqaba, Jordan',country:'Jordan',flag:'🇯🇴',entity:'27537370'},
+  {name:'Wadi Rum',sub:'Jordan',country:'Jordan',flag:'🇯🇴',entity:'27537559'},
+  {name:'Dead Sea',sub:'Jordan',country:'Jordan',flag:'🇯🇴',entity:'27537427'},
+  /* ── LEBANON ── */
+  {name:'Beirut',sub:'Lebanon',country:'Lebanon',flag:'🇱🇧',entity:'27537396'},
+  /* ── ISRAEL ── */
+  {name:'Tel Aviv',sub:'Israel',country:'Israel',flag:'🇮🇱',entity:'27537540'},
+  {name:'Jerusalem',sub:'Israel',country:'Israel',flag:'🇮🇱',entity:'27537487'},
+  {name:'Eilat',sub:'Israel',country:'Israel',flag:'🇮🇱',entity:'27537437'},
+  /* ── IRAQ ── */
+  {name:'Baghdad',sub:'Iraq',country:'Iraq',flag:'🇮🇶',entity:'27537378'},
+  {name:'Erbil',sub:'Kurdistan Region, Iraq',country:'Iraq',flag:'🇮🇶',entity:'27537440'},
+  /* ── TURKEY ── */
+  {name:'Istanbul',sub:'Turkey',country:'Turkey',flag:'🇹🇷',entity:'27547416'},
+  {name:'Antalya',sub:'Turkish Riviera',country:'Turkey',flag:'🇹🇷',entity:'27547220'},
+  {name:'Bodrum',sub:'Muğla, Turkey',country:'Turkey',flag:'🇹🇷',entity:'27547257'},
+  {name:'Cappadocia',sub:'Nevşehir, Turkey',country:'Turkey',flag:'🇹🇷',entity:'27547275'},
+  {name:'Marmaris',sub:'Muğla, Turkey',country:'Turkey',flag:'🇹🇷',entity:'27547469'},
+  {name:'Fethiye',sub:'Muğla, Turkey',country:'Turkey',flag:'🇹🇷',entity:'27547360'},
+  {name:'Alanya',sub:'Antalya, Turkey',country:'Turkey',flag:'🇹🇷',entity:'27547204'},
+  {name:'Ankara',sub:'Turkey',country:'Turkey',flag:'🇹🇷',entity:'27547215'},
+  {name:'Izmir',sub:'Turkey',country:'Turkey',flag:'🇹🇷',entity:'27547423'},
+  {name:'Pamukkale',sub:'Denizli, Turkey',country:'Turkey',flag:'🇹🇷',entity:'27547492'},
+  {name:'Trabzon',sub:'Black Sea, Turkey',country:'Turkey',flag:'🇹🇷',entity:'27547570'},
+  /* ── EGYPT ── */
+  {name:'Cairo',sub:'Egypt',country:'Egypt',flag:'🇪🇬',entity:'27537996'},
+  {name:'Hurghada',sub:'Red Sea, Egypt',country:'Egypt',flag:'🇪🇬',entity:'27538059'},
+  {name:'Sharm el-Sheikh',sub:'South Sinai, Egypt',country:'Egypt',flag:'🇪🇬',entity:'27538117'},
+  {name:'Luxor',sub:'Egypt',country:'Egypt',flag:'🇪🇬',entity:'27538075'},
+  {name:'Aswan',sub:'Egypt',country:'Egypt',flag:'🇪🇬',entity:'27537979'},
+  {name:'Alexandria',sub:'Egypt',country:'Egypt',flag:'🇪🇬',entity:'27537960'},
+  {name:'Dahab',sub:'South Sinai, Egypt',country:'Egypt',flag:'🇪🇬',entity:'27538013'},
+  {name:'El Gouna',sub:'Red Sea, Egypt',country:'Egypt',flag:'🇪🇬',entity:'27538032'},
+  /* ── MOROCCO ── */
+  {name:'Marrakech',sub:'Morocco',country:'Morocco',flag:'🇲🇦',entity:'27546064'},
+  {name:'Casablanca',sub:'Morocco',country:'Morocco',flag:'🇲🇦',entity:'27546021'},
+  {name:'Fez',sub:'Morocco',country:'Morocco',flag:'🇲🇦',entity:'27546032'},
+  {name:'Agadir',sub:'Morocco',country:'Morocco',flag:'🇲🇦',entity:'27546007'},
+  {name:'Tangier',sub:'Morocco',country:'Morocco',flag:'🇲🇦',entity:'27546091'},
+  {name:'Essaouira',sub:'Morocco',country:'Morocco',flag:'🇲🇦',entity:'27546030'},
+  {name:'Chefchaouen',sub:'Rif Mountains, Morocco',country:'Morocco',flag:'🇲🇦',entity:'27546022'},
+  {name:'Rabat',sub:'Morocco',country:'Morocco',flag:'🇲🇦',entity:'27546082'},
+  {name:'Ouarzazate',sub:'Morocco',country:'Morocco',flag:'🇲🇦',entity:'27546078'},
+  /* ── TUNISIA ── */
+  {name:'Tunis',sub:'Tunisia',country:'Tunisia',flag:'🇹🇳',entity:'27546110'},
+  {name:'Sousse',sub:'Tunisia',country:'Tunisia',flag:'🇹🇳',entity:'27546107'},
+  {name:'Djerba',sub:'Tunisia',country:'Tunisia',flag:'🇹🇳',entity:'27546095'},
+  {name:'Hammamet',sub:'Tunisia',country:'Tunisia',flag:'🇹🇳',entity:'27546098'},
+  /* ── FRANCE ── */
+  {name:'Paris',sub:'Île-de-France, France',country:'France',flag:'🇫🇷',entity:'27539733'},
+  {name:'Nice',sub:'Côte d\'Azur, France',country:'France',flag:'🇫🇷',entity:'27539791'},
+  {name:'Lyon',sub:'Auvergne-Rhône-Alpes, France',country:'France',flag:'🇫🇷',entity:'27539763'},
+  {name:'Marseille',sub:'Provence, France',country:'France',flag:'🇫🇷',entity:'27539769'},
+  {name:'Bordeaux',sub:'Nouvelle-Aquitaine, France',country:'France',flag:'🇫🇷',entity:'27539711'},
+  {name:'Cannes',sub:'Côte d\'Azur, France',country:'France',flag:'🇫🇷',entity:'27539720'},
+  {name:'Strasbourg',sub:'Grand Est, France',country:'France',flag:'🇫🇷',entity:'27539826'},
+  {name:'Toulouse',sub:'Occitanie, France',country:'France',flag:'🇫🇷',entity:'27539832'},
+  {name:'Montpellier',sub:'Occitanie, France',country:'France',flag:'🇫🇷',entity:'27539784'},
+  {name:'Saint-Tropez',sub:'Côte d\'Azur, France',country:'France',flag:'🇫🇷',entity:'27539815'},
+  {name:'Chamonix',sub:'Alps, France',country:'France',flag:'🇫🇷',entity:'27539742'},
+  {name:'Normandy',sub:'Region, France',country:'France',flag:'🇫🇷',entity:'27539793'},
+  {name:'Provence',sub:'Region, France',country:'France',flag:'🇫🇷',entity:'27539808'},
+  {name:'French Riviera',sub:'Côte d\'Azur, France',country:'France',flag:'🇫🇷',entity:'27539751'},
+  /* ── SPAIN ── */
+  {name:'Barcelona',sub:'Catalonia, Spain',country:'Spain',flag:'🇪🇸',entity:'27547735'},
+  {name:'Madrid',sub:'Madrid, Spain',country:'Spain',flag:'🇪🇸',entity:'27547768'},
+  {name:'Seville',sub:'Andalusia, Spain',country:'Spain',flag:'🇪🇸',entity:'27547812'},
+  {name:'Valencia',sub:'Valencia, Spain',country:'Spain',flag:'🇪🇸',entity:'27547829'},
+  {name:'Malaga',sub:'Andalusia, Spain',country:'Spain',flag:'🇪🇸',entity:'27547771'},
+  {name:'Ibiza',sub:'Balearic Islands, Spain',country:'Spain',flag:'🇪🇸',entity:'27547753'},
+  {name:'Majorca',sub:'Balearic Islands, Spain',country:'Spain',flag:'🇪🇸',entity:'27547772'},
+  {name:'Tenerife',sub:'Canary Islands, Spain',country:'Spain',flag:'🇪🇸',entity:'27547820'},
+  {name:'Gran Canaria',sub:'Canary Islands, Spain',country:'Spain',flag:'🇪🇸',entity:'27547748'},
+  {name:'Lanzarote',sub:'Canary Islands, Spain',country:'Spain',flag:'🇪🇸',entity:'27547763'},
+  {name:'Fuerteventura',sub:'Canary Islands, Spain',country:'Spain',flag:'🇪🇸',entity:'27547745'},
+  {name:'Marbella',sub:'Costa del Sol, Spain',country:'Spain',flag:'🇪🇸',entity:'27547773'},
+  {name:'Benidorm',sub:'Costa Blanca, Spain',country:'Spain',flag:'🇪🇸',entity:'27547737'},
+  {name:'Granada',sub:'Andalusia, Spain',country:'Spain',flag:'🇪🇸',entity:'27547747'},
+  {name:'Bilbao',sub:'Basque Country, Spain',country:'Spain',flag:'🇪🇸',entity:'27547738'},
+  {name:'San Sebastián',sub:'Basque Country, Spain',country:'Spain',flag:'🇪🇸',entity:'27547807'},
+  {name:'Costa del Sol',sub:'Andalusia, Spain',country:'Spain',flag:'🇪🇸',entity:'27547741'},
+  {name:'Menorca',sub:'Balearic Islands, Spain',country:'Spain',flag:'🇪🇸',entity:'27547774'},
+  /* ── ITALY ── */
+  {name:'Rome',sub:'Lazio, Italy',country:'Italy',flag:'🇮🇹',entity:'27536781'},
+  {name:'Milan',sub:'Lombardy, Italy',country:'Italy',flag:'🇮🇹',entity:'27536744'},
+  {name:'Venice',sub:'Veneto, Italy',country:'Italy',flag:'🇮🇹',entity:'27536832'},
+  {name:'Florence',sub:'Tuscany, Italy',country:'Italy',flag:'🇮🇹',entity:'27536689'},
+  {name:'Naples',sub:'Campania, Italy',country:'Italy',flag:'🇮🇹',entity:'27536756'},
+  {name:'Amalfi Coast',sub:'Campania, Italy',country:'Italy',flag:'🇮🇹',entity:'27536621'},
+  {name:'Positano',sub:'Amalfi Coast, Italy',country:'Italy',flag:'🇮🇹',entity:'27536775'},
+  {name:'Sicily',sub:'Island, Italy',country:'Italy',flag:'🇮🇹',entity:'27536800'},
+  {name:'Sardinia',sub:'Island, Italy',country:'Italy',flag:'🇮🇹',entity:'27536791'},
+  {name:'Cinque Terre',sub:'Liguria, Italy',country:'Italy',flag:'🇮🇹',entity:'27536659'},
+  {name:'Tuscany',sub:'Region, Italy',country:'Italy',flag:'🇮🇹',entity:'27536822'},
+  {name:'Verona',sub:'Veneto, Italy',country:'Italy',flag:'🇮🇹',entity:'27536836'},
+  {name:'Bologna',sub:'Emilia-Romagna, Italy',country:'Italy',flag:'🇮🇹',entity:'27536634'},
+  {name:'Turin',sub:'Piedmont, Italy',country:'Italy',flag:'🇮🇹',entity:'27536821'},
+  {name:'Capri',sub:'Campania, Italy',country:'Italy',flag:'🇮🇹',entity:'27536646'},
+  {name:'Lake Como',sub:'Lombardy, Italy',country:'Italy',flag:'🇮🇹',entity:'27536727'},
+  {name:'Lake Garda',sub:'Northern Italy',country:'Italy',flag:'🇮🇹',entity:'27536729'},
+  {name:'Palermo',sub:'Sicily, Italy',country:'Italy',flag:'🇮🇹',entity:'27536767'},
+  /* ── GREECE ── */
+  {name:'Athens',sub:'Attica, Greece',country:'Greece',flag:'🇬🇷',entity:'27544551'},
+  {name:'Santorini',sub:'Cyclades, Greece',country:'Greece',flag:'🇬🇷',entity:'27544744'},
+  {name:'Mykonos',sub:'Cyclades, Greece',country:'Greece',flag:'🇬🇷',entity:'27544688'},
+  {name:'Crete',sub:'Island, Greece',country:'Greece',flag:'🇬🇷',entity:'27544579'},
+  {name:'Rhodes',sub:'Dodecanese, Greece',country:'Greece',flag:'🇬🇷',entity:'27544729'},
+  {name:'Corfu',sub:'Ionian Islands, Greece',country:'Greece',flag:'🇬🇷',entity:'27544576'},
+  {name:'Thessaloniki',sub:'Macedonia, Greece',country:'Greece',flag:'🇬🇷',entity:'27544759'},
+  {name:'Zakynthos',sub:'Ionian Islands, Greece',country:'Greece',flag:'🇬🇷',entity:'27544789'},
+  {name:'Kos',sub:'Dodecanese, Greece',country:'Greece',flag:'🇬🇷',entity:'27544647'},
+  {name:'Paros',sub:'Cyclades, Greece',country:'Greece',flag:'🇬🇷',entity:'27544706'},
+  {name:'Skiathos',sub:'Sporades, Greece',country:'Greece',flag:'🇬🇷',entity:'27544748'},
+  {name:'Kefalonia',sub:'Ionian Islands, Greece',country:'Greece',flag:'🇬🇷',entity:'27544638'},
+  {name:'Lefkada',sub:'Ionian Islands, Greece',country:'Greece',flag:'🇬🇷',entity:'27544653'},
+  {name:'Naxos',sub:'Cyclades, Greece',country:'Greece',flag:'🇬🇷',entity:'27544692'},
+  {name:'Halkidiki',sub:'Central Macedonia, Greece',country:'Greece',flag:'🇬🇷',entity:'27544597'},
+  /* ── PORTUGAL ── */
+  {name:'Lisbon',sub:'Portugal',country:'Portugal',flag:'🇵🇹',entity:'27545274'},
+  {name:'Porto',sub:'Portugal',country:'Portugal',flag:'🇵🇹',entity:'27545287'},
+  {name:'Algarve',sub:'Region, Portugal',country:'Portugal',flag:'🇵🇹',entity:'27545249'},
+  {name:'Madeira',sub:'Island, Portugal',country:'Portugal',flag:'🇵🇹',entity:'27545278'},
+  {name:'Azores',sub:'Islands, Portugal',country:'Portugal',flag:'🇵🇹',entity:'27545252'},
+  {name:'Lagos',sub:'Algarve, Portugal',country:'Portugal',flag:'🇵🇹',entity:'27545272'},
+  {name:'Cascais',sub:'Lisbon Coast, Portugal',country:'Portugal',flag:'🇵🇹',entity:'27545259'},
+  /* ── NETHERLANDS ── */
+  {name:'Amsterdam',sub:'Netherlands',country:'Netherlands',flag:'🇳🇱',entity:'27537150'},
+  {name:'Rotterdam',sub:'Netherlands',country:'Netherlands',flag:'🇳🇱',entity:'27537178'},
+  {name:'The Hague',sub:'Netherlands',country:'Netherlands',flag:'🇳🇱',entity:'27537182'},
+  /* ── GERMANY ── */
+  {name:'Berlin',sub:'Germany',country:'Germany',flag:'🇩🇪',entity:'27537087'},
+  {name:'Munich',sub:'Bavaria, Germany',country:'Germany',flag:'🇩🇪',entity:'27537135'},
+  {name:'Hamburg',sub:'Germany',country:'Germany',flag:'🇩🇪',entity:'27537102'},
+  {name:'Frankfurt',sub:'Hesse, Germany',country:'Germany',flag:'🇩🇪',entity:'27537095'},
+  {name:'Cologne',sub:'North Rhine-Westphalia, Germany',country:'Germany',flag:'🇩🇪',entity:'27537091'},
+  {name:'Düsseldorf',sub:'North Rhine-Westphalia, Germany',country:'Germany',flag:'🇩🇪',entity:'27537093'},
+  {name:'Dresden',sub:'Saxony, Germany',country:'Germany',flag:'🇩🇪',entity:'27537092'},
+  {name:'Stuttgart',sub:'Baden-Württemberg, Germany',country:'Germany',flag:'🇩🇪',entity:'27537140'},
+  {name:'Heidelberg',sub:'Baden-Württemberg, Germany',country:'Germany',flag:'🇩🇪',entity:'27537104'},
+  {name:'Rothenburg',sub:'Bavaria, Germany',country:'Germany',flag:'🇩🇪',entity:'27537131'},
+  /* ── AUSTRIA & SWITZERLAND ── */
+  {name:'Vienna',sub:'Austria',country:'Austria',flag:'🇦🇹',entity:'27546853'},
+  {name:'Salzburg',sub:'Austria',country:'Austria',flag:'🇦🇹',entity:'27546824'},
+  {name:'Innsbruck',sub:'Tyrol, Austria',country:'Austria',flag:'🇦🇹',entity:'27546807'},
+  {name:'Hallstatt',sub:'Upper Austria',country:'Austria',flag:'🇦🇹',entity:'27546803'},
+  {name:'Zurich',sub:'Switzerland',country:'Switzerland',flag:'🇨🇭',entity:'27546900'},
+  {name:'Geneva',sub:'Switzerland',country:'Switzerland',flag:'🇨🇭',entity:'27546864'},
+  {name:'Interlaken',sub:'Bern, Switzerland',country:'Switzerland',flag:'🇨🇭',entity:'27546873'},
+  {name:'Lucerne',sub:'Switzerland',country:'Switzerland',flag:'🇨🇭',entity:'27546880'},
+  {name:'Zermatt',sub:'Valais, Switzerland',country:'Switzerland',flag:'🇨🇭',entity:'27546902'},
+  {name:'St Moritz',sub:'Graubünden, Switzerland',country:'Switzerland',flag:'🇨🇭',entity:'27546897'},
+  /* ── BELGIUM & LUXEMBOURG ── */
+  {name:'Brussels',sub:'Belgium',country:'Belgium',flag:'🇧🇪',entity:'27537124'},
+  {name:'Bruges',sub:'West Flanders, Belgium',country:'Belgium',flag:'🇧🇪',entity:'27537122'},
+  {name:'Ghent',sub:'East Flanders, Belgium',country:'Belgium',flag:'🇧🇪',entity:'27537098'},
+  {name:'Antwerp',sub:'Belgium',country:'Belgium',flag:'🇧🇪',entity:'27537083'},
+  {name:'Luxembourg City',sub:'Luxembourg',country:'Luxembourg',flag:'🇱🇺',entity:'27537126'},
+  /* ── SCANDINAVIA ── */
+  {name:'Copenhagen',sub:'Denmark',country:'Denmark',flag:'🇩🇰',entity:'27537156'},
+  {name:'Stockholm',sub:'Sweden',country:'Sweden',flag:'🇸🇪',entity:'27545395'},
+  {name:'Oslo',sub:'Norway',country:'Norway',flag:'🇳🇴',entity:'27545340'},
+  {name:'Helsinki',sub:'Finland',country:'Finland',flag:'🇫🇮',entity:'27536785'},
+  {name:'Bergen',sub:'Norway',country:'Norway',flag:'🇳🇴',entity:'27545318'},
+  {name:'Reykjavik',sub:'Iceland',country:'Iceland',flag:'🇮🇸',entity:'27545140'},
+  {name:'Tromsø',sub:'Arctic Norway',country:'Norway',flag:'🇳🇴',entity:'27545372'},
+  {name:'Gothenburg',sub:'Sweden',country:'Sweden',flag:'🇸🇪',entity:'27545367'},
+  {name:'Malmö',sub:'Sweden',country:'Sweden',flag:'🇸🇪',entity:'27545384'},
+  {name:'Ålesund',sub:'Norway',country:'Norway',flag:'🇳🇴',entity:'27545305'},
+  {name:'Rovaniemi',sub:'Lapland, Finland',country:'Finland',flag:'🇫🇮',entity:'27536793'},
+  {name:'Tallinn',sub:'Estonia',country:'Estonia',flag:'🇪🇪',entity:'27545408'},
+  {name:'Riga',sub:'Latvia',country:'Latvia',flag:'🇱🇻',entity:'27545461'},
+  {name:'Vilnius',sub:'Lithuania',country:'Lithuania',flag:'🇱🇹',entity:'27545467'},
+  /* ── EASTERN EUROPE ── */
+  {name:'Prague',sub:'Czech Republic',country:'Czech Republic',flag:'🇨🇿',entity:'27537190'},
+  {name:'Budapest',sub:'Hungary',country:'Hungary',flag:'🇭🇺',entity:'27537139'},
+  {name:'Warsaw',sub:'Poland',country:'Poland',flag:'🇵🇱',entity:'27545475'},
+  {name:'Krakow',sub:'Lesser Poland',country:'Poland',flag:'🇵🇱',entity:'27545432'},
+  {name:'Gdansk',sub:'Pomerania, Poland',country:'Poland',flag:'🇵🇱',entity:'27545422'},
+  {name:'Vienna',sub:'Austria',country:'Austria',flag:'🇦🇹',entity:'27546853'},
+  {name:'Bratislava',sub:'Slovakia',country:'Slovakia',flag:'🇸🇰',entity:'27537118'},
+  {name:'Ljubljana',sub:'Slovenia',country:'Slovenia',flag:'🇸🇮',entity:'27537125'},
+  {name:'Dubrovnik',sub:'Croatia',country:'Croatia',flag:'🇭🇷',entity:'27537224'},
+  {name:'Split',sub:'Dalmatia, Croatia',country:'Croatia',flag:'🇭🇷',entity:'27537252'},
+  {name:'Hvar',sub:'Dalmatia, Croatia',country:'Croatia',flag:'🇭🇷',entity:'27537232'},
+  {name:'Dubrovnik',sub:'Croatia',country:'Croatia',flag:'🇭🇷',entity:'27537224'},
+  {name:'Zagreb',sub:'Croatia',country:'Croatia',flag:'🇭🇷',entity:'27537256'},
+  {name:'Bucharest',sub:'Romania',country:'Romania',flag:'🇷🇴',entity:'27545622'},
+  {name:'Sofia',sub:'Bulgaria',country:'Bulgaria',flag:'🇧🇬',entity:'27537113'},
+  {name:'Belgrade',sub:'Serbia',country:'Serbia',flag:'🇷🇸',entity:'27537093'},
+  {name:'Sarajevo',sub:'Bosnia & Herzegovina',country:'Bosnia',flag:'🇧🇦',entity:'27537112'},
+  {name:'Podgorica',sub:'Montenegro',country:'Montenegro',flag:'🇲🇪',entity:'27537143'},
+  {name:'Kotor',sub:'Montenegro',country:'Montenegro',flag:'🇲🇪',entity:'27537123'},
+  {name:'Tirana',sub:'Albania',country:'Albania',flag:'🇦🇱',entity:'27537081'},
+  {name:'Kyiv',sub:'Ukraine',country:'Ukraine',flag:'🇺🇦',entity:'27545425'},
+  /* ── CAUCASUS & CENTRAL ASIA ── */
+  {name:'Tbilisi',sub:'Georgia',country:'Georgia',flag:'🇬🇪',entity:'27547561'},
+  {name:'Batumi',sub:'Adjara, Georgia',country:'Georgia',flag:'🇬🇪',entity:'27547525'},
+  {name:'Kazbegi',sub:'Mtskheta-Mtianeti, Georgia',country:'Georgia',flag:'🇬🇪',entity:'27547549'},
+  {name:'Yerevan',sub:'Armenia',country:'Armenia',flag:'🇦🇲',entity:'27547585'},
+  {name:'Baku',sub:'Azerbaijan',country:'Azerbaijan',flag:'🇦🇿',entity:'27547521'},
+  {name:'Tashkent',sub:'Uzbekistan',country:'Uzbekistan',flag:'🇺🇿',entity:'27547569'},
+  {name:'Samarkand',sub:'Uzbekistan',country:'Uzbekistan',flag:'🇺🇿',entity:'27547561'},
+  {name:'Bukhara',sub:'Uzbekistan',country:'Uzbekistan',flag:'🇺🇿',entity:'27547527'},
+  {name:'Almaty',sub:'Kazakhstan',country:'Kazakhstan',flag:'🇰🇿',entity:'27547512'},
+  {name:'Astana',sub:'Kazakhstan',country:'Kazakhstan',flag:'🇰🇿',entity:'27547516'},
+  {name:'Ashgabat',sub:'Turkmenistan',country:'Turkmenistan',flag:'🇹🇲',entity:'27547518'},
+  /* ── INDIA ── */
+  {name:'Mumbai',sub:'Maharashtra, India',country:'India',flag:'🇮🇳',entity:'27543783'},
+  {name:'New Delhi',sub:'India',country:'India',flag:'🇮🇳',entity:'27543820'},
+  {name:'Goa',sub:'India',country:'India',flag:'🇮🇳',entity:'27543703'},
+  {name:'Jaipur',sub:'Rajasthan, India',country:'India',flag:'🇮🇳',entity:'27543726'},
+  {name:'Agra',sub:'Uttar Pradesh, India',country:'India',flag:'🇮🇳',entity:'27543660'},
+  {name:'Bangalore',sub:'Karnataka, India',country:'India',flag:'🇮🇳',entity:'27543672'},
+  {name:'Chennai',sub:'Tamil Nadu, India',country:'India',flag:'🇮🇳',entity:'27543685'},
+  {name:'Kolkata',sub:'West Bengal, India',country:'India',flag:'🇮🇳',entity:'27543748'},
+  {name:'Udaipur',sub:'Rajasthan, India',country:'India',flag:'🇮🇳',entity:'27543854'},
+  {name:'Varanasi',sub:'Uttar Pradesh, India',country:'India',flag:'🇮🇳',entity:'27543858'},
+  {name:'Kerala',sub:'India',country:'India',flag:'🇮🇳',entity:'27543740'},
+  {name:'Hyderabad',sub:'Telangana, India',country:'India',flag:'🇮🇳',entity:'27543722'},
+  {name:'Amritsar',sub:'Punjab, India',country:'India',flag:'🇮🇳',entity:'27543666'},
+  {name:'Rishikesh',sub:'Uttarakhand, India',country:'India',flag:'🇮🇳',entity:'27543836'},
+  {name:'Shimla',sub:'Himachal Pradesh, India',country:'India',flag:'🇮🇳',entity:'27543841'},
+  {name:'Darjeeling',sub:'West Bengal, India',country:'India',flag:'🇮🇳',entity:'27543691'},
+  /* ── PAKISTAN ── */
+  {name:'Karachi',sub:'Sindh, Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543736'},
+  {name:'Lahore',sub:'Punjab, Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543748'},
+  {name:'Islamabad',sub:'Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543724'},
+  {name:'Peshawar',sub:'Khyber Pakhtunkhwa, Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543816'},
+  {name:'Quetta',sub:'Balochistan, Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543831'},
+  {name:'Murree',sub:'Punjab, Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543799'},
+  {name:'Naran',sub:'Khyber Pakhtunkhwa, Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543800'},
+  {name:'Hunza',sub:'Gilgit-Baltistan, Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543720'},
+  {name:'Swat',sub:'Khyber Pakhtunkhwa, Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543849'},
+  {name:'Faisalabad',sub:'Punjab, Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543697'},
+  {name:'Multan',sub:'Punjab, Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543797'},
+  {name:'Sialkot',sub:'Punjab, Pakistan',country:'Pakistan',flag:'🇵🇰',entity:'27543842'},
+  /* ── BANGLADESH ── */
+  {name:'Dhaka',sub:'Bangladesh',country:'Bangladesh',flag:'🇧🇩',entity:'27543616'},
+  {name:'Chittagong',sub:'Bangladesh',country:'Bangladesh',flag:'🇧🇩',entity:'27543612'},
+  {name:"Cox's Bazar",sub:'Chittagong Division, Bangladesh',country:'Bangladesh',flag:'🇧🇩',entity:'27543614'},
+  {name:'Sylhet',sub:'Bangladesh',country:'Bangladesh',flag:'🇧🇩',entity:'27543644'},
+  /* ── SRI LANKA ── */
+  {name:'Colombo',sub:'Western Province, Sri Lanka',country:'Sri Lanka',flag:'🇱🇰',entity:'27543736'},
+  {name:'Kandy',sub:'Central Province, Sri Lanka',country:'Sri Lanka',flag:'🇱🇰',entity:'27543737'},
+  {name:'Galle',sub:'Southern Province, Sri Lanka',country:'Sri Lanka',flag:'🇱🇰',entity:'27543700'},
+  {name:'Sigiriya',sub:'Central Province, Sri Lanka',country:'Sri Lanka',flag:'🇱🇰',entity:'27543840'},
+  {name:'Ella',sub:'Uva Province, Sri Lanka',country:'Sri Lanka',flag:'🇱🇰',entity:'27543695'},
+  /* ── NEPAL ── */
+  {name:'Kathmandu',sub:'Nepal',country:'Nepal',flag:'🇳🇵',entity:'27543738'},
+  {name:'Pokhara',sub:'Gandaki, Nepal',country:'Nepal',flag:'🇳🇵',entity:'27543818'},
+  {name:'Chitwan',sub:'Bagmati, Nepal',country:'Nepal',flag:'🇳🇵',entity:'27543611'},
+  /* ── MALDIVES ── */
+  {name:'Maldives',sub:'Island country',country:'Maldives',flag:'🇲🇻',entity:'29475378'},
+  {name:'Malé',sub:'Maldives',country:'Maldives',flag:'🇲🇻',entity:'27545521'},
+  {name:'North Malé Atoll',sub:'Maldives',country:'Maldives',flag:'🇲🇻',entity:'27545535'},
+  {name:'Baa Atoll',sub:'UNESCO Biosphere, Maldives',country:'Maldives',flag:'🇲🇻',entity:'27545502'},
+  {name:'Ari Atoll',sub:'Maldives',country:'Maldives',flag:'🇲🇻',entity:'27545499'},
+  /* ── THAILAND ── */
+  {name:'Bangkok',sub:'Thailand',country:'Thailand',flag:'🇹🇭',entity:'27539733'},
+  {name:'Phuket',sub:'Thailand',country:'Thailand',flag:'🇹🇭',entity:'27539879'},
+  {name:'Chiang Mai',sub:'Northern Thailand',country:'Thailand',flag:'🇹🇭',entity:'27539751'},
+  {name:'Krabi',sub:'Thailand',country:'Thailand',flag:'🇹🇭',entity:'27539791'},
+  {name:'Koh Samui',sub:'Surat Thani, Thailand',country:'Thailand',flag:'🇹🇭',entity:'27539783'},
+  {name:'Koh Phi Phi',sub:'Krabi, Thailand',country:'Thailand',flag:'🇹🇭',entity:'27539780'},
+  {name:'Pattaya',sub:'Chonburi, Thailand',country:'Thailand',flag:'🇹🇭',entity:'27539872'},
+  {name:'Hua Hin',sub:'Prachuap, Thailand',country:'Thailand',flag:'🇹🇭',entity:'27539771'},
+  {name:'Koh Chang',sub:'Trat, Thailand',country:'Thailand',flag:'🇹🇭',entity:'27539774'},
+  {name:'Pai',sub:'Mae Hong Son, Thailand',country:'Thailand',flag:'🇹🇭',entity:'27539867'},
+  /* ── INDONESIA ── */
+  {name:'Bali',sub:'Indonesia',country:'Indonesia',flag:'🇮🇩',entity:'27537536'},
+  {name:'Ubud',sub:'Bali, Indonesia',country:'Indonesia',flag:'🇮🇩',entity:'27537773'},
+  {name:'Seminyak',sub:'Bali, Indonesia',country:'Indonesia',flag:'🇮🇩',entity:'27537719'},
+  {name:'Kuta',sub:'Bali, Indonesia',country:'Indonesia',flag:'🇮🇩',entity:'27537615'},
+  {name:'Nusa Dua',sub:'Bali, Indonesia',country:'Indonesia',flag:'🇮🇩',entity:'27537663'},
+  {name:'Jakarta',sub:'Indonesia',country:'Indonesia',flag:'🇮🇩',entity:'27537584'},
+  {name:'Lombok',sub:'West Nusa Tenggara, Indonesia',country:'Indonesia',flag:'🇮🇩',entity:'27537628'},
+  {name:'Yogyakarta',sub:'Java, Indonesia',country:'Indonesia',flag:'🇮🇩',entity:'27537812'},
+  {name:'Gili Islands',sub:'Lombok, Indonesia',country:'Indonesia',flag:'🇮🇩',entity:'27537572'},
+  {name:'Raja Ampat',sub:'West Papua, Indonesia',country:'Indonesia',flag:'🇮🇩',entity:'27537685'},
+  {name:'Komodo',sub:'East Nusa Tenggara, Indonesia',country:'Indonesia',flag:'🇮🇩',entity:'27537609'},
+  /* ── MALAYSIA ── */
+  {name:'Kuala Lumpur',sub:'Malaysia',country:'Malaysia',flag:'🇲🇾',entity:'27536644'},
+  {name:'Penang',sub:'Malaysia',country:'Malaysia',flag:'🇲🇾',entity:'27536650'},
+  {name:'Langkawi',sub:'Kedah, Malaysia',country:'Malaysia',flag:'🇲🇾',entity:'27536645'},
+  {name:'Kota Kinabalu',sub:'Sabah, Malaysia',country:'Malaysia',flag:'🇲🇾',entity:'27536642'},
+  {name:'Malacca',sub:'Malaysia',country:'Malaysia',flag:'🇲🇾',entity:'27536647'},
+  /* ── SINGAPORE ── */
+  {name:'Singapore',sub:'Singapore',country:'Singapore',flag:'🇸🇬',entity:'27536654'},
+  /* ── VIETNAM ── */
+  {name:'Ho Chi Minh City',sub:'Vietnam',country:'Vietnam',flag:'🇻🇳',entity:'27536610'},
+  {name:'Hanoi',sub:'Vietnam',country:'Vietnam',flag:'🇻🇳',entity:'27536606'},
+  {name:'Ha Long Bay',sub:'Quảng Ninh, Vietnam',country:'Vietnam',flag:'🇻🇳',entity:'27536605'},
+  {name:'Da Nang',sub:'Vietnam',country:'Vietnam',flag:'🇻🇳',entity:'27536602'},
+  {name:'Hoi An',sub:'Quảng Nam, Vietnam',country:'Vietnam',flag:'🇻🇳',entity:'27536611'},
+  {name:'Nha Trang',sub:'Khánh Hòa, Vietnam',country:'Vietnam',flag:'🇻🇳',entity:'27536619'},
+  {name:'Phú Quốc',sub:'Kiên Giang, Vietnam',country:'Vietnam',flag:'🇻🇳',entity:'27536621'},
+  {name:'Sapa',sub:'Lào Cai, Vietnam',country:'Vietnam',flag:'🇻🇳',entity:'27536624'},
+  /* ── CAMBODIA ── */
+  {name:'Siem Reap',sub:'Angkor, Cambodia',country:'Cambodia',flag:'🇰🇭',entity:'27536568'},
+  {name:'Phnom Penh',sub:'Cambodia',country:'Cambodia',flag:'🇰🇭',entity:'27536566'},
+  {name:'Koh Rong',sub:'Preah Sihanouk, Cambodia',country:'Cambodia',flag:'🇰🇭',entity:'27536565'},
+  /* ── PHILIPPINES ── */
+  {name:'Manila',sub:'Philippines',country:'Philippines',flag:'🇵🇭',entity:'27536552'},
+  {name:'Cebu',sub:'Visayas, Philippines',country:'Philippines',flag:'🇵🇭',entity:'27536530'},
+  {name:'Boracay',sub:'Aklan, Philippines',country:'Philippines',flag:'🇵🇭',entity:'27536527'},
+  {name:'Palawan',sub:'Philippines',country:'Philippines',flag:'🇵🇭',entity:'27536561'},
+  {name:'Siargao',sub:'Surigao del Norte, Philippines',country:'Philippines',flag:'🇵🇭',entity:'27536573'},
+  {name:'Bohol',sub:'Philippines',country:'Philippines',flag:'🇵🇭',entity:'27536526'},
+  /* ── JAPAN ── */
+  {name:'Tokyo',sub:'Japan',country:'Japan',flag:'🇯🇵',entity:'27545939'},
+  {name:'Osaka',sub:'Japan',country:'Japan',flag:'🇯🇵',entity:'27545906'},
+  {name:'Kyoto',sub:'Japan',country:'Japan',flag:'🇯🇵',entity:'27545874'},
+  {name:'Hiroshima',sub:'Japan',country:'Japan',flag:'🇯🇵',entity:'27545846'},
+  {name:'Nara',sub:'Japan',country:'Japan',flag:'🇯🇵',entity:'27545900'},
+  {name:'Fukuoka',sub:'Kyushu, Japan',country:'Japan',flag:'🇯🇵',entity:'27545839'},
+  {name:'Hokkaido',sub:'Japan',country:'Japan',flag:'🇯🇵',entity:'27545848'},
+  {name:'Hakone',sub:'Kanagawa, Japan',country:'Japan',flag:'🇯🇵',entity:'27545843'},
+  {name:'Sapporo',sub:'Hokkaido, Japan',country:'Japan',flag:'🇯🇵',entity:'27545921'},
+  {name:'Okinawa',sub:'Japan',country:'Japan',flag:'🇯🇵',entity:'27545903'},
+  {name:'Nikko',sub:'Tochigi, Japan',country:'Japan',flag:'🇯🇵',entity:'27545902'},
+  /* ── SOUTH KOREA ── */
+  {name:'Seoul',sub:'South Korea',country:'South Korea',flag:'🇰🇷',entity:'27545982'},
+  {name:'Busan',sub:'South Korea',country:'South Korea',flag:'🇰🇷',entity:'27545957'},
+  {name:'Jeju',sub:'Jeju Island, South Korea',country:'South Korea',flag:'🇰🇷',entity:'27545967'},
+  {name:'Gyeongju',sub:'North Gyeongsang, South Korea',country:'South Korea',flag:'🇰🇷',entity:'27545963'},
+  /* ── CHINA ── */
+  {name:'Beijing',sub:'China',country:'China',flag:'🇨🇳',entity:'27545973'},
+  {name:'Shanghai',sub:'China',country:'China',flag:'🇨🇳',entity:'27546001'},
+  {name:'Hong Kong',sub:'Hong Kong SAR',country:'Hong Kong',flag:'🇭🇰',entity:'27545996'},
+  {name:'Guangzhou',sub:'Guangdong, China',country:'China',flag:'🇨🇳',entity:'27545991'},
+  {name:'Shenzhen',sub:'Guangdong, China',country:'China',flag:'🇨🇳',entity:'27546004'},
+  {name:'Chengdu',sub:'Sichuan, China',country:'China',flag:'🇨🇳',entity:'27545978'},
+  {name:'Xi\'an',sub:'Shaanxi, China',country:'China',flag:'🇨🇳',entity:'27546019'},
+  {name:'Guilin',sub:'Guangxi, China',country:'China',flag:'🇨🇳',entity:'27545992'},
+  {name:'Zhangjiajie',sub:'Hunan, China',country:'China',flag:'🇨🇳',entity:'27546020'},
+  /* ── TAIWAN & MACAU ── */
+  {name:'Taipei',sub:'Taiwan',country:'Taiwan',flag:'🇹🇼',entity:'27546017'},
+  {name:'Macau',sub:'Macau SAR',country:'Macau',flag:'🇲🇴',entity:'27545997'},
+  /* ── KENYA & EAST AFRICA ── */
+  {name:'Nairobi',sub:'Kenya',country:'Kenya',flag:'🇰🇪',entity:'27544248'},
+  {name:'Mombasa',sub:'Kenya',country:'Kenya',flag:'🇰🇪',entity:'27544220'},
+  {name:'Maasai Mara',sub:'Narok, Kenya',country:'Kenya',flag:'🇰🇪',entity:'27544213'},
+  {name:'Diani Beach',sub:'Kwale, Kenya',country:'Kenya',flag:'🇰🇪',entity:'27544193'},
+  {name:'Zanzibar',sub:'Tanzania',country:'Tanzania',flag:'🇹🇿',entity:'27544451'},
+  {name:'Dar es Salaam',sub:'Tanzania',country:'Tanzania',flag:'🇹🇿',entity:'27544359'},
+  {name:'Serengeti',sub:'Tanzania',country:'Tanzania',flag:'🇹🇿',entity:'27544428'},
+  {name:'Kilimanjaro',sub:'Kilimanjaro Region, Tanzania',country:'Tanzania',flag:'🇹🇿',entity:'27544388'},
+  {name:'Arusha',sub:'Tanzania',country:'Tanzania',flag:'🇹🇿',entity:'27544345'},
+  {name:'Kampala',sub:'Uganda',country:'Uganda',flag:'🇺🇬',entity:'27544225'},
+  {name:'Kigali',sub:'Rwanda',country:'Rwanda',flag:'🇷🇼',entity:'27544115'},
+  {name:'Addis Ababa',sub:'Ethiopia',country:'Ethiopia',flag:'🇪🇹',entity:'27538166'},
+  {name:'Lalibela',sub:'Amhara Region, Ethiopia',country:'Ethiopia',flag:'🇪🇹',entity:'27538195'},
+  /* ── SOMALIA ── */
+  {name:'Mogadishu',sub:'Banadir, Somalia',country:'Somalia',flag:'🇸🇴',entity:'27544180'},
+  {name:'Hargeisa',sub:'Somaliland, Somalia',country:'Somalia',flag:'🇸🇴',entity:'27544145'},
+  {name:'Kismayo',sub:'Jubaland, Somalia',country:'Somalia',flag:'🇸🇴',entity:'27544155'},
+  {name:'Bosaso',sub:'Puntland, Somalia',country:'Somalia',flag:'🇸🇴',entity:'27544130'},
+  /* ── WEST & CENTRAL AFRICA ── */
+  {name:'Lagos',sub:'Nigeria',country:'Nigeria',flag:'🇳🇬',entity:'27544002'},
+  {name:'Abuja',sub:'FCT, Nigeria',country:'Nigeria',flag:'🇳🇬',entity:'27543965'},
+  {name:'Accra',sub:'Ghana',country:'Ghana',flag:'🇬🇭',entity:'27537800'},
+  {name:'Lomé',sub:'Togo',country:'Togo',flag:'🇹🇬',entity:'27544040'},
+  {name:'Dakar',sub:'Senegal',country:'Senegal',flag:'🇸🇳',entity:'27537820'},
+  {name:'Abidjan',sub:'Côte d\'Ivoire',country:'Côte d\'Ivoire',flag:'🇨🇮',entity:'27537790'},
+  /* ── SOUTH AFRICA ── */
+  {name:'Cape Town',sub:'Western Cape, South Africa',country:'South Africa',flag:'🇿🇦',entity:'27543847'},
+  {name:'Johannesburg',sub:'Gauteng, South Africa',country:'South Africa',flag:'🇿🇦',entity:'27543870'},
+  {name:'Durban',sub:'KwaZulu-Natal, South Africa',country:'South Africa',flag:'🇿🇦',entity:'27543855'},
+  {name:'Kruger National Park',sub:'Mpumalanga, South Africa',country:'South Africa',flag:'🇿🇦',entity:'27543876'},
+  {name:'Garden Route',sub:'Western Cape, South Africa',country:'South Africa',flag:'🇿🇦',entity:'27543860'},
+  {name:'Stellenbosch',sub:'Western Cape, South Africa',country:'South Africa',flag:'🇿🇦',entity:'27543883'},
+  {name:'Victoria Falls',sub:'Zimbabwe / Zambia',country:'Zimbabwe',flag:'🇿🇼',entity:'27544460'},
+  {name:'Windhoek',sub:'Namibia',country:'Namibia',flag:'🇳🇦',entity:'27544075'},
+  {name:'Gaborone',sub:'Botswana',country:'Botswana',flag:'🇧🇼',entity:'27543998'},
+  {name:'Mauritius',sub:'Island nation',country:'Mauritius',flag:'🇲🇺',entity:'27545556'},
+  {name:'Seychelles',sub:'Island nation',country:'Seychelles',flag:'🇸🇨',entity:'27545570'},
+  {name:'Réunion',sub:'French island',country:'Réunion',flag:'🇷🇪',entity:'27545563'},
+  /* ── USA ── */
+  {name:'New York',sub:'New York, USA',country:'USA',flag:'🇺🇸',entity:'27537542'},
+  {name:'Los Angeles',sub:'California, USA',country:'USA',flag:'🇺🇸',entity:'27536543'},
+  {name:'Miami',sub:'Florida, USA',country:'USA',flag:'🇺🇸',entity:'27536563'},
+  {name:'Las Vegas',sub:'Nevada, USA',country:'USA',flag:'🇺🇸',entity:'27536540'},
+  {name:'Chicago',sub:'Illinois, USA',country:'USA',flag:'🇺🇸',entity:'27536434'},
+  {name:'San Francisco',sub:'California, USA',country:'USA',flag:'🇺🇸',entity:'27536588'},
+  {name:'Orlando',sub:'Florida, USA',country:'USA',flag:'🇺🇸',entity:'27536568'},
+  {name:'Washington DC',sub:'USA',country:'USA',flag:'🇺🇸',entity:'27536621'},
+  {name:'New Orleans',sub:'Louisiana, USA',country:'USA',flag:'🇺🇸',entity:'27536565'},
+  {name:'Boston',sub:'Massachusetts, USA',country:'USA',flag:'🇺🇸',entity:'27536403'},
+  {name:'Seattle',sub:'Washington, USA',country:'USA',flag:'🇺🇸',entity:'27536595'},
+  {name:'Nashville',sub:'Tennessee, USA',country:'USA',flag:'🇺🇸',entity:'27536564'},
+  {name:'Denver',sub:'Colorado, USA',country:'USA',flag:'🇺🇸',entity:'27536461'},
+  {name:'Honolulu',sub:'Hawaii, USA',country:'USA',flag:'🇺🇸',entity:'27536505'},
+  {name:'Hawaii',sub:'USA',country:'USA',flag:'🇺🇸',entity:'27536499'},
+  {name:'Maui',sub:'Hawaii, USA',country:'USA',flag:'🇺🇸',entity:'27536557'},
+  {name:'Austin',sub:'Texas, USA',country:'USA',flag:'🇺🇸',entity:'27536396'},
+  {name:'San Diego',sub:'California, USA',country:'USA',flag:'🇺🇸',entity:'27536585'},
+  {name:'Phoenix',sub:'Arizona, USA',country:'USA',flag:'🇺🇸',entity:'27536577'},
+  {name:'Atlanta',sub:'Georgia, USA',country:'USA',flag:'🇺🇸',entity:'27536393'},
+  {name:'Dallas',sub:'Texas, USA',country:'USA',flag:'🇺🇸',entity:'27536454'},
+  {name:'Portland',sub:'Oregon, USA',country:'USA',flag:'🇺🇸',entity:'27536580'},
+  {name:'Grand Canyon',sub:'Arizona, USA',country:'USA',flag:'🇺🇸',entity:'27536491'},
+  /* ── CANADA ── */
+  {name:'Toronto',sub:'Ontario, Canada',country:'Canada',flag:'🇨🇦',entity:'27536713'},
+  {name:'Vancouver',sub:'BC, Canada',country:'Canada',flag:'🇨🇦',entity:'27536719'},
+  {name:'Montreal',sub:'Quebec, Canada',country:'Canada',flag:'🇨🇦',entity:'27536680'},
+  {name:'Banff',sub:'Alberta, Canada',country:'Canada',flag:'🇨🇦',entity:'27536639'},
+  {name:'Quebec City',sub:'Canada',country:'Canada',flag:'🇨🇦',entity:'27536695'},
+  {name:'Whistler',sub:'BC, Canada',country:'Canada',flag:'🇨🇦',entity:'27536727'},
+  {name:'Niagara Falls',sub:'Ontario, Canada',country:'Canada',flag:'🇨🇦',entity:'27536683'},
+  {name:'Calgary',sub:'Alberta, Canada',country:'Canada',flag:'🇨🇦',entity:'27536644'},
+  {name:'Ottawa',sub:'Ontario, Canada',country:'Canada',flag:'🇨🇦',entity:'27536685'},
+  /* ── MEXICO & CARIBBEAN ── */
+  {name:'Cancún',sub:'Quintana Roo, Mexico',country:'Mexico',flag:'🇲🇽',entity:'27536359'},
+  {name:'Mexico City',sub:'Mexico',country:'Mexico',flag:'🇲🇽',entity:'27536390'},
+  {name:'Tulum',sub:'Quintana Roo, Mexico',country:'Mexico',flag:'🇲🇽',entity:'27536492'},
+  {name:'Playa del Carmen',sub:'Quintana Roo, Mexico',country:'Mexico',flag:'🇲🇽',entity:'27536437'},
+  {name:'Los Cabos',sub:'Baja California, Mexico',country:'Mexico',flag:'🇲🇽',entity:'27536383'},
+  {name:'Puerto Vallarta',sub:'Jalisco, Mexico',country:'Mexico',flag:'🇲🇽',entity:'27536451'},
+  {name:'Guadalajara',sub:'Jalisco, Mexico',country:'Mexico',flag:'🇲🇽',entity:'27536366'},
+  {name:'Punta Cana',sub:'Dominican Republic',country:'Dominican Republic',flag:'🇩🇴',entity:'27536455'},
+  {name:'Santo Domingo',sub:'Dominican Republic',country:'Dominican Republic',flag:'🇩🇴',entity:'27536465'},
+  {name:'Montego Bay',sub:'Jamaica',country:'Jamaica',flag:'🇯🇲',entity:'27536393'},
+  {name:'Negril',sub:'Westmoreland, Jamaica',country:'Jamaica',flag:'🇯🇲',entity:'27536398'},
+  {name:'Havana',sub:'Cuba',country:'Cuba',flag:'🇨🇺',entity:'27536361'},
+  {name:'Varadero',sub:'Matanzas, Cuba',country:'Cuba',flag:'🇨🇺',entity:'27536497'},
+  {name:'Nassau',sub:'Bahamas',country:'Bahamas',flag:'🇧🇸',entity:'27536399'},
+  {name:'Bridgetown',sub:'Barbados',country:'Barbados',flag:'🇧🇧',entity:'27536350'},
+  {name:'St Lucia',sub:'Caribbean',country:'St Lucia',flag:'🇱🇨',entity:'27536471'},
+  {name:'Aruba',sub:'Caribbean',country:'Aruba',flag:'🇦🇼',entity:'27536342'},
+  {name:'Antigua',sub:'Caribbean',country:'Antigua',flag:'🇦🇬',entity:'27536339'},
+  {name:'Turks and Caicos',sub:'Caribbean',country:'Turks and Caicos',flag:'🇹🇨',entity:'27536490'},
+  {name:'St Kitts',sub:'Caribbean',country:'St Kitts',flag:'🇰🇳',entity:'27536469'},
+  {name:'Grenada',sub:'Caribbean',country:'Grenada',flag:'🇬🇩',entity:'27536363'},
+  /* ── SOUTH AMERICA ── */
+  {name:'Rio de Janeiro',sub:'Brazil',country:'Brazil',flag:'🇧🇷',entity:'27536283'},
+  {name:'São Paulo',sub:'Brazil',country:'Brazil',flag:'🇧🇷',entity:'27536287'},
+  {name:'Buenos Aires',sub:'Argentina',country:'Argentina',flag:'🇦🇷',entity:'27536227'},
+  {name:'Lima',sub:'Peru',country:'Peru',flag:'🇵🇪',entity:'27536264'},
+  {name:'Cusco',sub:'Peru',country:'Peru',flag:'🇵🇪',entity:'27536238'},
+  {name:'Machu Picchu',sub:'Cusco Region, Peru',country:'Peru',flag:'🇵🇪',entity:'27536266'},
+  {name:'Bogotá',sub:'Colombia',country:'Colombia',flag:'🇨🇴',entity:'27536231'},
+  {name:'Medellín',sub:'Antioquia, Colombia',country:'Colombia',flag:'🇨🇴',entity:'27536267'},
+  {name:'Cartagena',sub:'Bolívar, Colombia',country:'Colombia',flag:'🇨🇴',entity:'27536234'},
+  {name:'Santiago',sub:'Chile',country:'Chile',flag:'🇨🇱',entity:'27536289'},
+  {name:'Patagonia',sub:'Argentina / Chile',country:'Argentina',flag:'🇦🇷',entity:'27536276'},
+  {name:'Galápagos',sub:'Ecuador',country:'Ecuador',flag:'🇪🇨',entity:'27536247'},
+  {name:'Quito',sub:'Ecuador',country:'Ecuador',flag:'🇪🇨',entity:'27536280'},
+  {name:'Montevideo',sub:'Uruguay',country:'Uruguay',flag:'🇺🇾',entity:'27536272'},
+  {name:'Asunción',sub:'Paraguay',country:'Paraguay',flag:'🇵🇾',entity:'27536225'},
+  {name:'La Paz',sub:'Bolivia',country:'Bolivia',flag:'🇧🇴',entity:'27536258'},
+  {name:'Iguazu Falls',sub:'Argentina / Brazil',country:'Argentina',flag:'🇦🇷',entity:'27536252'},
+  /* ── AUSTRALIA ── */
+  {name:'Sydney',sub:'New South Wales, Australia',country:'Australia',flag:'🇦🇺',entity:'27545688'},
+  {name:'Melbourne',sub:'Victoria, Australia',country:'Australia',flag:'🇦🇺',entity:'27545656'},
+  {name:'Brisbane',sub:'Queensland, Australia',country:'Australia',flag:'🇦🇺',entity:'27545604'},
+  {name:'Gold Coast',sub:'Queensland, Australia',country:'Australia',flag:'🇦🇺',entity:'27545631'},
+  {name:'Perth',sub:'Western Australia',country:'Australia',flag:'🇦🇺',entity:'27545673'},
+  {name:'Cairns',sub:'Queensland, Australia',country:'Australia',flag:'🇦🇺',entity:'27545609'},
+  {name:'Adelaide',sub:'South Australia',country:'Australia',flag:'🇦🇺',entity:'27545596'},
+  {name:'Great Barrier Reef',sub:'Queensland, Australia',country:'Australia',flag:'🇦🇺',entity:'27545633'},
+  {name:'Uluru',sub:'Northern Territory, Australia',country:'Australia',flag:'🇦🇺',entity:'27545694'},
+  /* ── NEW ZEALAND & PACIFIC ── */
+  {name:'Auckland',sub:'New Zealand',country:'New Zealand',flag:'🇳🇿',entity:'27545797'},
+  {name:'Queenstown',sub:'South Island, New Zealand',country:'New Zealand',flag:'🇳🇿',entity:'27545845'},
+  {name:'Rotorua',sub:'Bay of Plenty, New Zealand',country:'New Zealand',flag:'🇳🇿',entity:'27545849'},
+  {name:'Christchurch',sub:'Canterbury, New Zealand',country:'New Zealand',flag:'🇳🇿',entity:'27545813'},
+  {name:'Milford Sound',sub:'Fiordland, New Zealand',country:'New Zealand',flag:'🇳🇿',entity:'27545833'},
+  {name:'Bora Bora',sub:'French Polynesia',country:'French Polynesia',flag:'🇵🇫',entity:'27545794'},
+  {name:'Fiji',sub:'Pacific Islands',country:'Fiji',flag:'🇫🇯',entity:'27545822'},
+  {name:'Tahiti',sub:'French Polynesia',country:'French Polynesia',flag:'🇵🇫',entity:'27545857'},
+  {name:'Palau',sub:'Pacific Islands',country:'Palau',flag:'🇵🇼',entity:'27545862'},
+];
+
+
+/* ══ POPULAR LISTS ══ */
+const POPULAR_FROM=['LHR','MAN','BHX','EDI','GLA','BRS','NCL'];
+const POPULAR_TO  =['DXB','BCN','CDG','NRT','BKK','IST','JFK','SIN','MLE','CPT'];
+const POPULAR_HOTELS=['Dubai','Makkah','Madinah','London','Istanbul','Bangkok','Bali','Maldives','Paris','Barcelona','Tokyo','New York'];
+
+/* ══ URL UTILITIES ══ */
+const CITY_MAP={
+  'london':'LON','london heathrow':'LHR','manchester':'MAN','birmingham':'BHX',
+  'edinburgh':'EDI','glasgow':'GLA','bristol':'BRS','newcastle':'NCL',
+  'dubai':'DXB','abu dhabi':'AUH','new york':'NYC','nairobi':'NBO',
+  'cancún':'CUN','cancun':'CUN','bangkok':'BKK','barcelona':'BCN',
+  'cape town':'CPT','ibiza':'IBZ','tokyo':'TYO','lisbon':'LIS',
+  'maldives':'MLE','amsterdam':'AMS','paris':'CDG','rome':'FCO',
+  'madrid':'MAD','istanbul':'IST','singapore':'SIN','hong kong':'HKG',
+  'sydney':'SYD','los angeles':'LAX','doha':'DOH','riyadh':'RUH',
+  'jeddah':'JED','toronto':'YYZ','accra':'ACC','lagos':'LOS',
+  'karachi':'KHI','lahore':'LHE','islamabad':'ISB','dhaka':'DAC',
+  'mogadishu':'MGQ','hargeisa':'HGA'
+};
+function getCode(val){
+  if(!val)return 'anywhere';
+  var m=val.match(/\(([A-Z]{3})\)/);
+  if(m)return m[1];
+  return CITY_MAP[val.trim().toLowerCase()]||val.trim().replace(/\s+/g,'-')||'anywhere';
+}
+function fmtSky(v){
+  if(!v)return '';
+  var d=new Date(v+'T00:00:00');
+  if(isNaN(d))return '';
+  return String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+}
+function fmtISO(v){
+  if(!v)return '';
+  var d=new Date(v+'T00:00:00');
+  if(isNaN(d))return '';
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function fmtHuman(v){
+  if(!v)return '';
+  var d=new Date(v+'T00:00:00');
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+}
+
+/* ══ TOAST ══ */
+var _toastTimer;
+window.showToast=function(msg){
+  var t=document.getElementById('toast');
+  if(!t)return;
+  t.textContent=msg;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';
+  clearTimeout(_toastTimer);
+  _toastTimer=setTimeout(function(){t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},2500);
+};
+
+/* ══════════════════════════════════════════
+   DESKTOP SEARCH — original logic
+══════════════════════════════════════════ */
+function highlight(text,query){
+  if(!query)return text;
+  var re=new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+  return text.replace(re,'<mark>$1</mark>');
+}
+
+function searchAirports(query){
+  if(!query||query.length<1)return {};
+  var q=query.toLowerCase().trim();
+  var scored=AIRPORTS.map(function(a){
+    var score=0;
+    if(a.code.toLowerCase()===q)score=100;
+    else if(a.code.toLowerCase().startsWith(q))score=90;
+    else if(a.city.toLowerCase().startsWith(q))score=80;
+    else if(a.country.toLowerCase().startsWith(q))score=70;
+    else if(a.name.toLowerCase().includes(q)||a.city.toLowerCase().includes(q))score=50;
+    if(score===0)return null;
+    if(a.type==='main')score+=5;
+    return Object.assign({},a,{score:score});
+  }).filter(Boolean).sort(function(a,b){return b.score-a.score;});
+  var grouped={};
+  scored.forEach(function(a){if(!grouped[a.country])grouped[a.country]=[];grouped[a.country].push(a);});
+  return grouped;
+}
+
+function renderDropdown(dropdownId,query){
+  var dd=document.getElementById(dropdownId);
+  if(!dd)return;
+  var grouped=searchAirports(query);
+  var countries=Object.keys(grouped);
+  if(!countries.length){
+    dd.innerHTML='<div class="dropdown-empty">No airports found for "'+query+'"</div>';
+    dd.classList.add('open');return;
+  }
+  var html='';
+  countries.forEach(function(country){
+    var airports=grouped[country];
+    html+='<div class="dropdown-section-label"><span>'+airports[0].flag+'</span>'+country+'</div>';
+    airports.forEach(function(a){
+      var iconClass=a.type==='main'?'international':'domestic';
+      var icon=a.type==='main'?'✈':'🛫';
+      html+='<div class="airport-item" data-code="'+a.code+'" data-name="'+a.city+' ('+a.code+')" data-dropdown="'+dropdownId+'" onmousedown="selectAirport(event,this)">'
+        +'<div class="airport-item-icon '+iconClass+'">'+icon+'</div>'
+        +'<div class="airport-item-info">'
+        +'<div class="airport-item-name">'+highlight(a.name,query)+'</div>'
+        +'<div class="airport-item-sub">'+highlight(a.city,query)+', '+highlight(a.country,query)+'</div>'
+        +'</div>'
+        +'<div class="airport-item-code">'+a.code+'</div>'
+        +'</div>';
+    });
+  });
+  dd.innerHTML=html;
+  dd.classList.add('open');
+}
+
+function selectAirport(e,el){
+  e.preventDefault();
+  var ddId=el.dataset.dropdown;
+  var wrapper=document.getElementById(ddId).closest('.airport-wrapper');
+  if(!wrapper)return;
+  var input=wrapper.querySelector('input');
+  if(input)input.value=el.dataset.name;
+  closeDropdown(ddId);
+  wrapper.classList.remove('focused');
+  var clearBtn=wrapper.querySelector('.field-clear');
+  if(clearBtn)clearBtn.classList.add('visible');
+}
+
+function closeDropdown(ddId){
+  var dd=document.getElementById(ddId);
+  if(dd){dd.classList.remove('open');dd.innerHTML='';}
+}
+
+var keyState={};
+function handleAirportInput(input,ddId){
+  keyState[ddId]=-1;
+  var q=input.value.trim();
+  if(!q){closeDropdown(ddId);return;}
+  renderDropdown(ddId,q);
+}
+function handleAirportFocus(input,ddId,fieldId){
+  var f=document.getElementById(fieldId);
+  if(f)f.classList.add('focused');
+  if(input.value.trim().length>0)renderDropdown(ddId,input.value.trim());
+}
+function handleAirportBlur(ddId,fieldId){
+  setTimeout(function(){
+    closeDropdown(ddId);
+    var f=document.getElementById(fieldId);
+    if(f)f.classList.remove('focused');
+  },150);
+}
+function handleAirportKey(e,ddId,inputId){
+  var dd=document.getElementById(ddId);
+  if(!dd||!dd.classList.contains('open'))return;
+  var items=dd.querySelectorAll('.airport-item');
+  if(!keyState[ddId])keyState[ddId]=-1;
+  if(e.key==='ArrowDown'){e.preventDefault();keyState[ddId]=Math.min(keyState[ddId]+1,items.length-1);items.forEach(function(it,i){it.classList.toggle('highlighted',i===keyState[ddId]);});if(items[keyState[ddId]])items[keyState[ddId]].scrollIntoView({block:'nearest'});}
+  else if(e.key==='ArrowUp'){e.preventDefault();keyState[ddId]=Math.max(keyState[ddId]-1,0);items.forEach(function(it,i){it.classList.toggle('highlighted',i===keyState[ddId]);});}
+  else if(e.key==='Enter'){if(keyState[ddId]>=0&&items[keyState[ddId]]){var inp=document.getElementById(inputId);if(inp)inp.value=items[keyState[ddId]].dataset.name;closeDropdown(ddId);}}
+  else if(e.key==='Escape'){closeDropdown(ddId);}
+}
+
+window.addEventListener('scroll',function(){
+  var nav=document.getElementById('navbar');
+  if(nav)nav.classList.toggle('light',window.scrollY>80);
+});
+
+/* Desktop extras */
+var extraState={direct:false,hotel:false};
+window.toggleExtra=function(key){
+  var k=key==='direct'?'direct':'hotel';
+  extraState[k]=!extraState[k];
+  var btn=document.getElementById('toggle-'+key);
+  if(btn)btn.classList.toggle('active',extraState[k]);
+};
+
+window.swapAirports=function(){
+  var fi=document.getElementById('input-from');
+  var ti=document.getElementById('input-to');
+  if(!fi||!ti)return;
+  var tmp=fi.value;fi.value=ti.value;ti.value=tmp;
+  toggleClear('input-from','clear-from');
+  toggleClear('input-to','clear-to');
+};
+
+window.clearAirport=function(inputId,ddId,clearId){
+  var inp=document.getElementById(inputId);
+  if(inp)inp.value='';
+  closeDropdown(ddId);
+  var btn=document.getElementById(clearId);
+  if(btn)btn.classList.remove('visible');
+  if(inp)inp.focus();
+};
+
+function toggleClear(inputId,clearId){
+  var inp=document.getElementById(inputId);
+  var btn=document.getElementById(clearId);
+  if(!inp||!btn)return;
+  inp.value.trim().length>0?btn.classList.add('visible'):btn.classList.remove('visible');
+}
+
+window.scrollToBook=function(e){
+  if(e)e.preventDefault();
+  var box=document.getElementById('book');
+  if(!box)return;
+  var nav=document.getElementById('navbar');
+  var navH=nav?nav.offsetHeight:72;
+  window.scrollTo({top:box.getBoundingClientRect().top+window.scrollY-navH-16,behavior:'smooth'});
+};
+
+function clearFromField(){
+  var fi=document.getElementById('input-from');
+  if(fi){fi.value='';fi.dispatchEvent(new Event('input'));}
+  var cb=document.getElementById('clear-from');
+  if(cb)cb.classList.remove('visible');
+  var mi=document.getElementById('m-input-from');
+  if(mi){mi.value='';}
+}
+
+// Clear departure on page load
+document.addEventListener('DOMContentLoaded',function(){
+  setTimeout(clearFromField, 100);
+});
+
+window.pickDestination=function(dest, e){
+  if(e)e.preventDefault();
+  var isMobile=window.innerWidth<=768;
+  if(isMobile){
+    // Set mobile "To" field
+    mState.to={code:dest.match(/\(([A-Z]{3})\)/)?.[1]||'',display:dest};
+    var el=document.getElementById('m-disp-to');
+    if(el){el.textContent=dest;el.classList.remove('ph');}
+  } else {
+    // Set desktop "To" field
+    var inp=document.getElementById('input-to');
+    if(inp){
+      inp.value=dest;
+      var clearBtn=document.getElementById('clear-to');
+      if(clearBtn)clearBtn.classList.add('visible');
+    }
+  }
+  // Scroll to search panel
+  var box=document.getElementById('book');
+  if(!box)return;
+  var nav=document.getElementById('navbar');
+  var navH=nav?nav.offsetHeight:72;
+  window.scrollTo({top:box.getBoundingClientRect().top+window.scrollY-navH-16,behavior:'smooth'});
+  if(window.innerWidth<=768){
+    setTimeout(function(){ mOpenPanel('to'); }, 400);
+  }
+};
+
+/* Desktop passengers */
+var paxState={adults:1,children:0,cabin:'Economy',childAges:[]};
+
+window.togglePaxPanel=function(){
+  var portal=document.getElementById('pax-portal');
+  var field=document.getElementById('pax-field');
+  if(!portal||!field)return;
+  var isOpen=portal.classList.contains('open');
+  if(isOpen){portal.classList.remove('open');field.classList.remove('open');document.body.style.overflow='';}
+  else{
+    var rect=field.getBoundingClientRect();
+    var panelWidth=320,screenW=window.innerWidth,margin=8;
+    var left=rect.right-panelWidth;
+    if(left<margin)left=margin;
+    if(left+panelWidth>screenW-margin)left=screenW-panelWidth-margin;
+    portal.style.top=(rect.bottom+8)+'px';
+    portal.style.left=left+'px';
+    portal.style.width=panelWidth+'px';
+    portal.classList.add('open');
+    field.classList.add('open');
+  }
+};
+window.closePaxPanel=function(){
+  var portal=document.getElementById('pax-portal');
+  var field=document.getElementById('pax-field');
+  if(portal)portal.classList.remove('open');
+  if(field)field.classList.remove('open');
+  document.body.style.overflow='';
+};
+
+window.toggleHotelPaxPortal=function(){
+  var portal=document.getElementById('hotel-pax-portal');
+  var trigger=document.getElementById('d-hotel-pax-trigger');
+  if(!portal||!trigger)return;
+  var isOpen=portal.style.display==='block';
+  if(isOpen){portal.style.display='none';return;}
+  var rect=trigger.getBoundingClientRect();
+  var panelW=300,screenW=window.innerWidth,margin=8;
+  var left=rect.right-panelW;
+  if(left<margin)left=margin;
+  if(left+panelW>screenW-margin)left=screenW-panelW-margin;
+  portal.style.top=(rect.bottom+8)+'px';
+  portal.style.left=left+'px';
+  portal.style.width=panelW+'px';
+  portal.style.display='block';
+  var ca=document.getElementById('d-count-hotel-adults');
+  var cc=document.getElementById('d-count-hotel-children');
+  var cr=document.getElementById('d-count-hotel-rooms');
+  if(ca)ca.textContent=mState.hotelAdults;
+  if(cc)cc.textContent=mState.hotelChildren;
+  if(cr)cr.textContent=mState.hotelRooms;
+  var bm=document.getElementById('d-btn-ham');if(bm)bm.disabled=mState.hotelAdults<=1;
+  var bp=document.getElementById('d-btn-hap');if(bp)bp.disabled=mState.hotelAdults>=30;
+  var bcm=document.getElementById('d-btn-hcm');if(bcm)bcm.disabled=mState.hotelChildren<=0;
+  var brm=document.getElementById('d-btn-hrm');if(brm)brm.disabled=mState.hotelRooms<=1;
+  var brp=document.getElementById('d-btn-hrp');if(brp)brp.disabled=mState.hotelRooms>=mState.hotelAdults;
+};
+
+window.closeHotelPaxPortal=function(){
+  var portal=document.getElementById('hotel-pax-portal');
+  if(portal)portal.style.display='none';
+};
+
+window.changeHotelCount=function(type,delta){
+  if(type==='adults'){
+    mState.hotelAdults=Math.max(1,Math.min(30,mState.hotelAdults+delta));
+    if(mState.hotelRooms>mState.hotelAdults)mState.hotelRooms=mState.hotelAdults;
+    var ca=document.getElementById('d-count-hotel-adults');if(ca)ca.textContent=mState.hotelAdults;
+    var bm=document.getElementById('d-btn-ham');if(bm)bm.disabled=mState.hotelAdults<=1;
+    var bp=document.getElementById('d-btn-hap');if(bp)bp.disabled=mState.hotelAdults>=30;
+    var cr=document.getElementById('d-count-hotel-rooms');if(cr)cr.textContent=mState.hotelRooms;
+    var brm=document.getElementById('d-btn-hrm');if(brm)brm.disabled=mState.hotelRooms<=1;
+    var brp=document.getElementById('d-btn-hrp');if(brp)brp.disabled=mState.hotelRooms>=mState.hotelAdults;
+  } else if(type==='children'){
+    mState.hotelChildren=Math.max(0,Math.min(10,mState.hotelChildren+delta));
+    var cc=document.getElementById('d-count-hotel-children');if(cc)cc.textContent=mState.hotelChildren;
+    var bcm=document.getElementById('d-btn-hcm');if(bcm)bcm.disabled=mState.hotelChildren<=0;
+    var bcp=document.getElementById('d-btn-hcp');if(bcp)bcp.disabled=mState.hotelChildren>=10;
+  } else if(type==='rooms'){
+    var next=mState.hotelRooms+delta;
+    if(next>mState.hotelAdults)return;
+    mState.hotelRooms=Math.max(1,Math.min(30,next));
+    var cr2=document.getElementById('d-count-hotel-rooms');if(cr2)cr2.textContent=mState.hotelRooms;
+    var brm2=document.getElementById('d-btn-hrm');if(brm2)brm2.disabled=mState.hotelRooms<=1;
+    var brp2=document.getElementById('d-btn-hrp');if(brp2)brp2.disabled=mState.hotelRooms>=mState.hotelAdults;
+  }
+  var a=mState.hotelAdults,c=mState.hotelChildren,r=mState.hotelRooms;
+  var txt=a+' Adult'+(a!==1?'s':'');
+  if(c>0)txt+=', '+c+' Child'+(c!==1?'ren':'');
+  txt+=' · '+r+' Room'+(r!==1?'s':'');
+  ['m-disp-hotel-pax','d-disp-hotel-pax'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=txt;});
+};
+window.changeCount=function(type,delta){
+  if(type==='adults'){
+    paxState.adults=Math.max(1,Math.min(9,paxState.adults+delta));
+    document.getElementById('count-adults').textContent=paxState.adults;
+    document.getElementById('btn-adults-minus').disabled=paxState.adults<=1;
+    document.getElementById('btn-adults-plus').disabled=paxState.adults>=9;
+  } else {
+    paxState.children=Math.max(0,Math.min(8,paxState.children+delta));
+    document.getElementById('count-children').textContent=paxState.children;
+    document.getElementById('btn-children-minus').disabled=paxState.children<=0;
+    document.getElementById('btn-children-plus').disabled=paxState.children>=8;
+  }
+  updatePaxDisplay();
+};
+function updatePaxDisplay(){
+  var a=paxState.adults,c=paxState.children;
+  var txt=a+' Adult'+(a>1?'s':'');
+  if(c>0)txt+=', '+c+' Child'+(c>1?'ren':'');
+  var el=document.getElementById('pax-display');
+  if(el)el.textContent=txt;
+}
+
+/* Desktop tab switching */
+window.setTripType=function(type){
+  var btnR=document.getElementById('btn-return');
+  var btnO=document.getElementById('btn-oneway');
+  var rf=document.getElementById('field-return-date');
+  if(type==='oneway'){
+    if(btnO)btnO.classList.add('active');
+    if(btnR)btnR.classList.remove('active');
+    if(rf)rf.style.display='none';
+  } else {
+    if(btnR)btnR.classList.add('active');
+    if(btnO)btnO.classList.remove('active');
+    if(rf)rf.style.display='';
+  }
+};
+
+window.setTab=function(el,type){
+  document.querySelectorAll('.search-tab').forEach(function(t){t.classList.remove('active');});
+  el.classList.add('active');
+  var tbtns=document.getElementById('trip-type-btns');
+  var extras=document.querySelector('.search-extras');
+  var row=document.getElementById('search-row');
+  var rp=document.getElementById('results-panel');
+  if(rp)rp.style.display='none';
+  if(type==='hotels'){
+    if(tbtns)tbtns.style.display='none';
+    if(extras)extras.style.display='none';
+    if(row){row.style.gridTemplateColumns='1.5fr 1fr 1fr 1fr auto';row.innerHTML=buildHotelRow();}
+  } else {
+    if(tbtns)tbtns.style.display='';
+    if(extras)extras.style.display='';
+    if(row){
+      row.style.gridTemplateColumns='';
+      row.innerHTML='<div class="search-field airport-wrapper" id="field-from"><label>From</label>'
+        +'<input type="text" id="input-from" placeholder="City or airport" autocomplete="off"'
+        +' oninput="handleAirportInput(this,\'dropdown-from\');toggleClear(\'input-from\',\'clear-from\')"'
+        +' onfocus="handleAirportFocus(this,\'dropdown-from\',\'field-from\')"'
+        +' onblur="handleAirportBlur(\'dropdown-from\',\'field-from\')"'
+        +' onkeydown="handleAirportKey(event,\'dropdown-from\',\'input-from\')"/>'
+        +'<button class="field-clear" id="clear-from" onclick="clearAirport(\'input-from\',\'dropdown-from\',\'clear-from\')" tabindex="-1">✕</button>'
+        +'<div class="airport-dropdown" id="dropdown-from"></div></div>'
+        +'<button class="swap-btn" onclick="swapAirports()" title="Swap">⇄</button>'
+        +'<div class="search-field airport-wrapper" id="field-to"><label>To</label>'
+        +'<input type="text" id="input-to" placeholder="Destination" autocomplete="off"'
+        +' oninput="handleAirportInput(this,\'dropdown-to\');toggleClear(\'input-to\',\'clear-to\')"'
+        +' onfocus="handleAirportFocus(this,\'dropdown-to\',\'field-to\')"'
+        +' onblur="handleAirportBlur(\'dropdown-to\',\'field-to\')"'
+        +' onkeydown="handleAirportKey(event,\'dropdown-to\',\'input-to\')"/>'
+        +'<button class="field-clear" id="clear-to" onclick="clearAirport(\'input-to\',\'dropdown-to\',\'clear-to\')" tabindex="-1">✕</button>'
+        +'<div class="airport-dropdown" id="dropdown-to"></div></div>'
+        +'<div class="dates-row-mobile">'
+        +'<div class="search-field"><label>Departure</label><input type="date" id="date-depart"/></div>'
+        +'<div class="search-field" id="field-return-date"><label>Return</label><input type="date" id="date-return"/></div>'
+        +'</div>'
+        +'<div class="search-field pax-wrapper" id="pax-field" onclick="togglePaxPanel()">'
+        +'<label>Passengers</label><div class="pax-display" id="pax-display">1 Adult</div></div>'
+        +'<button class="search-btn" onclick="searchSkyscanner()">'
+        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>Search</button>';
+    }
+  }
+};
+
+/* ══ DESKTOP HOTEL ROW ══ */
+function buildHotelRow(){
+  return '<div class="search-field airport-wrapper" id="field-hotel-dest">'
+    +'<label>Where</label>'
+    +'<input type="text" id="input-hotel-dest" placeholder="City, region or country" autocomplete="off"'
+    +' oninput="handleHotelDestInput(this);toggleClear(\'input-hotel-dest\',\'clear-hotel\')"'
+    +' onfocus="handleHotelDestFocus(this,\'field-hotel-dest\')"'
+    +' onblur="handleHotelDestBlur(\'field-hotel-dest\')"/>'
+    +'<button class="field-clear" id="clear-hotel" onclick="clearAirport(\'input-hotel-dest\',\'dropdown-hotel\',\'clear-hotel\')" tabindex="-1">\u2715</button>'
+    +'<div class="airport-dropdown" id="dropdown-hotel"></div>'
+    +'</div>'
+    +'<div class="search-field"><label>Check-in</label><input type="date" id="hotel-checkin"/></div>'
+    +'<div class="search-field"><label>Check-out</label><input type="date" id="hotel-checkout"/></div>'
+    +'<div class="search-field" id="d-hotel-pax-trigger" onclick="toggleHotelPaxPortal()" style="cursor:pointer;user-select:none;">'
+    +'<label style="pointer-events:none">Guests &amp; Rooms</label>'
+    +'<div class="pax-display" id="d-disp-hotel-pax" style="pointer-events:none">2 Adults \xb7 1 Room</div>'
+    +'</div>'
+    +'<button class="search-btn" onclick="searchHotelsDesktop()">'
+    +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>Search'
+    +'</button>';
+}
+
+/* ══ HOTEL DESTINATION SEARCH (Desktop dropdown) ══ */
+function handleHotelDestInput(input){
+  var q=input.value.trim();
+  var dd=document.getElementById('dropdown-hotel');
+  if(!dd)return;
+  if(!q){dd.classList.remove('open');dd.innerHTML='';return;}
+  var qu=q.toLowerCase();
+  var results=HOTEL_PLACES.filter(function(p){
+    return p.name.toLowerCase().includes(qu)||p.country.toLowerCase().includes(qu)||p.sub.toLowerCase().includes(qu);
+  }).slice(0,20);
+  if(!results.length){dd.innerHTML='<div class="dropdown-empty">No results for "'+q+'"</div>';dd.classList.add('open');return;}
+  var grouped={};
+  results.forEach(function(p){if(!grouped[p.country])grouped[p.country]=[];grouped[p.country].push(p);});
+  var html='';
+  Object.keys(grouped).forEach(function(country){
+    var items=grouped[country];
+    html+='<div class="dropdown-section-label"><span>'+items[0].flag+'</span>'+country+'</div>';
+    items.forEach(function(p){
+      var idx=HOTEL_PLACES.indexOf(p);
+      html+='<div class="airport-item" data-idx="'+idx+'" onmousedown="selectHotelDest(event,this)">'
+        +'<div class="airport-item-icon international">'+p.flag+'</div>'
+        +'<div class="airport-item-info">'
+        +'<div class="airport-item-name">'+p.name+'</div>'
+        +'<div class="airport-item-sub">'+p.sub+'</div>'
+        +'</div>'
+        +'<div class="airport-item-code" style="background:rgba(200,150,62,.08);border-color:rgba(200,150,62,.2);color:var(--gold)">🏨</div>'
+        +'</div>';
+    });
+  });
+  dd.innerHTML=html;dd.classList.add('open');
+}
+function selectHotelDest(e,el){
+  e.preventDefault();
+  var idx=parseInt(el.dataset.idx);
+  var p=HOTEL_PLACES[idx];
+  if(!p)return;
+  var inp=document.getElementById('input-hotel-dest');
+  if(inp){inp.value=p.name;inp.dataset.entity=p.entity;}
+  var dd=document.getElementById('dropdown-hotel');
+  if(dd){dd.classList.remove('open');dd.innerHTML='';}
+  var field=document.getElementById('field-hotel-dest');
+  if(field)field.classList.remove('focused');
+  var cb=document.getElementById('clear-hotel');
+  if(cb)cb.classList.add('visible');
+  // store in shared state too
+  mState.hotelDest={name:p.name,entity:p.entity};
+}
+function handleHotelDestFocus(input,fieldId){
+  var field=document.getElementById(fieldId);
+  if(field)field.classList.add('focused');
+  if(input.value.trim().length>0)handleHotelDestInput(input);
+}
+function handleHotelDestBlur(fieldId){
+  setTimeout(function(){
+    var dd=document.getElementById('dropdown-hotel');
+    if(dd){dd.classList.remove('open');dd.innerHTML='';}
+    var field=document.getElementById(fieldId);
+    if(field)field.classList.remove('focused');
+  },150);
+}
+
+window.searchHotelsDesktop=function(){
+  var d=document.getElementById('input-hotel-dest');
+  var ci=document.getElementById('hotel-checkin');
+  var co=document.getElementById('hotel-checkout');
+  var city=d?d.value.trim():'london';
+  var entity=(d&&d.dataset.entity)?d.dataset.entity:(mState.hotelDest?mState.hotelDest.entity:'');
+  var adults=mState.hotelAdults||2;
+  var children=mState.hotelChildren||0;
+  var rooms=mState.hotelRooms||1;
+  var url;
+  if(entity){
+    url='https://www.skyscanner.net/hotels/search?entity_id='+entity;
+    if(ci&&ci.value)url+='&checkin='+ci.value;
+    if(co&&co.value)url+='&checkout='+co.value;
+    url+='&adults='+adults+'&children='+children+'&rooms='+rooms;
+  } else {
+    url='https://www.skyscanner.net/hotels/'+encodeURIComponent((city||'london').toLowerCase().replace(/\s+/g,'-'))+'/';
+    if(ci&&ci.value)url+='?checkin='+ci.value;
+    if(co&&co.value)url+=(url.includes('?')?'&':'?')+'checkout='+co.value;
+  }
+  window.open(url,'_blank');
+};
+
+/* ══ DESKTOP FLIGHT URL BUILDER ══ */
+function buildFlightUrls(){
+  var fromEl=document.getElementById('input-from');
+  var toEl=document.getElementById('input-to');
+  var depart=document.getElementById('date-depart');
+  var ret=document.getElementById('date-return');
+  var btnR=document.getElementById('btn-return');
+  var isReturn=btnR&&btnR.classList.contains('active');
+  var from=getCode(fromEl?fromEl.value:'');
+  var to=getCode(toEl?toEl.value:'');
+  var dSky=fmtSky(depart?depart.value:'');
+  var rSky=isReturn?fmtSky(ret?ret.value:''):'';
+  var dISO=fmtISO(depart?depart.value:'');
+  var rISO=isReturn?fmtISO(ret?ret.value:''):'';
+  var adults=paxState.adults;
+  var sky='https://www.skyscanner.net/transport/flights/'+from+'/'+to+'/';
+  if(dSky)sky+=dSky+'/';
+  if(isReturn&&rSky)sky+=rSky+'/';
+  sky+='?adults='+adults+'&ref=yasska';
+  if(extraState.direct)sky+='&stops=!oneStop,!twoPlusStops';
+  var gfl='https://www.google.com/travel/flights?q=Flights+from+'+from+'+to+'+to+'+on+'+dISO+(isReturn&&rISO?'+returning+'+rISO:'')+'&curr=GBP';
+  var exp='https://www.expedia.co.uk/Flights-Search?leg1=from%3A'+from+'%2Cto%3A'+to+'%2Cdeparture%3A'+dISO.replace(/-/g,'%2F')+'TANYT&passengers=adults%3A'+adults+'&trip='+(isReturn?'roundtrip':'oneway')+'&mode=search';
+  return{sky:sky,gfl:gfl,exp:exp};
+}
+window.searchSkyscanner=function(){
+  var urls=buildFlightUrls();
+  window.open(urls.sky,'_blank');
+  var p=document.getElementById('results-panel');
+  if(p){p.style.display='block';setTimeout(function(){p.scrollIntoView({behavior:'smooth',block:'nearest'});},150);}
+};
+window.openSkyscanner=function(){window.open(buildFlightUrls().sky,'_blank');};
+window.openBooking=function(){window.open(buildFlightUrls().gfl,'_blank');};
+window.openExpedia=function(){window.open(buildFlightUrls().exp,'_blank');};
+
+/* ══════════════════════════════════════════
+   SHARED HOTEL GUESTS & ROOMS PANEL
+   Used by BOTH desktop and mobile
+══════════════════════════════════════════ */
+var mState={
+  tab:'flights',trip:'return',
+  from:{code:'',display:''},
+  to:{code:'',display:''},
+  depart:'',return:'',
+  adults:1,children:0,cabin:'Economy',
+  direct:false,addHotel:false,
+  hotelDest:{name:'',entity:''},
+  hotelCheckin:'',hotelCheckout:'',
+  hotelAdults:2,hotelChildren:0,hotelRooms:1,
+};
+
+/* Open/close the shared floating Guests & Rooms panel */
+function hpdToggle(e,triggerId){
+  e&&e.stopPropagation();
+  var dd=document.getElementById('hpd-panel');
+  if(!dd)return;
+  var isOpen=dd.style.display==='block';
+  if(isOpen){dd.style.display='none';return;}
+  var trigger=document.getElementById(triggerId);
+  if(!trigger){dd.style.display='none';return;}
+  var rect=trigger.getBoundingClientRect();
+  var vpH=window.innerHeight;
+  var panelW=Math.min(340,window.innerWidth-20);
+  /* vertical: below or above */
+  if(rect.bottom+300<vpH){
+    dd.style.top=(rect.bottom+6)+'px';
+    dd.style.bottom='auto';
+  } else {
+    dd.style.bottom=(vpH-rect.top+6)+'px';
+    dd.style.top='auto';
+  }
+  /* horizontal: align right edge */
+  var left=rect.right-panelW;
+  if(left<8)left=8;
+  dd.style.left=left+'px';
+  dd.style.width=panelW+'px';
+  dd.style.display='block';
+  hpdRefresh();
+}
+
+function hpdClose(){
+  var dd=document.getElementById('hpd-panel');
+  if(dd)dd.style.display='none';
+  /* reset arrow on mobile trigger */
+  var arrow=document.getElementById('m-hotel-pax-arrow');
+  if(arrow)arrow.textContent='›';
+}
+
+function hpdChange(type,delta){
+  if(type==='adults'){
+    mState.hotelAdults=Math.max(1,Math.min(30,mState.hotelAdults+delta));
+    if(mState.hotelRooms>mState.hotelAdults)mState.hotelRooms=mState.hotelAdults;
+  } else if(type==='children'){
+    mState.hotelChildren=Math.max(0,Math.min(10,mState.hotelChildren+delta));
+  } else if(type==='rooms'){
+    var next=mState.hotelRooms+delta;
+    if(next>mState.hotelAdults){
+      var w=document.getElementById('hpd-warn');
+      if(w){w.style.display='flex';clearTimeout(w._t);w._t=setTimeout(function(){w.style.display='none';},2500);}
+      return;
+    }
+    mState.hotelRooms=Math.max(1,Math.min(30,next));
+  }
+  hpdRefresh();
+}
+
+function hpdRefresh(){
+  /* update counts in panel */
+  var ea=document.getElementById('hpd-adults');
+  var ec=document.getElementById('hpd-children');
+  var er=document.getElementById('hpd-rooms');
+  if(ea)ea.textContent=mState.hotelAdults;
+  if(ec)ec.textContent=mState.hotelChildren;
+  if(er)er.textContent=mState.hotelRooms;
+  /* button states */
+  var am=document.getElementById('hpd-am');var ap=document.getElementById('hpd-ap');
+  var cm=document.getElementById('hpd-cm');var cp=document.getElementById('hpd-cp');
+  var rm=document.getElementById('hpd-rm');var rp=document.getElementById('hpd-rp');
+  if(am)am.disabled=mState.hotelAdults<=1;
+  if(ap)ap.disabled=mState.hotelAdults>=30;
+  if(cm)cm.disabled=mState.hotelChildren<=0;
+  if(cp)cp.disabled=mState.hotelChildren>=10;
+  if(rm)rm.disabled=mState.hotelRooms<=1;
+  if(rp)rp.disabled=mState.hotelRooms>=mState.hotelAdults;
+  /* build summary text */
+  var a=mState.hotelAdults,c=mState.hotelChildren,r=mState.hotelRooms;
+  var txt=a+' Adult'+(a!==1?'s':'');
+  if(c>0)txt+=', '+c+' Child'+(c!==1?'ren':'');
+  txt+=' · '+r+' Room'+(r!==1?'s':'');
+  /* update all display elements */
+  var els=['m-disp-hotel-pax','d-disp-hotel-pax'];
+  els.forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=txt;});
+}
+
+/* ══════════════════════════════════════════
+   MOBILE SEARCH — Skyscanner-style panels
+══════════════════════════════════════════ */
+function mOpenPanel(id){
+  document.body.style.overflow='hidden';
+  var p=document.getElementById('mp-'+id);
+  if(!p)return;
+  p.classList.add('open');
+  if(id==='from'){mRenderAirports('from','');setTimeout(function(){var i=document.getElementById('m-input-from');if(i){i.value='';i.focus();}},280);}
+  else if(id==='to'){mRenderAirports('to','');setTimeout(function(){var i=document.getElementById('m-input-to');if(i){i.value='';i.focus();}},280);}
+  else if(id==='hotel-dest'){mRenderHotels('');setTimeout(function(){var i=document.getElementById('m-input-hotel-dest');if(i){i.value='';i.focus();}},280);}
+  else if(id==='dates'){
+    var dd=document.getElementById('m-date-depart');
+    var dr=document.getElementById('m-date-return');
+    var rl=document.getElementById('m-return-label');
+    if(dd)dd.value=mState.depart;
+    if(dr)dr.value=mState.return;
+    if(rl)rl.style.display=mState.trip==='oneway'?'none':'';
+    if(dr)dr.style.display=mState.trip==='oneway'?'none':'';
+  }
+  else if(id==='hotel-dates'){
+    var ci=document.getElementById('m-hotel-checkin');
+    var co=document.getElementById('m-hotel-checkout');
+    if(ci)ci.value=mState.hotelCheckin;
+    if(co)co.value=mState.hotelCheckout;
+  }
+  else if(id==='hotel-pax'){
+    var ca=document.getElementById('m-cnt-hotel-adults');
+    var cc=document.getElementById('m-cnt-hotel-children');
+    var cr=document.getElementById('m-cnt-hotel-rooms');
+    if(ca)ca.textContent=mState.hotelAdults;
+    if(cc)cc.textContent=mState.hotelChildren;
+    if(cr)cr.textContent=mState.hotelRooms;
+    var bm=document.getElementById('m-btn-ham');if(bm)bm.disabled=mState.hotelAdults<=1;
+    var bp=document.getElementById('m-btn-hap');if(bp)bp.disabled=mState.hotelAdults>=30;
+    var bcm=document.getElementById('m-btn-hcm');if(bcm)bcm.disabled=mState.hotelChildren<=0;
+    var brm=document.getElementById('m-btn-hrm');if(brm)brm.disabled=mState.hotelRooms<=1;
+    var brp=document.getElementById('m-btn-hrp');if(brp)brp.disabled=mState.hotelRooms>=mState.hotelAdults;
+  }
+}
+function mClosePanel(id){
+  var p=document.getElementById('mp-'+id);
+  if(p)p.classList.remove('open');
+  document.body.style.overflow='';
+  document.body.style.position='';
+  document.documentElement.style.overflow='';
+}
+window.addEventListener('popstate',function(){
+  var open=document.querySelectorAll('.m-panel.open');
+  if(open.length>0){
+    open.forEach(function(p){p.classList.remove('open');});
+    document.body.style.overflow='';
+    document.body.style.position='';
+    document.documentElement.style.overflow='';
+  }
+});
+
+function mSetTab(el,tab){
+  document.querySelectorAll('.msb-tab').forEach(function(b){b.classList.remove('active');});
+  el.classList.add('active');
+  mState.tab=tab;
+  var ff=document.getElementById('m-fields-flights');
+  var fh=document.getElementById('m-fields-hotels');
+  var tr=document.getElementById('m-trip-row');
+  var ex=document.getElementById('m-extras-flights');
+  var btn=document.getElementById('m-search-btn');
+  if(ff)ff.style.display=tab==='flights'?'':'none';
+  if(fh)fh.style.display=tab==='hotels'?'':'none';
+  if(tr)tr.style.display=tab==='flights'?'':'none';
+  if(ex)ex.style.display=tab==='flights'?'':'none';
+  if(btn)btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Search '+(tab==='hotels'?'Hotels':'Flights');
+}
+
+function mSetTrip(type){
+  mState.trip=type;
+  var br=document.getElementById('m-btn-return');
+  var bo=document.getElementById('m-btn-oneway');
+  var dl=document.getElementById('m-dates-label');
+  if(br)br.classList.toggle('active',type==='return');
+  if(bo)bo.classList.toggle('active',type==='oneway');
+  if(dl)dl.textContent=type==='return'?'Depart – Return':'Departure date';
+  mUpdateDates();
+}
+
+function mToggleExtra(key){
+  if(key==='direct')mState.direct=!mState.direct;
+  else mState.addHotel=!mState.addHotel;
+  var el=document.getElementById('m-extra-'+key);
+  if(el)el.classList.toggle('active',key==='direct'?mState.direct:mState.addHotel);
+}
+
+/* Airport list rendering */
+function mRenderAirports(panel,query){
+  var el=document.getElementById('m-airport-list-'+panel);
+  if(!el)return;
+  var airports;
+  if(!query||query.trim()===''){
+    var codes=panel==='from'?POPULAR_FROM:POPULAR_TO;
+    airports=codes.map(function(c){return AIRPORTS.find(function(a){return a.code===c;});}).filter(Boolean);
+  } else {
+    var q=query.toLowerCase();
+    airports=AIRPORTS.filter(function(a){
+      return a.code.toLowerCase().startsWith(q)||a.city.toLowerCase().includes(q)||a.name.toLowerCase().includes(q)||a.country.toLowerCase().startsWith(q);
+    }).sort(function(a,b){
+      var as=(a.city.toLowerCase().startsWith(q)?2:0)+(a.type==='main'?1:0);
+      var bs=(b.city.toLowerCase().startsWith(q)?2:0)+(b.type==='main'?1:0);
+      return bs-as;
+    }).slice(0,12);
+  }
+  if(!airports.length){el.innerHTML='<div style="padding:24px;text-align:center;color:var(--text3);font-size:13px">No airports found</div>';return;}
+  var label=query?(panel==='from'?'Results for "'+query+'"':'Results for "'+query+'"'):(panel==='from'?'Popular departure airports':'Popular destinations');
+  el.innerHTML='<div class="m-section-label">'+label+'</div>'
+    +airports.map(function(a){
+      return '<div class="m-airport-item" onclick="mSelectAirport(\''+panel+'\',\''+a.code+'\',\''+a.city+' ('+a.code+')\')">'
+        +'<div class="m-airport-icon">'+a.flag+'</div>'
+        +'<div class="m-airport-info"><div class="m-airport-name">'+a.name+'</div><div class="m-airport-sub">'+a.city+', '+a.country+'</div></div>'
+        +'<div class="m-airport-code">'+a.code+'</div>'
+        +'</div>';
+    }).join('');
+}
+function mFilterAirports(panel,q){mRenderAirports(panel,q);}
+function mSelectAirport(panel,code,display){
+  mState[panel]={code:code,display:display};
+  var el=document.getElementById('m-disp-'+panel);
+  if(el){el.textContent=display;el.classList.remove('ph');}
+  mClosePanel(panel);
+  if(panel==='from'&&!mState.to.code)setTimeout(function(){mOpenPanel('to');},200);
+}
+function mSwap(){
+  var tmp=mState.from;mState.from=mState.to;mState.to=tmp;
+  var df=document.getElementById('m-disp-from');
+  var dt=document.getElementById('m-disp-to');
+  if(mState.from.display){if(df){df.textContent=mState.from.display;df.classList.remove('ph');}}
+  else{if(df){df.textContent='City or airport';df.classList.add('ph');}}
+  if(mState.to.display){if(dt){dt.textContent=mState.to.display;dt.classList.remove('ph');}}
+  else{if(dt){dt.textContent='Destination';dt.classList.add('ph');}}
+}
+
+/* Dates */
+function mPickDateType(el,type,idx){
+  document.querySelectorAll('#mp-dates .m-date-card').forEach(function(c,i){c.classList.toggle('active',i===idx);});
+}
+function mUpdateDates(){
+  var dd=document.getElementById('m-date-depart');
+  var dr=document.getElementById('m-date-return');
+  if(dd)mState.depart=dd.value;
+  if(dr)mState.return=dr.value;
+  var el=document.getElementById('m-disp-dates');
+  if(!el)return;
+  if(mState.depart){
+    var txt=fmtHuman(mState.depart);
+    if(mState.trip==='return'&&mState.return)txt+=(' – '+fmtHuman(mState.return));
+    el.textContent=txt;el.classList.remove('ph');
+  } else {
+    el.textContent='Add dates';el.classList.add('ph');
+  }
+  /* auto-close when done: one-way needs depart, return needs both */
+  if(mState.trip==='oneway'&&mState.depart){setTimeout(function(){mClosePanel('dates');},300);}
+  else if(mState.trip==='return'&&mState.depart&&mState.return){setTimeout(function(){mClosePanel('dates');},300);}
+}
+function mUpdateHotelDates(){
+  var ci=document.getElementById('m-hotel-checkin');
+  var co=document.getElementById('m-hotel-checkout');
+  if(ci)mState.hotelCheckin=ci.value;
+  if(co)mState.hotelCheckout=co.value;
+  var el=document.getElementById('m-disp-hotel-dates');
+  if(!el)return;
+  if(mState.hotelCheckin){
+    var txt=mState.hotelCheckout?fmtHuman(mState.hotelCheckin)+' – '+fmtHuman(mState.hotelCheckout):fmtHuman(mState.hotelCheckin);
+    el.textContent=txt;el.classList.remove('ph');
+  } else {
+    el.textContent='Add dates';el.classList.add('ph');
+  }
+  if(mState.hotelCheckin&&mState.hotelCheckout){setTimeout(function(){mClosePanel('hotel-dates');},300);}
+}
+
+/* Pax (flight passengers - mobile) */
+function mChangePax(type,delta){
+  if(type==='adults'){
+    mState.adults=Math.max(1,Math.min(9,mState.adults+delta));
+    var ca=document.getElementById('m-cnt-adults');var bam=document.getElementById('m-btn-am');var bap=document.getElementById('m-btn-ap');
+    if(ca)ca.textContent=mState.adults;
+    if(bam)bam.disabled=mState.adults<=1;
+    if(bap)bap.disabled=mState.adults>=9;
+  } else {
+    mState.children=Math.max(0,Math.min(8,mState.children+delta));
+    var cc=document.getElementById('m-cnt-children');var bcm=document.getElementById('m-btn-cm');var bcp=document.getElementById('m-btn-cp');
+    if(cc)cc.textContent=mState.children;
+    if(bcm)bcm.disabled=mState.children<=0;
+    if(bcp)bcp.disabled=mState.children>=8;
+  }
+  mUpdatePax();
+}
+function mUpdatePax(){
+  var cabin=document.getElementById('m-cabin-select');
+  if(cabin)mState.cabin=cabin.value;
+  var a=mState.adults,c=mState.children;
+  var txt=a+' Adult'+(a!==1?'s':'');
+  if(c>0)txt+=', '+c+' Child'+(c!==1?'ren':'');
+  txt+=' · '+mState.cabin;
+  var el=document.getElementById('m-disp-pax');
+  if(el)el.textContent=txt;
+}
+
+function mChangeHotelPax(type,delta){
+  if(type==='adults'){
+    mState.hotelAdults=Math.max(1,Math.min(30,mState.hotelAdults+delta));
+    if(mState.hotelRooms>mState.hotelAdults)mState.hotelRooms=mState.hotelAdults;
+    var ca=document.getElementById('m-cnt-hotel-adults');
+    var bm=document.getElementById('m-btn-ham');var bp=document.getElementById('m-btn-hap');
+    if(ca)ca.textContent=mState.hotelAdults;
+    if(bm)bm.disabled=mState.hotelAdults<=1;
+    if(bp)bp.disabled=mState.hotelAdults>=30;
+    var rm=document.getElementById('m-btn-hrm');var rp=document.getElementById('m-btn-hrp');
+    if(rm)rm.disabled=mState.hotelRooms<=1;
+    if(rp)rp.disabled=mState.hotelRooms>=mState.hotelAdults;
+  } else if(type==='children'){
+    mState.hotelChildren=Math.max(0,Math.min(10,mState.hotelChildren+delta));
+    var cc=document.getElementById('m-cnt-hotel-children');
+    var bcm=document.getElementById('m-btn-hcm');var bcp=document.getElementById('m-btn-hcp');
+    if(cc)cc.textContent=mState.hotelChildren;
+    if(bcm)bcm.disabled=mState.hotelChildren<=0;
+    if(bcp)bcp.disabled=mState.hotelChildren>=10;
+  } else if(type==='rooms'){
+    var next=mState.hotelRooms+delta;
+    if(next>mState.hotelAdults)return;
+    mState.hotelRooms=Math.max(1,Math.min(30,next));
+    var cr=document.getElementById('m-cnt-hotel-rooms');
+    var brm=document.getElementById('m-btn-hrm');var brp=document.getElementById('m-btn-hrp');
+    if(cr)cr.textContent=mState.hotelRooms;
+    if(brm)brm.disabled=mState.hotelRooms<=1;
+    if(brp)brp.disabled=mState.hotelRooms>=mState.hotelAdults;
+  }
+  var a=mState.hotelAdults,c=mState.hotelChildren,r=mState.hotelRooms;
+  var txt=a+' Adult'+(a!==1?'s':'');
+  if(c>0)txt+=', '+c+' Child'+(c!==1?'ren':'');
+  txt+=' · '+r+' Room'+(r!==1?'s':'');
+  var els=['m-disp-hotel-pax','d-disp-hotel-pax'];
+  els.forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=txt;});
+}
+
+/* Hotel destination (mobile) */
+function mRenderHotels(q){
+  var el=document.getElementById('m-hotel-dest-list');
+  if(!el)return;
+  var places;
+  if(!q||q.trim()===''){
+    places=POPULAR_HOTELS.map(function(n){return HOTEL_PLACES.find(function(p){return p.name===n;});}).filter(Boolean);
+    el.innerHTML='<div class="m-section-label">⭐ Popular destinations</div>'
+      +places.map(function(p){
+        var idx=HOTEL_PLACES.indexOf(p);
+        return '<div class="m-airport-item" data-idx="'+idx+'" onclick="mSelectHotelByIdx(this)">'
+          +'<div class="m-airport-icon">'+p.flag+'</div>'
+          +'<div class="m-airport-info"><div class="m-airport-name">'+p.name+'</div><div class="m-airport-sub">'+p.sub+'</div></div>'
+          +'<div class="m-airport-code" style="background:rgba(200,150,62,.1);border-color:rgba(200,150,62,.2);color:var(--gold2);font-size:11px;padding:3px 7px;">🏨</div>'
+          +'</div>';
+      }).join('');
+    return;
+  }
+  var qu=q.trim().toLowerCase();
+  places=HOTEL_PLACES.filter(function(p){
+    return p.name.toLowerCase().includes(qu)||p.country.toLowerCase().includes(qu)||p.sub.toLowerCase().includes(qu);
+  }).slice(0,30);
+  if(!places.length){
+    el.innerHTML='<div style="padding:28px 16px;text-align:center;color:var(--text3);font-size:14px;">🔍 No results for <strong style="color:#fff">'+q+'</strong></div>';
+    return;
+  }
+  var grouped={};
+  places.forEach(function(p){if(!grouped[p.country])grouped[p.country]=[];grouped[p.country].push(p);});
+  var html='';
+  Object.keys(grouped).forEach(function(country){
+    var items=grouped[country];
+    html+='<div class="m-section-label">'+items[0].flag+' '+country+'</div>';
+    items.forEach(function(p){
+      var idx=HOTEL_PLACES.indexOf(p);
+      html+='<div class="m-airport-item" data-idx="'+idx+'" onclick="mSelectHotelByIdx(this)">'
+        +'<div class="m-airport-icon">'+p.flag+'</div>'
+        +'<div class="m-airport-info"><div class="m-airport-name">'+p.name+'</div><div class="m-airport-sub">'+p.sub+'</div></div>'
+        +'<div class="m-airport-code" style="background:rgba(200,150,62,.1);border-color:rgba(200,150,62,.2);color:var(--gold2);font-size:11px;padding:3px 7px;">🏨</div>'
+        +'</div>';
+    });
+  });
+  el.innerHTML=html;
+}
+function mFilterHotels(q){mRenderHotels(q);}
+function mSelectHotelByIdx(el){
+  var idx=parseInt(el.dataset.idx);
+  var p=HOTEL_PLACES[idx];
+  if(!p)return;
+  mState.hotelDest={name:p.name,entity:p.entity};
+  var disp=document.getElementById('m-disp-hotel-dest');
+  if(disp){disp.textContent=p.name;disp.classList.remove('ph');}
+  mClosePanel('hotel-dest');
+}
+
+/* Mobile search action */
+function mDoSearch(){
+  if(mState.tab==='hotels'){
+    var url=mBuildHotelUrl();
+    window.open(url,'_blank');
+    showToast('Opening hotel search…');
+    return;
+  }
+  var urls=mBuildFlightUrls();
+  window.open(urls.sky,'_blank');
+  var panel=document.getElementById('m-results');
+  if(panel){panel.style.display='block';setTimeout(function(){panel.scrollIntoView({behavior:'smooth',block:'nearest'});},150);}
+}
+
+function mBuildFlightUrls(){
+  var from=mState.from.code||getCode(mState.from.display||'');
+  var to=mState.to.code||getCode(mState.to.display||'');
+  var isReturn=mState.trip==='return';
+  var dSky=fmtSky(mState.depart);var rSky=isReturn?fmtSky(mState.return):'';
+  var dISO=fmtISO(mState.depart);var rISO=isReturn?fmtISO(mState.return):'';
+  var sky='https://www.skyscanner.net/transport/flights/'+from+'/'+to+'/';
+  if(dSky)sky+=dSky+'/';
+  if(isReturn&&rSky)sky+=rSky+'/';
+  sky+='?adults='+mState.adults+'&ref=yasska';
+  if(mState.direct)sky+='&stops=!oneStop,!twoPlusStops';
+  var gfl='https://www.google.com/travel/flights?q=Flights+from+'+from+'+to+'+to+'+on+'+dISO+(isReturn&&rISO?'+returning+'+rISO:'')+'&curr=GBP';
+  var exp='https://www.expedia.co.uk/Flights-Search?leg1=from%3A'+from+'%2Cto%3A'+to+'%2Cdeparture%3A'+dISO.replace(/-/g,'%2F')+'TANYT&passengers=adults%3A'+mState.adults+'&trip='+(isReturn?'roundtrip':'oneway')+'&mode=search';
+  return{sky:sky,gfl:gfl,exp:exp};
+}
+function mBuildHotelUrl(){
+  var entity=mState.hotelDest.entity;
+  var city=mState.hotelDest.name;
+  var a=mState.hotelAdults,c=mState.hotelChildren,r=mState.hotelRooms;
+  var url;
+  if(entity){
+    url='https://www.skyscanner.net/hotels/search?entity_id='+entity;
+    if(mState.hotelCheckin)url+='&checkin='+mState.hotelCheckin;
+    if(mState.hotelCheckout)url+='&checkout='+mState.hotelCheckout;
+    url+='&adults='+a+'&children='+c+'&rooms='+r;
+  } else {
+    url='https://www.skyscanner.net/hotels/'+encodeURIComponent((city||'london').toLowerCase().replace(/\s+/g,'-'))+'/';
+  }
+  return url;
+}
+function mOpenSky(){window.open(mBuildFlightUrls().sky,'_blank');}
+function mOpenGfl(){window.open(mBuildFlightUrls().gfl,'_blank');}
+function mOpenExp(){window.open(mBuildFlightUrls().exp,'_blank');}
+
+/* ══ INIT ══ */
+(function(){
+  /* default dates: blank */
+  mState.depart='';
+  mState.return='';
+  /* init desktop pax buttons */
+  var bam=document.getElementById('btn-adults-minus');
+  var bcm=document.getElementById('btn-children-minus');
+  if(bam)bam.disabled=true;
+  if(bcm)bcm.disabled=true;
+})();
+
+/* ══ HOT DEALS TICKER ══ */
+(function(){
+  var deals=window.HOT_DEALS||[];
+  function makeItems(list){
+    return list.map(function(d){
+      return '<span style="display:inline-flex;align-items:center;gap:8px;padding:0 18px;height:34px;border-right:1px solid rgba(255,92,92,.15);cursor:pointer;">'
+        +'<span style="font-size:13px">'+d.flag+'</span>'
+        +'<span style="font-size:11px;color:rgba(255,255,255,.55)">'+d.from+'</span>'
+        +'<span style="font-size:10px;color:rgba(255,255,255,.3)">→</span>'
+        +'<span style="font-size:12px;font-weight:700;color:#fff">'+d.to+'</span>'
+        +'<span style="font-size:10px;color:rgba(255,255,255,.4)">'+d.airline+'</span>'
+
+        +'</span>';
+    }).join('');
+  }
+  var items=makeItems(deals);
+  var el=document.getElementById('hticker-inner');if(el)el.innerHTML=items+items;
+  var mob=document.getElementById('mobile-ticker-inner');if(mob)mob.innerHTML=items+items;
+})();
+
+/* ══ SCROLL REVEAL ══ */
+var revealObserver=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el);});
+
+/* ══ WHATSAPP VISIBILITY — show near contact section only ══ */
+(function(){
+  var waWrap = document.getElementById('wa-wrap');
+  if(!waWrap) return;
+  var contactSection = document.getElementById('contact');
+  var footerSection = document.querySelector('footer');
+  if(!contactSection) return;
+
+  function checkWAVisibility(){
+    var scrollY = window.scrollY || window.pageYOffset;
+    var winH = window.innerHeight;
+    var contactTop = contactSection.getBoundingClientRect().top + scrollY;
+    var footerBottom = footerSection ? footerSection.getBoundingClientRect().bottom + scrollY : document.body.scrollHeight;
+    // Show when user is within 400px above contact section to end of footer
+    var showFrom = contactTop - 400;
+    var showTo = footerBottom + 200;
+    var currentBottom = scrollY + winH;
+    if(currentBottom >= showFrom && scrollY <= showTo){
+      waWrap.style.opacity='1';
+      waWrap.style.pointerEvents='auto';
+    } else {
+      waWrap.style.opacity='0';
+      waWrap.style.pointerEvents='none';
+    }
+  }
+
+  window.addEventListener('scroll', checkWAVisibility, {passive:true});
+  checkWAVisibility();
+})();
+
+/* ══ GLOBAL CLICK HANDLER ══ */
+document.addEventListener('click',function(e){
+  /* close flight airport dropdowns */
+  if(!e.target.closest('.airport-wrapper')){
+    document.querySelectorAll('.airport-dropdown').forEach(function(dd){dd.classList.remove('open');dd.innerHTML='';});
+  }
+  /* close desktop flight pax portal */
+  if(!e.target.closest('.pax-wrapper')&&!e.target.closest('#pax-portal')){
+    var portal=document.getElementById('pax-portal');
+    var field=document.getElementById('pax-field');
+    if(portal)portal.classList.remove('open');
+    if(field)field.classList.remove('open');
+  }
+  /* close shared hotel guests/rooms panel */
+  if(!e.target.closest('#m-hotel-pax-trigger')&&!e.target.closest('#d-hotel-pax-trigger')&&!e.target.closest('#hpd-panel')&&!e.target.closest('#hotel-pax-portal')){
+    closeHotelPaxPortal();
+    hpdClose();
+  }
+});
+</script>
+
+<!-- SHARED HOTEL GUESTS & ROOMS PANEL -->
+<div id="hpd-panel" onclick="event.stopPropagation()" style="display:none;position:fixed;z-index:99998;">
+  <div class="hpd-wrap">
+    <div class="hpd-header">Guests &amp; Rooms</div>
+    <div class="hpd-row">
+      <div class="hpd-info"><div class="hpd-name">Adults</div><div class="hpd-sub">18+ years</div></div>
+      <div class="hpd-counter">
+        <button class="hpd-btn" id="hpd-am" onclick="hpdChange('adults',-1)">−</button>
+        <span class="hpd-num" id="hpd-adults">2</span>
+        <button class="hpd-btn" id="hpd-ap" onclick="hpdChange('adults',1)">+</button>
+      </div>
+    </div>
+    <div class="hpd-row">
+      <div class="hpd-info"><div class="hpd-name">Children</div><div class="hpd-sub">0–17 years</div></div>
+      <div class="hpd-counter">
+        <button class="hpd-btn" id="hpd-cm" onclick="hpdChange('children',-1)">−</button>
+        <span class="hpd-num" id="hpd-children">0</span>
+        <button class="hpd-btn" id="hpd-cp" onclick="hpdChange('children',1)">+</button>
+      </div>
+    </div>
+    <div class="hpd-row">
+      <div class="hpd-info"><div class="hpd-name">Rooms</div><div class="hpd-sub">Each room should contain at least 1 adult</div></div>
+      <div class="hpd-counter">
+        <button class="hpd-btn" id="hpd-rm" onclick="hpdChange('rooms',-1)">−</button>
+        <span class="hpd-num" id="hpd-rooms">1</span>
+        <button class="hpd-btn" id="hpd-rp" onclick="hpdChange('rooms',1)">+</button>
+      </div>
+    </div>
+    <div class="hpd-warn" id="hpd-warn
