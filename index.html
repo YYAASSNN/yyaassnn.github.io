@@ -70,20 +70,7 @@
 ]
 </script>
 <script>
-window.HOT_DEALS = [
-  { from:'London',     to:'Dubai',      price:'189', airline:'Emirates',       flag:'🇦🇪' },
-  { from:'Manchester', to:'New York',   price:'299', airline:'Virgin Atlantic', flag:'🇺🇸' },
-  { from:'London',     to:'Nairobi',    price:'349', airline:'Kenya Airways',   flag:'🇰🇪' },
-  { from:'Birmingham', to:'Cancún',     price:'419', airline:'TUI',             flag:'🇲🇽' },
-  { from:'London',     to:'Bangkok',    price:'379', airline:'Thai Airways',    flag:'🇹🇭' },
-  { from:'Edinburgh',  to:'Barcelona',  price:'59',  airline:'Ryanair',         flag:'🇪🇸' },
-  { from:'London',     to:'Cape Town',  price:'499', airline:'British Airways', flag:'🇿🇦' },
-  { from:'Glasgow',    to:'Ibiza',      price:'89',  airline:'EasyJet',         flag:'🇪🇸' },
-  { from:'London',     to:'Tokyo',      price:'549', airline:'ANA',             flag:'🇯🇵' },
-  { from:'Bristol',    to:'Lisbon',     price:'49',  airline:'EasyJet',         flag:'🇵🇹' },
-  { from:'London',     to:'Maldives',   price:'699', airline:'Qatar Airways',   flag:'🇲🇻' },
-  { from:'Newcastle',  to:'Amsterdam',  price:'39',  airline:'KLM',             flag:'🇳🇱' },
-];
+window.HOT_DEALS = [];
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -935,40 +922,21 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
 <nav id="navbar">
   <a href="/" class="nav-logo" onclick="clearFromField()">
     <div class="nav-logo-mark">✈</div>
-    Yasska<span style="color:var(--gold2)">.</span>
+    YaskaTravel
   </a>
-  <div id="nav-ticker" style="flex:1;overflow:hidden;margin:0 20px;height:34px;display:flex;align-items:center;">
-    <div style="overflow:hidden;border-radius:20px;background:linear-gradient(135deg,rgba(255,92,92,.15),rgba(255,140,66,.1));border:1px solid rgba(255,92,92,.3);height:34px;width:100%;display:flex;align-items:center;box-shadow:0 2px 12px rgba(255,92,92,.15);">
-      <div style="flex-shrink:0;padding:0 13px;height:34px;display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,#FF5C5C,#FF8C42);border-radius:20px 0 0 20px;">
-        <span style="font-size:13px">🔥</span>
-        <span style="font-size:10px;font-weight:900;color:#fff;letter-spacing:.1em;white-space:nowrap;">HOT DEALS</span>
-      </div>
-      <div style="flex:1;overflow:hidden;height:34px;display:flex;align-items:center;">
-        <div id="hticker-inner" style="display:flex;align-items:center;white-space:nowrap;animation:hticker 40s linear infinite;"></div>
-      </div>
-    </div>
-  </div>
+
   <div class="nav-links">
     <a href="#destinations">Destinations</a>
     <a href="#guides">Travel Guides</a>
     <a href="#book" onclick="scrollToBook(event)">Book</a>
-    <a href="#contact">Contact</a>
+    <a href="contact.html">Contact</a>
   </div>
   <div class="nav-hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- MOBILE TICKER -->
-<div id="mobile-ticker-bar" style="display:none;">
-  <div style="flex-shrink:0;padding:0 14px;height:40px;display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,#FF5C5C,#FF8C42);">
-    <span style="font-size:13px">🔥</span>
-    <span style="font-size:10px;font-weight:900;color:#fff;letter-spacing:.1em;white-space:nowrap;">HOT DEALS</span>
-  </div>
-  <div style="flex:1;overflow:hidden;height:40px;display:flex;align-items:center;">
-    <div id="mobile-ticker-inner" style="display:flex;align-items:center;white-space:nowrap;animation:hticker 60s linear infinite;"></div>
-  </div>
-</div>
+
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -979,7 +947,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
 
     <!-- Title block -->
     <div style="text-align:center;padding:48px 20px 40px;max-width:700px;margin:0 auto;">
-      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,58px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px;">Welcome To <em style="font-style:normal;color:var(--gold2);">Yasska</em><br/>Travel Agency</h1>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,58px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px;">Welcome To <em style="font-style:normal;color:var(--gold2);">YaskaTravel</em></h1>
       <p style="font-size:clamp(14px,1.6vw,18px);color:rgba(255,255,255,.6);line-height:1.75;max-width:540px;margin:0 auto;">Flights, hotels and travel deals to over 150 destinations worldwide. Compare top airlines and booking platforms to find your best fare.</p>
     </div>
 
@@ -989,6 +957,51 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
       <div id="tpwl-tickets"></div>
     </div>
 
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section style="background:#fff;padding:72px 5%;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:8px;"><span style="width:24px;height:2px;background:var(--blue);display:inline-block;border-radius:2px;"></span>About YaskaTravel</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);color:var(--navy);margin-bottom:18px;line-height:1.2;">Who Runs YaskaTravel</h2>
+      <p style="font-size:15px;color:var(--text2);line-height:1.85;margin-bottom:14px;">YaskaTravel is an independent travel website created and managed by an individual based in the United Kingdom. This is a personal project built to help users compare travel options easily and find the best deals online.</p>
+      <p style="font-size:15px;color:var(--text2);line-height:1.85;margin-bottom:24px;">We started this site because we wanted to help people in our community find affordable flights — to Pakistan, Bangladesh, Ghana, Saudi Arabia for Umrah and beyond — without the confusion of comparing dozens of sites.</p>
+      <div style="background:var(--gray);border-radius:var(--r2);padding:20px 24px;border-left:4px solid var(--blue);">
+        <div style="font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Affiliate Disclosure</div>
+        <p style="font-size:13px;color:var(--text2);margin:0;line-height:1.65;">YaskaTravel.uk is an independent travel comparison website. We may earn commissions from affiliate links at no extra cost to you.</p>
+      </div>
+      <div style="margin-top:20px;display:flex;gap:16px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--navy);"><span style="width:30px;height:30px;border-radius:8px;background:var(--gray);display:grid;place-items:center;">🇬🇧</span>Based in the UK</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--navy);"><span style="width:30px;height:30px;border-radius:8px;background:var(--gray);display:grid;place-items:center;">🆓</span>Free to use</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--navy);"><span style="width:30px;height:30px;border-radius:8px;background:var(--gray);display:grid;place-items:center;">📋</span>Sole trader operated</div>
+      </div>
+    </div>
+    <div style="background:var(--gray);border-radius:var(--r2);padding:36px;">
+      <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:20px;">How It Works</div>
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div style="width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px;flex-shrink:0;">1</div>
+          <div><div style="font-weight:700;color:var(--navy);margin-bottom:4px;font-size:15px;">Search for your route</div><div style="font-size:13px;color:var(--text2);line-height:1.65;">Enter your origin, destination and travel dates into our free search tool.</div></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div style="width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px;flex-shrink:0;">2</div>
+          <div><div style="font-weight:700;color:var(--navy);margin-bottom:4px;font-size:15px;">Compare flight options</div><div style="font-size:13px;color:var(--text2);line-height:1.65;">We help you compare options from trusted booking platforms side by side.</div></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div style="width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px;flex-shrink:0;">3</div>
+          <div><div style="font-weight:700;color:var(--navy);margin-bottom:4px;font-size:15px;">Book securely through partners</div><div style="font-size:13px;color:var(--text2);line-height:1.65;">Click through to book directly with our trusted travel partners — no hidden fees added by us.</div></div>
+        </div>
+      </div>
+      <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Travel Guides</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="best-time-umrah-flights.html" style="font-size:13px;color:var(--blue);font-weight:600;display:flex;align-items:center;gap:6px;">🕌 Best Time to Book Umrah Flights →</a>
+          <a href="cheap-flights-jeddah-guide.html" style="font-size:13px;color:var(--blue);font-weight:600;display:flex;align-items:center;gap:6px;">✈ Cheap Flights to Jeddah: A Guide →</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1189,8 +1202,8 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
         <div class="contact-info-item"><span class="contact-info-icon">🕐</span><div><div class="contact-info-label">Response Time</div><div class="contact-info-val">Within 2 hours</div></div></div>
       </div>
       <div class="contact-form-col">
-        <form name="contact" method="POST" data-netlify="true" onsubmit="handleContactSubmit(event)">
-          <input type="hidden" name="form-name" value="contact"/>
+        <form name="contact" method="POST" action="https://formspree.io/f/info@yaskatravel.uk" onsubmit="handleContactSubmit(event)">
+          <input type="hidden" name="_subject" value="New enquiry from YaskaTravel.uk"/>
           <div class="cf-group"><label class="cf-label">Your Name</label><input class="cf-input" type="text" name="name" placeholder="John Smith" required/></div>
           <div class="cf-group"><label class="cf-label">Email Address</label><input class="cf-input" type="email" name="email" placeholder="john@example.com" required/></div>
           <div class="cf-group"><label class="cf-label">Message</label><textarea class="cf-input cf-textarea" name="message" placeholder="Tell us about your trip..." required></textarea></div>
@@ -1202,38 +1215,34 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
 </section>
 
 <!-- NEWSLETTER -->
-<section class="newsletter">
-  <div class="section-inner">
-    <div class="newsletter-inner">
-      <div class="section-eyebrow reveal" style="justify-content:center;color:var(--gold2)">Exclusive Deals</div>
-      <h2 class="reveal" style="color:#fff;font-size:clamp(28px,4vw,40px)">Get Travel Deals First</h2>
-      <p class="reveal">Subscribe to our newsletter and receive exclusive flight deals, early-bird packages and travel inspiration delivered to your inbox weekly.</p>
-      <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form reveal" onsubmit="handleNewsletterSubmit(event)">
-        <input type="hidden" name="form-name" value="newsletter"/>
-        <input type="email" name="email" placeholder="Enter your email address" required/>
-        <button type="submit">Subscribe — It's Free</button>
-      </form>
-      <div class="newsletter-note reveal">No spam. Unsubscribe anytime. Join 12,000+ subscribers.</div>
-    </div>
-  </div>
-</section>
+
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo"><div class="nav-logo-mark" style="width:32px;height:32px;font-size:16px">✈</div>Yasska<span style="color:var(--gold2)">.</span></div>
-        <p>YaskaTravel is your free travel companion, helping travellers worldwide discover and compare the best flights, hotels and travel deals from the world's leading booking platforms. Simply pick your destination and we'll point you in the right direction. Travel smarter, explore more.</p>
-        <div class="footer-social"><div class="social-btn">f</div><div class="social-btn">in</div><div class="social-btn">tw</div><div class="social-btn">ig</div></div>
+        <div class="footer-logo"><div class="nav-logo-mark" style="width:32px;height:32px;font-size:16px">✈</div>YaskaTravel</div>
+        <p>YaskaTravel is an independent UK-based travel website helping users find affordable Umrah and international flights. We compare options from trusted partners to help you book with confidence.</p>
+        <div style="margin-top:18px;display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:13px;color:rgba(255,255,255,.6);">🇬🇧 Based in the United Kingdom</div>
+          <div style="font-size:13px;"><a href="mailto:info@yaskatravel.uk" style="color:rgba(255,255,255,.6);">✉ info@yaskatravel.uk</a></div>
+          <div style="font-size:11px;color:rgba(255,255,255,.3);margin-top:6px;">Operated by an independent UK-based sole trader. Business information available upon request.</div>
+          <div style="margin-top:6px;">
+            <a href="https://wa.me/447878940558" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;font-size:12px;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.15);padding:5px 12px;border-radius:6px;transition:color .2s;" onmouseover="this.style.color='#25d366'" onmouseout="this.style.color='rgba(255,255,255,.5)'">💬 WhatsApp</a>
+          </div>
+        </div>
       </div>
       <div class="footer-col"><h4>Destinations</h4><ul><li><a href="#book" onclick="scrollToBook(event)">Europe</a></li><li><a href="#book" onclick="scrollToBook(event)">Middle East</a></li><li><a href="#book" onclick="scrollToBook(event)">Asia Pacific</a></li><li><a href="#book" onclick="scrollToBook(event)">Americas</a></li><li><a href="#book" onclick="scrollToBook(event)">Africa</a></li></ul></div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="#book" onclick="scrollToBook(event)">Flight Search</a></li><li><a href="#book" onclick="scrollToBook(event)">Hotel Search</a></li><li><a href="#guides">Travel Guides</a></li></ul></div>
-      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="#contact">Contact Us</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li><li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li><li><a href="cookie-policy.html">Cookie Policy</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li><li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li><li><a href="cookie-policy.html">Cookie Policy</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <div>© 2026 YaskaTravel.uk. All rights reserved.</div>
       <div class="footer-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a><a href="cookie-policy.html">Cookie Policy</a></div>
+    </div>
+    <div style="text-align:center;margin-top:18px;font-size:11px;color:rgba(255,255,255,.25);line-height:1.7;">
+      YaskaTravel.uk is an independent travel comparison website. We may earn commissions from affiliate links at no extra cost to you.
     </div>
   </div>
 </footer>
@@ -1271,7 +1280,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
         <div class="cf-group"><label class="cf-label">Email Address</label><input class="cf-input" type="email" name="email" placeholder="john@example.com" required/></div>
         <div class="cf-group"><label class="cf-label">Phone Number</label><input class="cf-input" type="tel" name="phone" placeholder="+44 7700 000000"/></div>
         <div class="cf-group"><label class="cf-label">Password</label><input class="cf-input" type="password" name="password" placeholder="Min 8 characters" required minlength="8"/></div>
-        <div class="cf-group" style="display:flex;align-items:flex-start;gap:10px;margin-top:4px"><input type="checkbox" name="terms" id="terms-check" required style="margin-top:3px;flex-shrink:0;width:16px;height:16px;accent-color:var(--blue)"/><label for="terms-check" style="font-size:12px;color:var(--text3);line-height:1.5;cursor:pointer">I agree to the <a href="#" style="color:var(--blue)">Terms of Service</a> and <a href="#" style="color:var(--blue)">Privacy Policy</a></label></div>
+        <div class="cf-group" style="display:flex;align-items:flex-start;gap:10px;margin-top:4px"><input type="checkbox" name="terms" id="terms-check" required style="margin-top:3px;flex-shrink:0;width:16px;height:16px;accent-color:var(--blue)"/><label for="terms-check" style="font-size:12px;color:var(--text3);line-height:1.5;cursor:pointer">I agree to the <a href="terms-and-conditions.html" style="color:var(--blue)">Terms of Service</a> and <a href="privacy-policy.html" style="color:var(--blue)">Privacy Policy</a></label></div>
         <button type="submit" class="cf-submit" style="margin-top:12px">Create My Account</button>
       </form>
       <p class="auth-switch">Already have an account? <a onclick="switchAuthTab('login')">Sign in →</a></p>
@@ -1332,7 +1341,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
 <!-- Toast -->
 <div id="toast" style="position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:600;z-index:9999;opacity:0;transition:all .3s;pointer-events:none;box-shadow:0 8px 32px rgba(0,0,0,.3);white-space:nowrap"></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
 /* ══════════════════════════════════════════
    SHARED AIRPORT + HOTEL DATA
@@ -3045,9 +3054,4 @@ document.addEventListener('click',function(e){
     <div class="hpd-row">
       <div class="hpd-info"><div class="hpd-name">Rooms</div><div class="hpd-sub">Each room should contain at least 1 adult</div></div>
       <div class="hpd-counter">
-        <button class="hpd-btn" id="hpd-rm" onclick="hpdChange('rooms',-1)">−</button>
-        <span class="hpd-num" id="hpd-rooms">1</span>
-        <button class="hpd-btn" id="hpd-rp" onclick="hpdChange('rooms',1)">+</button>
-      </div>
-    </div>
-    <div class="hpd-warn" id="hpd-warn
+        <button class="hpd-btn" id="hpd-rm" oncl
