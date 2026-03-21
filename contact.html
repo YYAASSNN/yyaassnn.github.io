@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0B1628;--blue:#1B5FC1;--blue2:#2271E0;--gold:#C8963E;--gold2:#E5B060;--white:#FFFFFF;--gray:#F2F4F8;--gray2:#E4E8F0;--text:#1A2340;--text2:#4A5878;--text3:#8A94A8;--border:#DDE3EE;--shadow:0 4px 24px rgba(11,22,40,.10);--shadow2:0 8px 40px rgba(11,22,40,.16);}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html,body{height:100%;}body{display:flex;flex-direction:column;}
 html{scroll-behavior:smooth;}
 body{font-family:'Outfit',sans-serif;color:var(--text);background:var(--white);}
 a{text-decoration:none;color:var(--blue);}
@@ -33,7 +33,7 @@ a:hover{text-decoration:underline;}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(200,150,62,.15);border:1px solid rgba(200,150,62,.3);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:700;color:var(--gold2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px;}
 .contact-hero h1{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,50px);color:#fff;font-weight:900;line-height:1.15;margin-bottom:14px;}
 .contact-hero-sub{font-size:16px;color:rgba(255,255,255,.55);line-height:1.75;max-width:500px;margin:0 auto;}
-.page-wrap{max-width:960px;margin:0 auto;padding:60px 5% 80px;}
+.page-wrap{max-width:960px;margin:0 auto;padding:60px 5% 80px;background:var(--white);}
 .contact-grid{display:grid;grid-template-columns:1fr 1.7fr;gap:56px;align-items:start;}
 .info-col{display:flex;flex-direction:column;gap:0;}
 .info-section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
@@ -69,7 +69,7 @@ a:hover{text-decoration:underline;}
 .form-success-icon{font-size:48px;margin-bottom:16px;}
 .form-success h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:10px;}
 .form-success p{font-size:15px;color:var(--text2);line-height:1.7;}
-footer{background:var(--navy);padding:20px 5%;}
+footer{background:var(--navy);padding:20px 5%;margin-top:auto;}
 .footer-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .footer-copy{font-size:12px;color:rgba(255,255,255,.4);}
 .footer-links{display:flex;gap:18px;flex-wrap:wrap;}
@@ -120,7 +120,7 @@ footer{background:var(--navy);padding:20px 5%;}
           <div class="info-icon">&#9993;</div>
           <div>
             <div class="info-label">Email</div>
-            <div class="info-val"><a href="mailto:info@yaskatravel.uk">info@yaskatravel.uk</a></div>
+            <div class="info-val"><a href="/cdn-cgi/l/email-protection#ddb4b3bbb29da4bcaeb6bca9afbcabb8b1f3a8b6"><span class="__cf_email__" data-cfemail="8ee7e0e8e1cef7effde5effafceff8ebe2a0fbe5">[email&#160;protected]</span></a></div>
             <div class="info-sub">For general enquiries</div>
           </div>
         </div>
@@ -208,7 +208,7 @@ footer{background:var(--navy);padding:20px 5%;}
 
 <div id="toast"></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function showToast(msg){
   var t=document.getElementById('toast');
   t.textContent=msg;
@@ -219,14 +219,4 @@ function showToast(msg){
 function handleSubmit(e){
   e.preventDefault();
   var form=e.target;
-  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
-  .finally(function(){
-    document.getElementById('contact-form').style.display='none';
-    document.getElementById('form-success').style.display='block';
-    showToast('Message sent!');
-  });
-}
-</script>
-
-</body>
-</html>
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(
