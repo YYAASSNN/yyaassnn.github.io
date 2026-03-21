@@ -885,7 +885,7 @@ window.handleContactSubmit = function(e) {
   e.preventDefault();
   var form = e.target;
   fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
-  .finally(function() { if (window.showToast) window.showToast('✅ Message sent! We\'ll reply within 2 hours.'); form.reset(); });
+  .finally(function() { if (window.showToast) window.showToast('✅ Message sent successfully. A reply will be sent soon.'); form.reset(); });
 };
 window.toggleMenu = function(){
   var links = document.querySelector('.nav-links');
@@ -897,7 +897,7 @@ window.handleNewsletterSubmit = function(e) {
   e.preventDefault();
   var form = e.target;
   fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
-  .finally(function() { if (window.showToast) window.showToast('✅ Subscribed! Welcome to Yasska.'); form.reset(); });
+  .finally(function() { if (window.showToast) window.showToast('✅ Subscription confirmed for YaskaTravel.'); form.reset(); });
 };
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { window.closeModal(); } });
 </script>
@@ -941,7 +941,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
 <nav id="navbar">
   <a href="/" class="nav-logo" onclick="clearFromField()">
     <div class="nav-logo-mark">✈</div>
-    Yasska<span style="color:var(--gold2)">.</span>
+    YaskaTravel<span style="color:var(--gold2)">.</span>
   </a>
   <div id="nav-ticker" style="flex:1;overflow:hidden;margin:0 20px;height:34px;display:flex;align-items:center;">
     <div style="overflow:hidden;border-radius:20px;background:linear-gradient(135deg,rgba(255,92,92,.15),rgba(255,140,66,.1));border:1px solid rgba(255,92,92,.3);height:34px;width:100%;display:flex;align-items:center;box-shadow:0 2px 12px rgba(255,92,92,.15);">
@@ -1186,9 +1186,9 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="section-inner">
-    <div class="section-eyebrow reveal">Get In Touch</div>
-    <h2 class="section-title reveal">Contact Us</h2>
-    <p class="section-sub reveal">Have a question about a flight or trip? Send us a message and we'll get back to you shortly.</p>
+    <div class="section-eyebrow reveal">Contact</div>
+    <h2 class="section-title reveal">Contact</h2>
+    <p class="section-sub reveal">Questions about flights, destinations, or website content can be sent using the contact form below.</p>
     <div class="contact-wrap reveal">
       <div class="contact-info-col">
         <div class="contact-info-item"><span class="contact-info-icon">💬</span><div><div class="contact-info-label">WhatsApp</div><div class="contact-info-val">+447878940558</div></div></div>
@@ -1199,7 +1199,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
           <input type="hidden" name="form-name" value="contact"/>
           <div class="cf-group"><label class="cf-label">Your Name</label><input class="cf-input" type="text" name="name" placeholder="John Smith" required/></div>
           <div class="cf-group"><label class="cf-label">Email Address</label><input class="cf-input" type="email" name="email" placeholder="john@example.com" required/></div>
-          <div class="cf-group"><label class="cf-label">Message</label><textarea class="cf-input cf-textarea" name="message" placeholder="Tell us about your trip..." required></textarea></div>
+          <div class="cf-group"><label class="cf-label">Message</label><textarea class="cf-input cf-textarea" name="message" placeholder="Share a travel question or enquiry..." required></textarea></div>
           <button type="submit" class="cf-submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>Send Message</button>
         </form>
       </div>
@@ -1211,15 +1211,15 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
 <section class="newsletter">
   <div class="section-inner">
     <div class="newsletter-inner">
-      <div class="section-eyebrow reveal" style="justify-content:center;color:var(--gold2)">Exclusive Deals</div>
-      <h2 class="reveal" style="color:#fff;font-size:clamp(28px,4vw,40px)">Get Travel Deals First</h2>
+      <div class="section-eyebrow reveal" style="justify-content:center;color:var(--gold2)">Travel Updates</div>
+      <h2 class="reveal" style="color:#fff;font-size:clamp(28px,4vw,40px)">Get Flight Deals and Travel Offers</h2>
       <p class="reveal">Subscribe for travel deals, route ideas, and destination updates delivered by email.</p>
       <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form reveal" onsubmit="handleNewsletterSubmit(event)">
         <input type="hidden" name="form-name" value="newsletter"/>
         <input type="email" name="email" placeholder="Enter your email address" required/>
-        <button type="submit">Subscribe — It's Free</button>
+        <button type="submit">Subscribe Free</button>
       </form>
-      <div class="newsletter-note reveal">No spam. Unsubscribe anytime. Join 12,000+ subscribers.</div>
+      <div class="newsletter-note reveal">Unsubscribe at any time.</div>
     </div>
   </div>
 </section>
@@ -1260,24 +1260,24 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
     <button class="auth-close" onclick="closeModal()">✕</button>
     <div class="auth-tabs"><button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Sign In</button><button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Register</button></div>
     <div id="form-login">
-      <p class="auth-subtitle">Welcome back to Yasska ✈️</p>
+      <p class="auth-subtitle">Welcome back to YaskaTravel ✈️</p>
       <form name="login" method="POST" data-netlify="true" onsubmit="handleAuthSubmit(event,'login')">
         <input type="hidden" name="form-name" value="login"/>
         <div class="cf-group"><label class="cf-label">Email Address</label><input class="cf-input" type="email" name="email" placeholder="john@example.com" required/></div>
         <div class="cf-group"><label class="cf-label">Password</label><input class="cf-input" type="password" name="password" placeholder="••••••••" required/></div>
-        <button type="submit" class="cf-submit" style="margin-top:8px">Sign In to Yasska</button>
+        <button type="submit" class="cf-submit" style="margin-top:8px">Sign In to YaskaTravel</button>
       </form>
       <p class="auth-switch">Don't have an account? <a onclick="switchAuthTab('register')">Register free →</a></p>
     </div>
     <div id="form-register" style="display:none">
-      <p class="auth-subtitle">Create your free Yasska account 🌍</p>
+      <p class="auth-subtitle">Create a free YaskaTravel account 🌍</p>
       <form name="register" method="POST" data-netlify="true" onsubmit="handleAuthSubmit(event,'register')">
         <input type="hidden" name="form-name" value="register"/>
         <div class="cf-row"><div class="cf-group"><label class="cf-label">First Name</label><input class="cf-input" type="text" name="first-name" placeholder="John" required/></div><div class="cf-group"><label class="cf-label">Last Name</label><input class="cf-input" type="text" name="last-name" placeholder="Smith" required/></div></div>
         <div class="cf-group"><label class="cf-label">Email Address</label><input class="cf-input" type="email" name="email" placeholder="john@example.com" required/></div>
         <div class="cf-group"><label class="cf-label">Phone Number</label><input class="cf-input" type="tel" name="phone" placeholder="+44 7700 000000"/></div>
         <div class="cf-group"><label class="cf-label">Password</label><input class="cf-input" type="password" name="password" placeholder="Min 8 characters" required minlength="8"/></div>
-        <div class="cf-group" style="display:flex;align-items:flex-start;gap:10px;margin-top:4px"><input type="checkbox" name="terms" id="terms-check" required style="margin-top:3px;flex-shrink:0;width:16px;height:16px;accent-color:var(--blue)"/><label for="terms-check" style="font-size:12px;color:var(--text3);line-height:1.5;cursor:pointer">I agree to the <a href="#" style="color:var(--blue)">Terms of Service</a> and <a href="#" style="color:var(--blue)">Privacy Policy</a></label></div>
+        <div class="cf-group" style="display:flex;align-items:flex-start;gap:10px;margin-top:4px"><input type="checkbox" name="terms" id="terms-check" required style="margin-top:3px;flex-shrink:0;width:16px;height:16px;accent-color:var(--blue)"/><label for="terms-check" style="font-size:12px;color:var(--text3);line-height:1.5;cursor:pointer">Agreement with the <a href="#" style="color:var(--blue)">Terms of Service</a> and <a href="#" style="color:var(--blue)">Privacy Policy</a></label></div>
         <button type="submit" class="cf-submit" style="margin-top:12px">Create My Account</button>
       </form>
       <p class="auth-switch">Already have an account? <a onclick="switchAuthTab('login')">Sign in →</a></p>
@@ -2481,7 +2481,7 @@ function buildFlightUrls(){
   var sky='https://www.skyscanner.net/transport/flights/'+from+'/'+to+'/';
   if(dSky)sky+=dSky+'/';
   if(isReturn&&rSky)sky+=rSky+'/';
-  sky+='?adults='+adults+'&ref=yasska';
+  sky+='?adults='+adults+'&ref=yaskatravel';
   if(extraState.direct)sky+='&stops=!oneStop,!twoPlusStops';
   var gfl='https://www.google.com/travel/flights?q=Flights+from+'+from+'+to+'+to+'+on+'+dISO+(isReturn&&rISO?'+returning+'+rISO:'')+'&curr=GBP';
   var exp='https://www.expedia.co.uk/Flights-Search?leg1=from%3A'+from+'%2Cto%3A'+to+'%2Cdeparture%3A'+dISO.replace(/-/g,'%2F')+'TANYT&passengers=adults%3A'+adults+'&trip='+(isReturn?'roundtrip':'oneway')+'&mode=search';
@@ -2914,7 +2914,7 @@ function mBuildFlightUrls(){
   var sky='https://www.skyscanner.net/transport/flights/'+from+'/'+to+'/';
   if(dSky)sky+=dSky+'/';
   if(isReturn&&rSky)sky+=rSky+'/';
-  sky+='?adults='+mState.adults+'&ref=yasska';
+  sky+='?adults='+mState.adults+'&ref=yaskatravel';
   if(mState.direct)sky+='&stops=!oneStop,!twoPlusStops';
   var gfl='https://www.google.com/travel/flights?q=Flights+from+'+from+'+to+'+to+'+on+'+dISO+(isReturn&&rISO?'+returning+'+rISO:'')+'&curr=GBP';
   var exp='https://www.expedia.co.uk/Flights-Search?leg1=from%3A'+from+'%2Cto%3A'+to+'%2Cdeparture%3A'+dISO.replace(/-/g,'%2F')+'TANYT&passengers=adults%3A'+mState.adults+'&trip='+(isReturn?'roundtrip':'oneway')+'&mode=search';
