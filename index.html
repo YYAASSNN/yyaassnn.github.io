@@ -859,17 +859,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { win
     gtag('js', new Date());
     gtag('config', 'G-8Y21MV4ZP7');
   </script>
-  <!-- Travelpayouts White Label -->
-  <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
-    (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.type = "module";
-      script.src = "https://tpwgts.com/wl_web/main.js?wl_id=15117";
-      document.head.appendChild(script);
-    })();
-  </script>
-  <link rel="alternate" hreflang="en" href="https://yaskatravel.uk/"/>
+    <link rel="alternate" hreflang="en" href="https://yaskatravel.uk/"/>
   <link rel="alternate" hreflang="en-gb" href="https://yaskatravel.uk/"/>
   <link rel="alternate" hreflang="en-us" href="https://yaskatravel.uk/"/>
   <link rel="alternate" hreflang="x-default" href="https://yaskatravel.uk/"/>
@@ -1685,6 +1675,9 @@ var mState={
   depart:'',return:'',
   adults:1,children:0,cabin:'Economy',
   direct:false,
+  hotelAdults:2,hotelChildren:0,hotelRooms:1,
+  hotelCheckin:'',hotelCheckout:'',
+  hotelDest:{code:'',display:''},
 };
 
 /* Open/close the shared floating Guests & Rooms panel */
@@ -1889,6 +1882,8 @@ function mRenderAirports(panel,query){
     }).join('');
 }
 function mFilterAirports(panel,q){mRenderAirports(panel,q);}
+function mRenderFlights(query){mRenderAirports('hotel-dest',query);}
+function closeHotelPaxPortal(){hpdClose();}
 function mSelectAirport(panel,code,display){
   mState[panel]={code:code,display:display};
   var el=document.getElementById('m-disp-'+panel);
@@ -2107,4 +2102,12 @@ document.addEventListener('click',function(e){
         <button class="hpd-btn" id="hpd-rp" onclick="hpdChange('rooms',1)">+</button>
       </div>
     </div>
-    <div class="hpd-warn" id="hpd-warn
+    <div class="hpd-warn" id="hpd-warn" style="display:none;background:rgba(255,92,92,.1);border:1px solid rgba(255,92,92,.3);border-radius:8px;padding:8px 12px;font-size:12px;color:#ff6b6b;align-items:center;gap:6px;margin-top:8px;">
+      ⚠ Rooms cannot exceed the number of adults
+    </div>
+    <button class="hpd-done" onclick="hpdClose()" style="width:100%;margin-top:14px;padding:10px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border:none;font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;cursor:pointer;">Done</button>
+  </div>
+</div>
+
+</body>
+</html>
